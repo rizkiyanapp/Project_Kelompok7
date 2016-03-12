@@ -64,7 +64,7 @@ public class Order {
         this.status = status;
     }
     
-    public boolean IsTaken() {
+    public boolean isTaken() {
         return status;
     }
     

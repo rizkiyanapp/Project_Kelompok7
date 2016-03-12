@@ -10,7 +10,7 @@ package rideup;
  * @author Renes
  */
 public class Driver extends Person{
-    private Order[] orders;
+    private Order[] orders = new Order[10];
     private String idDriver;
     private int nOrder = 0; 
 
@@ -46,7 +46,7 @@ public class Driver extends Person{
         orders[index] = null;
     }
     
-    public Order getOrder(int index) {
+    public Order getOrders(int index) {
         return orders[index];
     }
     
