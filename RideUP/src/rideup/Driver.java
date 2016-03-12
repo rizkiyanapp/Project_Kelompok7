@@ -14,25 +14,25 @@ public class Driver extends Person{
     private String idDriver;
     private int nOrder = 0; 
 
-    public Driver(name, email, number) {
-        super.setName(name);
-        super.setEmail(email);
-        super.setNumber(number);       
+    public Driver(String name, String email, String number) {
+        setName(name);
+        setEmail(email);
+        setNumber(number);       
     }
     
-    public Driver(name, email, number, noIdentity) {
-        super.setName(name);
-        super.setEmail(email);
-        super.setNumber(number);       
-        super.setNoIdentity(noIdentity);
+    public Driver(String name, String email, String number, String noIdentity) {
+        setName(name);
+        setEmail(email);
+        setNumber(number);       
+        setNoIdentity(noIdentity);
     }
     
-    public Driver(name, email, number, noIdentity, gender) {
-        super.setName(name);
-        super.setEmail(email);
-        super.setNumber(number);       
-        super.setNoIdentity(noIdentity);
-        super.setGender(gender);
+    public Driver(String name, String email, String number, String noIdentity, char gender) {
+        setName(name);
+        setEmail(email);
+        setNumber(number);       
+        setNoIdentity(noIdentity);
+        setGender(gender);
     }
     
     public void addOrder(Order o) {

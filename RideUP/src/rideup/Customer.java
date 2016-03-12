@@ -15,26 +15,26 @@ public class Customer extends Person {
     private int nOrder = 0;
     
     public Customer(String idCustomer, String name, String email, String number) {
-        super.setName(name);
-        super.setEmail(email);
-        super.setNumber(number);
+        setName(name);
+        setEmail(email);
+        setNumber(number);
         this.idCustomer = idCustomer;
     }
     
     public Customer(String idCustomer, String name, String email, String number, String noIdentity) {
-        super.setName(name);
-        super.setEmail(email);
-        super.setNumber(number);
-        super.setNoIdentity(noIdentity);
+        setName(name);
+        setEmail(email);
+        setNumber(number);
+        setNoIdentity(noIdentity);
         this.idCustomer = idCustomer;
     }
     
     public Customer(String idCustomer, String name, String email, String number, String noIdentity, char gender) {
-        super.setName(name);
-        super.setEmail(email);
-        super.setNumber(number);
-        super.setNoIdentity(noIdentity);
-        super.setGender(gender);
+        setName(name);
+        setEmail(email);
+        setNumber(number);
+        setNoIdentity(noIdentity);
+        setGender(gender);
         this.idCustomer = idCustomer;
     }
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package RideUp;
+package rideup;
 
 /**
  *
@@ -13,7 +13,7 @@ public abstract class Person {
     private String name;
     private String email;
     private String noIdentity;
-    private int birt;
+    private int age;
     private char gender;
     private String address;
     private String number;
@@ -30,8 +30,8 @@ public abstract class Person {
         this.noIdentity = noIdentity;
     }
 
-    public void setBirt(int birt) {
-        this.birt = birt;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public void setGender(char gender) {
@@ -58,8 +58,8 @@ public abstract class Person {
         return noIdentity;
     }
 
-    public int getBirt() {
-        return birt;
+    public int getAge() {
+        return age;
     }
 
     public char getGender() {

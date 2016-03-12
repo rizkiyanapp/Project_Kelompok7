@@ -10,5 +10,25 @@ package rideup;
  * @author NANON
  */
 public class Food {
-    
+    private String idFood;
+    private String name;
+    private long price;
+
+    public Food(String idFood, String name, long price) {
+        this.idFood = idFood;
+        this.name = name;
+        this.price = price;
+    }
+
+    public String getIdFood() {
+        return idFood;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public long getPrice() {
+        return price;
+    }
 }
