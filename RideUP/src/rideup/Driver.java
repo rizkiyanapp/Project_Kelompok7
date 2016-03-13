@@ -14,29 +14,33 @@ public class Driver extends Person{
     private String idDriver;
     private int nOrder = 0; 
 
-    public Driver(String name, String email, String number) {
+    public Driver(String idDriver, String name, String email, String number) {
         setName(name);
         setEmail(email);
-        setNumber(number);       
+        setNumber(number);
+        this.idDriver = idDriver;
     }
     
-    public Driver(String name, String email, String number, String noIdentity) {
+    public Driver(String idDriver, String name, String email, String number, String noIdentity) {
         setName(name);
         setEmail(email);
         setNumber(number);       
         setNoIdentity(noIdentity);
+        this.idDriver = idDriver;
     }
     
-    public Driver(String name, String email, String number, String noIdentity, char gender) {
+    public Driver(String idDriver, String name, String email, String number, String noIdentity, char gender) {
         setName(name);
         setEmail(email);
         setNumber(number);       
         setNoIdentity(noIdentity);
         setGender(gender);
+        this.idDriver = idDriver;
     }
     
     public void addOrder(Order o) {
         if (nOrder<10) {
+            o.setStatus(true);
             orders[nOrder++] = o;
         }
         else System.out.println("Melebihi batas maksimum");
