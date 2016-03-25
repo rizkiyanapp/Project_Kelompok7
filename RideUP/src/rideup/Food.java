@@ -10,14 +10,16 @@ package rideup;
  * @author NANON
  */
 public class Food {
-    private String idFood;
+    private final String idFood;
     private String name;
     private long price;
+    static int nFood = 0;
 
-    public Food(String idFood, String name, long price) {
-        this.idFood = idFood;
+    public Food(String name, long price) {
+        this.idFood = "F-0" + nFood;
         this.name = name;
         this.price = price;
+        nFood++;
     }
 
     public String getIdFood() {

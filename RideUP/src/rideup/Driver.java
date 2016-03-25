@@ -11,31 +11,43 @@ package rideup;
  */
 public class Driver extends Person{
     private Order[] orders = new Order[10];
-    private String idDriver;
+    private final String idDriver;
     private int nOrder = 0; 
+    static int nDriver= 0;
+    private String username;
+    private String password;
 
-    public Driver(String idDriver, String name, String email, String number) {
+    public Driver(String username, String password, String name, String email, String number) {
         setName(name);
         setEmail(email);
         setNumber(number);
-        this.idDriver = idDriver;
+        this.idDriver = "DRV-" + nDriver;
+        this.username = username;
+        this.password = password;
+        nDriver++;
     }
     
-    public Driver(String idDriver, String name, String email, String number, String noIdentity) {
+    public Driver(String username, String password, String name, String email, String number, String noIdentity) {
         setName(name);
         setEmail(email);
         setNumber(number);       
         setNoIdentity(noIdentity);
-        this.idDriver = idDriver;
+        this.idDriver = "DRV-" + nDriver;
+        this.username = username;
+        this.password = password;
+        nDriver++;
     }
     
-    public Driver(String idDriver, String name, String email, String number, String noIdentity, char gender) {
+    public Driver(String username, String password, String name, String email, String number, String noIdentity, char gender) {
         setName(name);
         setEmail(email);
         setNumber(number);       
         setNoIdentity(noIdentity);
         setGender(gender);
-        this.idDriver = idDriver;
+        this.idDriver = "DRV-" + nDriver;
+        this.username = username;
+        this.password = password;
+        nDriver++;
     }
     
     public void addOrder(Order o) {
@@ -43,7 +55,7 @@ public class Driver extends Person{
             o.setStatus(true);
             orders[nOrder++] = o;
         }
-        else System.out.println("Melebihi batas maksimum");
+        else System.out.println("Slot is Full!");
     }
     
     public void removeOrder(int index) {

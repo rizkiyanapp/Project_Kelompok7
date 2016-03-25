@@ -10,30 +10,23 @@ package rideup;
  * @author Renes
  */
 public class Order {
-    private String orderId;
+    private final String orderId;
     private String position;
     private String destination;
     private int distance;
     private long price;
     private boolean status = false;
     private String detail;
-    private int type;
+    private String feedback;
+    static int nOrder = 0;
       
-    public Order(int type, String orderId, String position, String destination, int distance, String detail) {
+    public Order(String orderId, String position, String destination, int distance, String detail) {
         this.orderId = orderId;
         this.position = position;
         this.destination = destination;
         this.distance = distance;
         this.detail = detail;
-        this.type=type;
-    }
-    
-    public Order(int type, String position, String destination, int distance, String detail) {
-        this.position = position;
-        this.destination = destination;
-        this.distance = distance;
-        this.detail = detail;
-         this.type=type;
+        nOrder++;
     }
     
     public String getId() {
@@ -57,6 +50,7 @@ public class Order {
     }
     
     public long getPrice() {
+        price = price * distance;
         return price;
     }
     
@@ -75,8 +69,12 @@ public class Order {
     public String getDetail() {
         return detail;
     }
-    
-    public int getType() {
-        return type;
+
+    public String getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
     }
 }

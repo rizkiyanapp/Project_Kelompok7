@@ -1,21 +1,17 @@
 package rideup;
 public class FoodCourier extends Order{
     private Food foodOrder;
-    private String foodCourierId;
     private int qty;
     private long price;
+    static int nFoodCourier = 0;
     
-    public FoodCourier(int type, String foodCourierId, String position, String destination, int distance, String detail) {
-        super(type, position, destination, distance, detail);
-        this.foodCourierId = foodCourierId;
+    public FoodCourier(String foodCourierId, String position, String destination, int distance, String detail) {
+        super(foodCourierId, position, destination, distance, detail);
+        nFoodCourier++;
     }
 
     public Food getFoodOrder() {
         return foodOrder;
-    }
-
-    public String getId() {
-        return foodCourierId;
     }
 
     public void addFood(Food f, int qty) {

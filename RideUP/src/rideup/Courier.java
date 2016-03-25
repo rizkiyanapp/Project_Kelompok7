@@ -10,13 +10,13 @@ package rideup;
  * @author NANON
  */
 public class Courier extends Order {
-    private String courierId;
     private String receiverName;
     private String receiverNumber;
+    static int nCourier = 0;
     
-    public Courier(int type, String courierId, String position, String destination, int distance, String detail) {
-        super(type, position, destination, distance, detail);
-        this.courierId = courierId;
+    public Courier(String courierId, String position, String destination, int distance, String detail) {
+        super(courierId, position, destination, distance, detail);
+        nCourier++;
     }
 
     public void setReceiverName(String receiverName) {
@@ -27,15 +27,11 @@ public class Courier extends Order {
         this.receiverNumber = receiverNumber;
     }
 
-    public String getId() {
-        return courierId;
-    }
-
     public String getReceiverName() {
         return receiverName;
     }
 
     public String getReceiverNumber() {
         return receiverNumber;
-    }    
+    }
 }
