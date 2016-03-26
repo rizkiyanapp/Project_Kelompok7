@@ -5,25 +5,24 @@
  */
 package rideup;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Renes
  */
 public class Driver extends Person{
-    private Order[] orders = new Order[10];
+    private ArrayList<Order> orderList = new ArrayList();
     private final String idDriver;
-    private int nOrder = 0; 
     static int nDriver= 0;
-    private String username;
-    private String password;
 
     public Driver(String username, String password, String name, String email, String number) {
         setName(name);
         setEmail(email);
         setNumber(number);
+        setUsername(username);
+        setPassword(password);
         this.idDriver = "DRV-" + nDriver;
-        this.username = username;
-        this.password = password;
         nDriver++;
     }
     
@@ -32,9 +31,9 @@ public class Driver extends Person{
         setEmail(email);
         setNumber(number);       
         setNoIdentity(noIdentity);
+        setUsername(username);
+        setPassword(password);
         this.idDriver = "DRV-" + nDriver;
-        this.username = username;
-        this.password = password;
         nDriver++;
     }
     
@@ -44,30 +43,30 @@ public class Driver extends Person{
         setNumber(number);       
         setNoIdentity(noIdentity);
         setGender(gender);
+        setUsername(username);
+        setPassword(password);
         this.idDriver = "DRV-" + nDriver;
-        this.username = username;
-        this.password = password;
         nDriver++;
     }
     
     public void addOrder(Order o) {
-        if (nOrder<10) {
+        if (orderList.size() < 10) {
             o.setStatus(true);
-            orders[nOrder++] = o;
+            orderList.add(o);
         }
         else System.out.println("Slot is Full!");
     }
     
     public void removeOrder(int index) {
-        orders[index] = null;
+       orderList.remove(index);
     }
     
     public Order getOrders(int index) {
-        return orders[index];
+        return orderList.get(index);
     }
     
     public int getNOrder() {
-        return nOrder;
+        return orderList.size();
     }
     
     public String getIdDriver() {

@@ -5,25 +5,24 @@
  */
 package rideup;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author NANON
  */
 public class Customer extends Person {
-    private Order[] orders = new Order[10];
+    private ArrayList<Order> orderList = new ArrayList();
     private final String idCustomer;
-    private int nOrder = 0;
     static int nCustomer = 0;
-    private String username;
-    private String password;
     
     public Customer(String username, String password, String name, String email, String number) {
         setName(name);
         setEmail(email);
         setNumber(number);
+        setUsername(username);
+        setPassword(password);
         this.idCustomer = "CUS-" + nCustomer;
-        this.username = username;
-        this.password = password;
         nCustomer++;
     }
     
@@ -32,9 +31,9 @@ public class Customer extends Person {
         setEmail(email);
         setNumber(number);
         setNoIdentity(noIdentity);
+        setUsername(username);
+        setPassword(password);
         this.idCustomer = "CUS-" + nCustomer;
-        this.username = username;
-        this.password = password;
         nCustomer++;
     }
     
@@ -44,9 +43,9 @@ public class Customer extends Person {
         setNumber(number);
         setNoIdentity(noIdentity);
         setGender(gender);
+        setUsername(username);
+        setPassword(password);
         this.idCustomer = "CUS-" + nCustomer;
-        this.username = username;
-        this.password = password;
         nCustomer++;
     }
 
@@ -55,24 +54,24 @@ public class Customer extends Person {
         String courierId = "BCO-";
         String foodCourierId = "FCO-";
         
-        if(nOrder > 10) {
+        if(orderList.size() > 10) {
             System.out.println("Slot is Full!");
         }
         else {
             if(type == 1) {
                 orderId = orderId + Order.nOrder;
                 Order baru = new Order(orderId, position, destination, distance, detail);
-                orders[nOrder++] = baru;
+                orderList.add(baru);
             }
             else if(type == 2) {
                 courierId += Courier.nCourier;
                 Courier baru = new Courier(courierId, position, destination, distance, detail);
-                orders[nOrder++] = baru;
+                orderList.add(baru);
             }
             else if(type == 3) {
                 foodCourierId += FoodCourier.nFoodCourier;
                 FoodCourier baru = new FoodCourier(foodCourierId, position, destination, distance, detail);
-                orders[nOrder++] = baru;
+                orderList.add(baru);
             }
             else {
                 System.out.println("Wrong type!");
@@ -81,26 +80,15 @@ public class Customer extends Person {
     }
     
     public void removeOrder(String orderId) {
-        int i = 0;
-        int j = 0;
-        
-        while(orders[i] != null) {
-            if(orders[i].getId() == orderId) {
-                orders[i] = null;
-                j = i;
+        for (int i = 0; i < orderList.size(); i++) {
+            if(orderList.get(i).getId().equals(orderId)) {
+                orderList.remove(i);
             }
-            else {
-                i++;
-            }
-        }
-        for(int k = j + 1; k < 11; k++) {
-            orders[j] = orders[k];
-            j++;
         }
     }
     
     public Order getOrders(int index) {
-        return orders[index];
+        return orderList.get(index);
     }
 
     public String getIdCustomer() {
@@ -108,6 +96,6 @@ public class Customer extends Person {
     }
 
     public int getnOrder() {
-        return nOrder;
+        return orderList.size();
     }
 }
