@@ -33,15 +33,28 @@ public class Application {
     }
     
     public void deleteDriver(String username) {
-        
+       Driver nemu = searchDriver(username);
+       list.remove(nemu);
     }
     
     public Customer searchCustomer(String username) {
-        
+         for (int i=0; i< list.size(); i++) {
+             if ((list.get(i) instanceof Customer) && (list.get(i).getUsername().equals(username))) {
+                 Customer cus = (Customer) list.get(i);
+                 return cus;
+             }
+         }
+         return null; 
     }
     
     public Driver searchDriver(String username) {
-        
+        for (int i=0; i< list.size(); i++) {
+             if ((list.get(i) instanceof Driver) && (list.get(i).getUsername().equals(username))) {
+                 Driver drive = (Driver) list.get(i);
+                 return drive;
+             }
+         }
+         return null; 
     }
     
     public Order searchOrder(String orderId) {
