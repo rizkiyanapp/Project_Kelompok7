@@ -72,4 +72,21 @@ public class Driver extends Person{
     public String getIdDriver() {
         return idDriver;
     }
+
+    public ArrayList<Order> getOrderList() {
+        return orderList;
+    }
+
+    @Override
+    public String toString() {
+        return ("Username : " + getUsername() + "\n" + 
+                "ID : " + idDriver + "\n" + 
+                "Name : " + getName() + "\n" + 
+                "No. Identity : " + getNoIdentity() + "\n" + 
+                "Gender : " + getGender() + "\n" + 
+                "Age : " + getAge() + " yo \n" + 
+                "Address : " + getAddress() + "\n" + 
+                "Number : " + getNumber() + "\n" + 
+                "Email : " + getEmail());
+    }
 }

@@ -95,7 +95,24 @@ public class Customer extends Person {
         return idCustomer;
     }
 
-    public int getnOrder() {
+    public int getNOrder() {
         return orderList.size();
+    }
+
+    public ArrayList<Order> getOrderList() {
+        return orderList;
+    }
+
+    @Override
+    public String toString() {
+        return ("Username : " + getUsername() + "\n" + 
+                "ID : " + idCustomer + "\n" + 
+                "Name : " + getName() + "\n" + 
+                "No. Identity : " + getNoIdentity() + "\n" + 
+                "Gender : " + getGender() + "\n" + 
+                "Age : " + getAge() + " yo \n" + 
+                "Address : " + getAddress() + "\n" + 
+                "Number : " + getNumber() + "\n" + 
+                "Email : " + getEmail());
     }
 }

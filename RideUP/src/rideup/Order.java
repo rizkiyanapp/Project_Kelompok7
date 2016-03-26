@@ -46,11 +46,11 @@ public class Order {
     }
     
     public void setPrice(long price) {
+        price = price * distance;
         this.price = price;
     }
     
     public long getPrice() {
-        price = price * distance;
         return price;
     }
     
@@ -76,5 +76,10 @@ public class Order {
 
     public void setFeedback(String feedback) {
         this.feedback = feedback;
+    }
+
+    @Override
+    public String toString() {
+        return ("ID : " + orderId + "  |  From : " + position + "  |  To : " + destination + "  |  " + distance + "Km");
     }
 }

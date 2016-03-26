@@ -17,6 +17,7 @@ public class FoodCourier extends Order{
     public void addFood(Food f, int qty) {
         foodOrder = f;
         this.qty = qty;
+        this.price = ((f.getPrice() * qty) + super.getPrice());
     }
 
     public int getQty() {
@@ -28,8 +29,11 @@ public class FoodCourier extends Order{
     }
 
     public long getPrice() {
-        price = getFoodOrder().getPrice() * qty;
-        price = price + super.getPrice();
         return price;
+    }
+
+    @Override
+    public String toString() {
+        return ("ID : " + getId() + "  |  Food : " + foodOrder.getName()+ "  |  Qty : " + qty + "  |  From : " + getPosition() + "  |  To : " + getDestination() + "  |  " + getDistance() + "Km");
     }
 }

@@ -34,4 +34,9 @@ public class Courier extends Order {
     public String getReceiverNumber() {
         return receiverNumber;
     }
+
+    @Override
+    public String toString() {
+        return ("ID : " + getId() + "  |  From : " + getPosition() + "  |  To : " + getDestination() + " (" + receiverName + ", " + receiverNumber + ")  |  " + getDistance() + "Km");
+    }
 }

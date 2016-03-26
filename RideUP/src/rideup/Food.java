@@ -33,4 +33,9 @@ public class Food {
     public long getPrice() {
         return price;
     }
+
+    @Override
+    public String toString() {
+        return ("ID : " + idFood + "  |  Name : " + name + "  |  Price : " + price);
+    }
 }
