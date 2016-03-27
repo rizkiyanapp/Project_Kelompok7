@@ -17,16 +17,17 @@ public class Driver extends Person{
     static int nDriver= 0;
 
     public Driver(String username, String password, String name, String email, String number) {
+        nDriver++;
         setName(name);
         setEmail(email);
         setNumber(number);
         setUsername(username);
         setPassword(password);
         this.idDriver = "DRV-" + nDriver;
-        nDriver++;
     }
     
     public Driver(String username, String password, String name, String email, String number, String noIdentity) {
+        nDriver++;
         setName(name);
         setEmail(email);
         setNumber(number);       
@@ -34,10 +35,10 @@ public class Driver extends Person{
         setUsername(username);
         setPassword(password);
         this.idDriver = "DRV-" + nDriver;
-        nDriver++;
     }
     
     public Driver(String username, String password, String name, String email, String number, String noIdentity, char gender) {
+        nDriver++;
         setName(name);
         setEmail(email);
         setNumber(number);       
@@ -46,7 +47,6 @@ public class Driver extends Person{
         setUsername(username);
         setPassword(password);
         this.idDriver = "DRV-" + nDriver;
-        nDriver++;
     }
     
     public void addOrder(Order o) {

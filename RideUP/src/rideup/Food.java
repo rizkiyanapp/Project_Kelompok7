@@ -16,10 +16,10 @@ public class Food {
     static int nFood = 0;
 
     public Food(String name, long price) {
+        nFood++;
         this.idFood = "F-0" + nFood;
         this.name = name;
         this.price = price;
-        nFood++;
     }
 
     public String getIdFood() {

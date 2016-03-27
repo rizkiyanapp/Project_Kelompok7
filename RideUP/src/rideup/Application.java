@@ -43,18 +43,17 @@ public class Application {
         list.add(new Driver(username, password, name, email, number));
     }
 
-    public void deleteCustomer(String username) {
-        Person temp = searchCustomer(username);
-        if (temp != null) {
-            list.remove(temp);
-        }
+    public void deletePerson(Person p) {
+        list.remove(p);
     }
-
-    public void deleteDriver(String username) {
-        Person temp = searchDriver(username);
-        if (temp != null) {
-            list.remove(temp);
+    
+    public Person searchPerson(String username) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getUsername().equals(username)) {
+                return list.get(i);
+            }
         }
+        return null;
     }
 
     public Customer searchCustomer(String username) {

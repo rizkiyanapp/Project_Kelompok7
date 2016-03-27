@@ -15,7 +15,8 @@ import java.util.Scanner;
 public class Console {
 
     private Application app;
-    private Person current;
+    private Customer currentCust;
+    private Driver currentDriver;
     Scanner scanInteger;
     Scanner scanString;
 
@@ -39,7 +40,7 @@ public class Console {
         System.out.println("========== Food List ==========");
         for (int i = 0; i < app.getFoodList().size(); i++) {
             Food f = app.getFoodList().get(i);
-            System.out.println(i + ". ID : " + f.getIdFood() + "  |  " + f.getName() + "  |  Rp." + f.getPrice());
+            System.out.println(i + 1 + ". ID : " + f.getIdFood() + "  |  " + f.getName() + "  |  Rp." + f.getPrice());
         }
         System.out.println("=============================");
     }
@@ -47,64 +48,74 @@ public class Console {
     public void menuOrder(Customer current, long rideupPrice) {
         int input1 = 0;
         int input2 = 0;
-        System.out.println("=============== RIDEUP ===============");
-        System.out.println("================ order ================");
-        System.out.println("1. Transportation");
-        System.out.println("2. Courier");
-        System.out.println("3. FoodCourier");
-        System.out.println();
         while ((input1 == 0) && (input2 == 0)) {
             try {
+                System.out.println("=============== RIDEUP ===============");
+                System.out.println("================ order ================");
+                System.out.println("1. Transportation");
+                System.out.println("2. Courier");
+                System.out.println("3. FoodCourier");
+                System.out.println("4. Back");
+                System.out.println();
                 System.out.print("Type : ");
                 input1 = inputInteger();
-                System.out.print("Your Position : ");
-                String position = scanString.nextLine();
-                System.out.print("Destination : ");
-                String destination = scanString.nextLine();
-                System.out.print("Distance (Km) : ");
-                input2 = inputInteger();
-                System.out.print("Detail : ");
-                String detail = scanString.nextLine();
-                current.createOrder(input1, position, destination, input2, detail);
-                current.getOrders(current.getNOrder() - 1).setPrice(rideupPrice);
-                if (input1 == 2) {
-                    System.out.print("Receiver Name : ");
-                    String receiverName = scanString.nextLine();
-                    System.out.println("Receiver Number : ");
-                    String receiverNumber = scanString.nextLine();
-                    Courier temp = (Courier) current.getOrders(current.getNOrder() - 1);
-                    temp.setReceiverName(receiverName);
-                    temp.setReceiverNumber(receiverNumber);
-                } else if (input1 == 3) {
-                    Food order = null;
-                    viewFoodList();
-                    boolean ans = false;
-                    while (!ans) {
-                        System.out.println("Food ID : ");
-                        String foodId = scanString.nextLine();
-                        order = app.searchFood(foodId);
-                        if (order != null) {
-                            ans = true;
-                        } else {
-                            System.out.println("That ID doesn't exist! Try again...");
-                        }
-                    }
-                    int ans2 = 0;
-                    while (ans2 == 0) {
-                        try {
-                            System.out.println("Qty : ");
-                            ans2 = inputInteger();
-                        } catch (Exception e) {
-                            System.out.println("Error : " + e.getMessage() + " Try again...");
-                        } finally {
-                            scanInteger = new Scanner(System.in);
-                            scanString = new Scanner(System.in);
-                        }
-                    }
-                    FoodCourier temp = (FoodCourier) current.getOrders(current.getNOrder() - 1);
-                    temp.addFood(order, ans2);
+                if ((input1 < 0) || (input1 > 5)) {
+                    input1 = 0;
+                    input2 = 0;
+                    throw new IllegalStateException("Type must be range of 1 - 4!");
                 }
-                System.out.println("===== Successfull! =====");
+                if (input1 == 4) {
+                    System.out.println("Back...");
+                } else {
+                    System.out.print("Your Position : ");
+                    String position = scanString.nextLine();
+                    System.out.print("Destination : ");
+                    String destination = scanString.nextLine();
+                    System.out.print("Distance (Km) : ");
+                    input2 = inputInteger();
+                    System.out.print("Detail : ");
+                    String detail = scanString.nextLine();
+                    current.createOrder(input1, position, destination, input2, detail);
+                    current.getOrders(current.getNOrder() - 1).setPrice(rideupPrice);
+                    if (input1 == 2) {
+                        System.out.print("Receiver Name : ");
+                        String receiverName = scanString.nextLine();
+                        System.out.println("Receiver Number : ");
+                        String receiverNumber = scanString.nextLine();
+                        Courier temp = (Courier) current.getOrders(current.getNOrder() - 1);
+                        temp.setReceiverName(receiverName);
+                        temp.setReceiverNumber(receiverNumber);
+                    } else if (input1 == 3) {
+                        Food order = null;
+                        viewFoodList();
+                        boolean ans = false;
+                        while (!ans) {
+                            System.out.println("Food ID : ");
+                            String foodId = scanString.nextLine();
+                            order = app.searchFood(foodId);
+                            if (order != null) {
+                                ans = true;
+                            } else {
+                                System.out.println("That ID doesn't exist! Try again...");
+                            }
+                        }
+                        int ans2 = 0;
+                        while (ans2 == 0) {
+                            try {
+                                System.out.println("Qty : ");
+                                ans2 = inputInteger();
+                            } catch (Exception e) {
+                                System.out.println("Error : " + e.getMessage() + " Try again...");
+                            } finally {
+                                scanInteger = new Scanner(System.in);
+                                scanString = new Scanner(System.in);
+                            }
+                        }
+                        FoodCourier temp = (FoodCourier) current.getOrders(current.getNOrder() - 1);
+                        temp.addFood(order, ans2);
+                    }
+                    System.out.println("===== Successfull! =====");
+                }
             } catch (Exception e) {
                 System.out.println("Error : " + e.getMessage() + " Try again...");
             } finally {
@@ -145,7 +156,7 @@ public class Console {
                 app.getList().remove(temp);
                 System.out.println("===== Successfull! =====");
             } else {
-                System.out.println("Cannot be delete! Order has been taken by the Driver");
+                System.out.println("Cannot be delete! Order has  taken by the Driver");
             }
         } else {
             System.out.println("Order never been created or wrong ID!");
@@ -156,7 +167,7 @@ public class Console {
         System.out.println("=============== RIDEUP ===============");
         System.out.println("============== view order ==============");
         for (int i = 0; i < current.getNOrder(); i++) {
-            System.out.print(i + ". ");
+            System.out.print(i + 1 + ". ");
             if (current.getOrders(i) instanceof Courier) {
                 Courier temp = (Courier) current.getOrders(i);
                 System.out.println(temp.toString());
@@ -183,7 +194,7 @@ public class Console {
         System.out.println("=============== RIDEUP ===============");
         System.out.println("============== view order ==============");
         for (int i = 0; i < current.getNOrder(); i++) {
-            System.out.print(i + ". ");
+            System.out.print(i + 1 + ". ");
             if (current.getOrders(i) instanceof Courier) {
                 Courier temp = (Courier) current.getOrders(i);
                 System.out.println(temp.toString());
@@ -202,18 +213,18 @@ public class Console {
     public void menuEdit(Person current) {
         int ans = 0;
         while (ans == 0) {
-            System.out.println("=============== RIDEUP ===============");
-            System.out.println("============== edit profile ==============");
-            System.out.println("Current Profile :");
-            System.out.println(current.toString());
-            System.out.println();
-            System.out.println("1. Name");
-            System.out.println("2. No Identity");
-            System.out.println("3. Gender");
-            System.out.println("4. Age");
-            System.out.println("5. Address");
-            System.out.println("6. Exit");
             try {
+                System.out.println("=============== RIDEUP ===============");
+                System.out.println("============== edit profile ==============");
+                System.out.println("Current Profile :");
+                System.out.println(current.toString());
+                System.out.println();
+                System.out.println("1. Name");
+                System.out.println("2. No Identity");
+                System.out.println("3. Gender");
+                System.out.println("4. Age");
+                System.out.println("5. Address");
+                System.out.println("6. Exit");
                 System.out.print("Ans : ");
                 ans = inputInteger();
                 switch (ans) {
@@ -261,6 +272,7 @@ public class Console {
                         System.out.println("Leave edit profile...");
                         break;
                     default:
+                        ans = 0;
                         throw new IllegalStateException("Wrong menu input!");
                 }
             } catch (Exception e) {
@@ -272,7 +284,7 @@ public class Console {
         }
     }
 
-    public void menuTakeOrder(Driver Order) {
+    public void menuTakeOrder(Driver current) {
         int num = 1;
         System.out.println("=============== RIDEUP ===============");
         System.out.println("============== take order ==============");
@@ -293,57 +305,110 @@ public class Console {
                             System.out.println(num + ". Transportation  |  " + temp2.toString());
                         }
                     }
+                    num++;
                 }
             }
         }
-
+        System.out.println();
+        System.out.print("Order ID : ");
+        String orderId = scanString.nextLine();
+        Order take = app.searchOrderCustomer(orderId);
+        if (take != null) {
+            current.addOrder(take);
+            System.out.println("===== Successfull! =====");
+        } else {
+            System.out.println("Order ID cannot found or wrong order ID! Try again...");
+        }
     }
 
     public void menuSignUp() {
-        System.out.println("=============== RIDEUP ===============");
-        System.out.println("================ sign up ===============");
-        boolean auth = false;
-        while (!auth) {
-            System.out.print("Username : ");
-            String username = scanString.nextLine();
-            for (int i = 0; i < app.getList().size(); i++) {
-                if (app.getList().get(i).getUsername().equals(username)) {
-                    System.out.println("Username already exist! Try again...");
+        String username = null;
+        String password = null;
+        int type = 0;
+        while (type == 0) {
+            try {
+                System.out.println("=============== RIDEUP ===============");
+                System.out.println("================ sign up ===============");
+                System.out.println("1. Customer");
+                System.out.println("2. Driver");
+                System.out.println("3. Back");
+                System.out.print("Type : ");
+                type = inputInteger();
+                if ((type < 0) || (type > 4)) {
+                    type = 0;
+                    throw new IllegalStateException("Type must be 1 or 2 or 3!");
                 }
-            }
-            auth = true;
-        }
-        auth = false;
-        while (!auth) {
-            System.out.print("Password : ");
-            String temp = scanString.nextLine();
-            System.out.print("Retype Password :");
-            String password = scanString.nextLine();
-            if (temp.equals(password)) {
-                System.out.println("===== Successfull! =====");
-                auth = true;
-            } else {
-                System.out.println("Wrong password! Try again...");
+                if (type == 3) {
+                    System.out.println("Back....");
+                } else {
+                    boolean auth = false;
+                    boolean auth2 = false;
+                    while (!auth) {
+                        System.out.print("Username : ");
+                        username = scanString.nextLine();
+                        for (int i = 0; i < app.getList().size(); i++) {
+                            if (app.getList().get(i).getUsername().equals(username)) {
+                                auth2 = true;
+                            }
+                        }
+                        if (auth2) {
+                            System.out.println("Username already exist! Try again...");
+                        } else {
+                            auth = true;
+                        }
+                    }
+                    auth = false;
+                    while (!auth) {
+                        System.out.print("Password : ");
+                        String temp = scanString.nextLine();
+                        System.out.print("Retype Password :");
+                        password = scanString.nextLine();
+                        if (temp.equals(password)) {
+                            auth = true;
+                        } else {
+                            System.out.println("Wrong password! Try again...");
+                        }
+                    }
+                    System.out.print("Name : ");
+                    String name = scanString.nextLine();
+                    System.out.print("Email : ");
+                    String email = scanString.nextLine();
+                    System.out.print("Number : ");
+                    String number = scanString.nextLine();
+                    if (type == 1) {
+                        app.addCustomer(username, password, name, email, number);
+                    } else if (type == 2) {
+                        app.addDriver(username, password, name, email, number);
+                    }
+                    System.out.println("===== Successfull! =====");
+                }
+            } catch (Exception e) {
+                System.out.println("Error : " + e.getMessage() + " Try again...");
+            } finally {
+                scanInteger = new Scanner(System.in);
+                scanString = new Scanner(System.in);
             }
         }
     }
 
-    public void menuSignIn() {
+    public void menuSignIn(boolean status) {
         System.out.println("=============== RIDEUP ===============");
         System.out.println("================ sign in ================");
-        boolean auth = false;
-        while (!auth) {
-            System.out.print("Username : ");
-            String username = scanString.nextLine();
-            System.out.print("Password : ");
-            String password = scanString.nextLine();
-            if (app.searchCustomer(username) != null) {
-                System.out.println("Logging in....");
-                auth = true;
-                current = app.searchCustomer(username);
+        System.out.print("Username : ");
+        String username = scanString.nextLine();
+        System.out.print("Password : ");
+        String password = scanString.nextLine();
+        Person temp = app.searchPerson(username);
+        if (temp != null) {
+            if (temp instanceof Driver) {
+                currentDriver = (Driver) temp;
             } else {
-                System.out.println("Wrong username or password! Try again...");
+                currentCust = (Customer) temp;
             }
+            status = true;
+            System.out.println("Logging in....");
+        } else {
+            System.out.println("Wrong username or password!");
         }
     }
 
@@ -351,7 +416,7 @@ public class Console {
         System.out.println("=============== RIDEUP ===============");
         System.out.println("=============== account ================");
         for (int i = 0; i < app.getList().size(); i++) {
-            System.out.print(i + ". Username : " + app.getList().get(i).getUsername() + "  |   ID : ");
+            System.out.print(i + 1 + ". Username : " + app.getList().get(i).getUsername() + "  |  ID : ");
             if (app.getList().get(i) instanceof Driver) {
                 Driver temp = (Driver) app.getList().get(i);
                 System.out.println(temp.getIdDriver());
@@ -362,19 +427,159 @@ public class Console {
         }
     }
 
+    public void menuDelete() {
+        System.out.println("=============== RIDEUP ===============");
+        System.out.println("============ delete account ============");
+        System.out.print("Username : ");
+        String username = scanString.nextLine();
+        Person temp = app.searchPerson(username);
+        if (temp != null) {
+            app.deletePerson(temp);
+            System.out.println("===== Successfull =====");
+        } else {
+            System.out.println("That account never been registered!");
+        }
+    }
+
     public void mainMenu() {
-        boolean status = true;
-
-        while (status) {
-            System.out.println("=============== RIDEUP ===============");
-            System.out.println("======================================");
-            System.out.println("1. Sign In");
-            System.out.println("2. Sign Up");
-            System.out.println("3. View Account");
-            System.out.println("4. Delete Account");
-            System.out.println("0. Exit Program");
-            System.out.print("Ans : ");
-
+        int ans = 0;
+        while (ans == 0) {
+            try {
+                System.out.println("=============== RIDEUP ===============");
+                System.out.println("======================================");
+                System.out.println("1. Sign In");
+                System.out.println("2. Sign Up");
+                System.out.println("3. View Account");
+                System.out.println("4. Delete Account");
+                System.out.println("5. Exit Program");
+                System.out.print("Ans : ");
+                ans = inputInteger();
+                switch (ans) {
+                    case 0:
+                        throw new IllegalStateException("Wrong menu input!");
+                    case 1:
+                        boolean status = false;
+                        menuSignIn(status);
+                        if (status) {
+                            if (currentCust != null) {
+                                int ans2 = 0;
+                                while (ans2 == 0) {
+                                    try {
+                                        System.out.println("=============== RIDEUP ===============");
+                                        System.out.println("============== customer ===============");
+                                        System.out.println("1. Order");
+                                        System.out.println("2. Delete Order");
+                                        System.out.println("3. View Order");
+                                        System.out.println("4. Feedback");
+                                        System.out.println("5. Edit Profile");
+                                        System.out.println("6. Sign Out");
+                                        System.out.println("Ans : ");
+                                        ans2 = inputInteger();
+                                        switch (ans2) {
+                                            case 1:
+                                                menuOrder(currentCust, app.rideupPrice);
+                                                ans2 = 0;
+                                                break;
+                                            case 2:
+                                                menuDeleteOrder(currentCust);
+                                                ans2 = 0;
+                                                break;
+                                            case 3:
+                                                menuViewOrderCust(currentCust);
+                                                ans2 = 0;
+                                                break;
+                                            case 4:
+                                                menuFeedback(currentCust);
+                                                ans2 = 0;
+                                                break;
+                                            case 5:
+                                                menuEdit(currentCust);
+                                                ans2 = 0;
+                                                break;
+                                            case 6:
+                                                currentCust = null;
+                                                System.out.println("Logging out....");
+                                                break;
+                                            default:
+                                                ans2 = 0;
+                                                throw new IllegalStateException("Wrong menu input!");
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println("Error : " + e.getMessage() + " Try again...");
+                                    } finally {
+                                        scanInteger = new Scanner(System.in);
+                                        scanString = new Scanner(System.in);
+                                    }
+                                }
+                            } else if (currentDriver != null) {
+                                int ans2 = 0;
+                                while (ans2 == 0) {
+                                    try {
+                                        System.out.println("=============== RIDEUP ===============");
+                                        System.out.println("=============== driver ================");
+                                        System.out.println("1. Take Order");
+                                        System.out.println("2. View Order");
+                                        System.out.println("3. Edit Profile");
+                                        System.out.println("4. Sign Out");
+                                        System.out.println("Ans : ");
+                                        ans2 = inputInteger();
+                                        switch (ans2) {
+                                            case 1:
+                                                menuTakeOrder(currentDriver);
+                                                ans2 = 0;
+                                                break;
+                                            case 2:
+                                                menuViewOrderDriver(currentDriver);
+                                                ans2 = 0;
+                                                break;
+                                            case 3:
+                                                menuEdit(currentDriver);
+                                                ans2 = 0;
+                                                break;
+                                            case 4:
+                                                currentDriver = null;
+                                                System.out.println("Logging out.....");
+                                                break;
+                                            default:
+                                                ans2 = 0;
+                                                throw new IllegalStateException("Wrong menu input!");
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println("Error : " + e.getMessage() + " Try again...");
+                                    } finally {
+                                        scanInteger = new Scanner(System.in);
+                                        scanString = new Scanner(System.in);
+                                    }
+                                }
+                            }
+                        }
+                        ans = 0;
+                        break;
+                    case 2:
+                        menuSignUp();
+                        ans = 0;
+                        break;
+                    case 3:
+                        ViewAccount();
+                        ans = 0;
+                        break;
+                    case 4:
+                        menuDelete();
+                        ans = 0;
+                        break;
+                    case 5:
+                        System.out.println("========== GOODBYE :) ==========");
+                        break;
+                    default:
+                        ans = 0;
+                        throw new IllegalStateException("Wrong menu input!");
+                }
+            } catch (Exception e) {
+                System.out.println("Error : " + e.getMessage() + " Try again...");
+            } finally {
+                scanInteger = new Scanner(System.in);
+                scanString = new Scanner(System.in);
+            }
         }
     }
 }

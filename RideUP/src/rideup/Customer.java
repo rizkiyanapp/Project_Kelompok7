@@ -17,16 +17,17 @@ public class Customer extends Person {
     static int nCustomer = 0;
     
     public Customer(String username, String password, String name, String email, String number) {
+        nCustomer++;
         setName(name);
         setEmail(email);
         setNumber(number);
         setUsername(username);
         setPassword(password);
         this.idCustomer = "CUS-" + nCustomer;
-        nCustomer++;
     }
     
     public Customer(String username, String password, String name, String email, String number, String noIdentity) {
+        nCustomer++;
         setName(name);
         setEmail(email);
         setNumber(number);
@@ -34,10 +35,10 @@ public class Customer extends Person {
         setUsername(username);
         setPassword(password);
         this.idCustomer = "CUS-" + nCustomer;
-        nCustomer++;
     }
     
     public Customer(String username, String password, String name, String email, String number, String noIdentity, char gender) {
+        nCustomer++;
         setName(name);
         setEmail(email);
         setNumber(number);
@@ -46,7 +47,6 @@ public class Customer extends Person {
         setUsername(username);
         setPassword(password);
         this.idCustomer = "CUS-" + nCustomer;
-        nCustomer++;
     }
 
     public void createOrder(int type, String position, String destination, int distance, String detail) {
@@ -59,17 +59,17 @@ public class Customer extends Person {
         }
         else {
             if(type == 1) {
-                orderId = orderId + Order.nOrder;
+                orderId = orderId + (Order.nOrder + 1);
                 Order baru = new Order(orderId, position, destination, distance, detail);
                 orderList.add(baru);
             }
             else if(type == 2) {
-                courierId += Courier.nCourier;
+                courierId += (Courier.nCourier + 1);
                 Courier baru = new Courier(courierId, position, destination, distance, detail);
                 orderList.add(baru);
             }
             else if(type == 3) {
-                foodCourierId += FoodCourier.nFoodCourier;
+                foodCourierId += (FoodCourier.nFoodCourier + 1);
                 FoodCourier baru = new FoodCourier(foodCourierId, position, destination, distance, detail);
                 orderList.add(baru);
             }
