@@ -391,7 +391,7 @@ public class Console {
         }
     }
 
-    public void menuSignIn(boolean status) {
+    public boolean menuSignIn() {
         System.out.println("=============== RIDEUP ===============");
         System.out.println("================ sign in ================");
         System.out.print("Username : ");
@@ -405,11 +405,12 @@ public class Console {
             } else {
                 currentCust = (Customer) temp;
             }
-            status = true;
             System.out.println("Logging in....");
+            return true;
         } else {
             System.out.println("Wrong username or password!");
         }
+        return false;
     }
 
     public void ViewAccount() {
@@ -445,6 +446,8 @@ public class Console {
         int ans = 0;
         while (ans == 0) {
             try {
+                currentCust = null;
+                currentDriver = null;
                 System.out.println("=============== RIDEUP ===============");
                 System.out.println("======================================");
                 System.out.println("1. Sign In");
@@ -458,9 +461,7 @@ public class Console {
                     case 0:
                         throw new IllegalStateException("Wrong menu input!");
                     case 1:
-                        boolean status = false;
-                        menuSignIn(status);
-                        if (status) {
+                        if (menuSignIn() == true) {
                             if (currentCust != null) {
                                 int ans2 = 0;
                                 while (ans2 == 0) {
@@ -473,7 +474,7 @@ public class Console {
                                         System.out.println("4. Feedback");
                                         System.out.println("5. Edit Profile");
                                         System.out.println("6. Sign Out");
-                                        System.out.println("Ans : ");
+                                        System.out.print("Ans : ");
                                         ans2 = inputInteger();
                                         switch (ans2) {
                                             case 1:
@@ -521,7 +522,7 @@ public class Console {
                                         System.out.println("2. View Order");
                                         System.out.println("3. Edit Profile");
                                         System.out.println("4. Sign Out");
-                                        System.out.println("Ans : ");
+                                        System.out.print("Ans : ");
                                         ans2 = inputInteger();
                                         switch (ans2) {
                                             case 1:
