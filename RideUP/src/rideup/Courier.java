@@ -5,11 +5,13 @@
  */
 package rideup;
 
+import java.io.Serializable;
+
 /**
  *
  * @author NANON
  */
-public class Courier extends Order {
+public class Courier extends Order implements Serializable {
     private String receiverName;
     private String receiverNumber;
     static int nCourier = 0;

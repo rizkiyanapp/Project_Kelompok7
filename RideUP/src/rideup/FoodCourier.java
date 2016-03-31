@@ -1,5 +1,8 @@
 package rideup;
-public class FoodCourier extends Order{
+
+import java.io.Serializable;
+
+public class FoodCourier extends Order implements Serializable {
     private Food foodOrder;
     private int qty;
     private long price;

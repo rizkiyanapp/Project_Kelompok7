@@ -5,11 +5,13 @@
  */
 package rideup;
 
+import java.io.Serializable;
+
 /**
  *
  * @author NANON
  */
-public class Food {
+public class Food implements Serializable {
     private final String idFood;
     private String name;
     private long price;

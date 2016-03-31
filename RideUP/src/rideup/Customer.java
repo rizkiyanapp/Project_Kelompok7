@@ -5,16 +5,17 @@
  */
 package rideup;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author NANON
  */
-public class Customer extends Person {
+public class Customer extends Person implements Serializable {
     private ArrayList<Order> orderList = new ArrayList();
     private final String idCustomer;
-    static int nCustomer = 0;
+    static int nCustomer;
     
     public Customer(String username, String password, String name, String email, String number) {
         nCustomer++;

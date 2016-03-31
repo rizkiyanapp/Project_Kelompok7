@@ -5,6 +5,10 @@
  */
 package rideup;
 
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -16,10 +20,12 @@ public class Application {
     public long rideupPrice = 2500;
     private ArrayList<Person> list;
     private ArrayList<Food> foodList;
+    private FileDatabase database;
 
     public Application() {
         list = new ArrayList();
         foodList = new ArrayList();
+        database = new FileDatabase();
     }
 
     public void createFoodList() {
@@ -46,7 +52,7 @@ public class Application {
     public void deletePerson(Person p) {
         list.remove(p);
     }
-    
+
     public Person searchPerson(String username) {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getUsername().equals(username)) {
@@ -80,7 +86,7 @@ public class Application {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i) instanceof Customer) {
                 Customer temp = (Customer) list.get(i);
-                for (int j = 0; j < 10; j++) {
+                for (int j = 0; j < temp.getNOrder(); j++) {
                     if (temp.getOrders(j).getId().equals(orderId)) {
                         return temp.getOrders(j);
                     }
@@ -94,7 +100,7 @@ public class Application {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i) instanceof Driver) {
                 Driver temp = (Driver) list.get(i);
-                for (int j = 0; j < 10; j++) {
+                for (int j = 0; j < temp.getNOrder(); j++) {
                     if (temp.getOrders(j).getId().equals(orderId)) {
                         return temp.getOrders(j);
                     }
@@ -133,5 +139,30 @@ public class Application {
 
     public ArrayList<Food> getFoodList() {
         return foodList;
+    }
+
+    public void loadData() throws FileNotFoundException, IOException {
+        try {
+            list = (ArrayList<Person>) database.getObject("rideup.dat");
+            Customer cust = (Customer) list.get(1);
+            System.out.println(cust.getNOrder());
+        } catch (FileNotFoundException ex) {
+            File f = new File("rideup.dat");
+            f.createNewFile();
+        } catch (EOFException ex) {
+            list = new ArrayList<>();
+        } catch (IOException | ClassNotFoundException ex) {
+            throw new IOException("Error : " + ex.getMessage());
+        }
+    }
+    
+    public void saveData() throws FileNotFoundException, IOException {
+        try {
+            database.saveObject(list, "rideup.dat");
+        } catch (FileNotFoundException ex) {
+            throw new FileNotFoundException("File not found!");
+        } catch (IOException ex) {
+            throw new IOException("Error : " + ex.getMessage());
+        }
     }
 }

@@ -5,11 +5,13 @@
  */
 package rideup;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Renes
  */
-public class Order {
+public class Order implements Serializable {
     private final String orderId;
     private String position;
     private String destination;

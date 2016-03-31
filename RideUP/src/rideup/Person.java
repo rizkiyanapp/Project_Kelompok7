@@ -5,11 +5,13 @@
  */
 package rideup;
 
+import java.io.Serializable;
+
 /**
  *
  * @author asus pc
  */
-public abstract class Person {
+public abstract class Person implements Serializable {
     private String name;
     private String email;
     private String noIdentity;

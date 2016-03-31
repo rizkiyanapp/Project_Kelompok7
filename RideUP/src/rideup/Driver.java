@@ -5,16 +5,17 @@
  */
 package rideup;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Renes
  */
-public class Driver extends Person{
+public class Driver extends Person implements Serializable {
     private ArrayList<Order> orderList = new ArrayList();
     private final String idDriver;
-    static int nDriver= 0;
+    static int nDriver;
 
     public Driver(String username, String password, String name, String email, String number) {
         nDriver++;

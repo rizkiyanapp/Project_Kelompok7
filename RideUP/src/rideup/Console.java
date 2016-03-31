@@ -59,12 +59,11 @@ public class Console {
                 System.out.println();
                 System.out.print("Type : ");
                 input1 = inputInteger();
-                if ((input1 < 0) || (input1 > 5)) {
+                if ((input1 < 1) || (input1 > 4)) {
                     input1 = 0;
                     input2 = 0;
                     throw new IllegalStateException("Type must be range of 1 - 4!");
-                }
-                if (input1 == 4) {
+                } else if (input1 == 4) {
                     System.out.println("Back...");
                 } else {
                     System.out.print("Your Position : ");
@@ -128,6 +127,11 @@ public class Console {
     public void menuFeedback(Customer current) {
         System.out.println("=============== RIDEUP ===============");
         System.out.println("=============== feedback ==============");
+        System.out.println("");
+        for (int i = 0; i < current.getNOrder(); i++) {
+            System.out.println(i + 1 + ". ID : " + current.getOrders(i));
+        }
+        System.out.println();
         System.out.print("Order ID : ");
         String orderId = scanString.nextLine();
         Order temp = app.searchOrderCustomer(orderId);
@@ -229,24 +233,25 @@ public class Console {
                 ans = inputInteger();
                 switch (ans) {
                     case 1:
+                        ans = 0;
                         System.out.print("Name : ");
                         String name = scanString.nextLine();
                         current.setName(name);
-                        ans = 0;
                         break;
                     case 2:
+                        ans = 0;
                         System.out.print("No Identity : ");
                         String noIdentity = scanString.nextLine();
                         current.setNoIdentity(noIdentity);
-                        ans = 0;
                         break;
                     case 3:
+                        ans = 0;
                         System.out.print("Gender (M/F) : ");
                         char gender = scanString.next().charAt(0);
                         current.setGender(gender);
-                        ans = 0;
                         break;
                     case 4:
+                        ans = 0;
                         System.out.print("Age : ");
                         int age = 0;
                         while (age == 0) {
@@ -260,13 +265,12 @@ public class Console {
                             }
                         }
                         current.setAge(age);
-                        ans = 0;
                         break;
                     case 5:
-                        System.out.println("Address : ");
+                        ans = 0;
+                        System.out.print("Address : ");
                         String address = scanString.nextLine();
                         current.setAddress(address);
-                        ans = 0;
                         break;
                     case 6:
                         System.out.println("Leave edit profile...");
@@ -334,16 +338,16 @@ public class Console {
                 System.out.println("3. Back");
                 System.out.print("Type : ");
                 type = inputInteger();
-                if ((type < 0) || (type > 4)) {
+                if ((type < 1) || (type > 3)) {
                     type = 0;
                     throw new IllegalStateException("Type must be 1 or 2 or 3!");
-                }
-                if (type == 3) {
+                } else if (type == 3) {
                     System.out.println("Back....");
                 } else {
                     boolean auth = false;
                     boolean auth2 = false;
                     while (!auth) {
+                        auth2 = false;
                         System.out.print("Username : ");
                         username = scanString.nextLine();
                         for (int i = 0; i < app.getList().size(); i++) {
@@ -443,6 +447,7 @@ public class Console {
     }
 
     public void mainMenu() {
+        app.createFoodList();
         int ans = 0;
         while (ans == 0) {
             try {
@@ -454,13 +459,13 @@ public class Console {
                 System.out.println("2. Sign Up");
                 System.out.println("3. View Account");
                 System.out.println("4. Delete Account");
-                System.out.println("5. Exit Program");
+                System.out.println("5. Load Data");
+                System.out.println("6. Exit Program");
                 System.out.print("Ans : ");
                 ans = inputInteger();
                 switch (ans) {
-                    case 0:
-                        throw new IllegalStateException("Wrong menu input!");
                     case 1:
+                        ans = 0;
                         if (menuSignIn() == true) {
                             if (currentCust != null) {
                                 int ans2 = 0;
@@ -478,24 +483,24 @@ public class Console {
                                         ans2 = inputInteger();
                                         switch (ans2) {
                                             case 1:
-                                                menuOrder(currentCust, app.rideupPrice);
                                                 ans2 = 0;
+                                                menuOrder(currentCust, app.rideupPrice);
                                                 break;
                                             case 2:
-                                                menuDeleteOrder(currentCust);
                                                 ans2 = 0;
+                                                menuDeleteOrder(currentCust);
                                                 break;
                                             case 3:
-                                                menuViewOrderCust(currentCust);
                                                 ans2 = 0;
+                                                menuViewOrderCust(currentCust);
                                                 break;
                                             case 4:
-                                                menuFeedback(currentCust);
                                                 ans2 = 0;
+                                                menuFeedback(currentCust);
                                                 break;
                                             case 5:
-                                                menuEdit(currentCust);
                                                 ans2 = 0;
+                                                menuEdit(currentCust);
                                                 break;
                                             case 6:
                                                 currentCust = null;
@@ -526,16 +531,16 @@ public class Console {
                                         ans2 = inputInteger();
                                         switch (ans2) {
                                             case 1:
-                                                menuTakeOrder(currentDriver);
                                                 ans2 = 0;
+                                                menuTakeOrder(currentDriver);
                                                 break;
                                             case 2:
-                                                menuViewOrderDriver(currentDriver);
                                                 ans2 = 0;
+                                                menuViewOrderDriver(currentDriver);
                                                 break;
                                             case 3:
-                                                menuEdit(currentDriver);
                                                 ans2 = 0;
+                                                menuEdit(currentDriver);
                                                 break;
                                             case 4:
                                                 currentDriver = null;
@@ -554,21 +559,28 @@ public class Console {
                                 }
                             }
                         }
-                        ans = 0;
                         break;
                     case 2:
-                        menuSignUp();
                         ans = 0;
+                        menuSignUp();
                         break;
                     case 3:
-                        ViewAccount();
                         ans = 0;
+                        ViewAccount();
                         break;
                     case 4:
-                        menuDelete();
                         ans = 0;
+                        menuDelete();
                         break;
                     case 5:
+                        ans = 0;
+                        System.out.println("Loading data....");
+                        app.loadData();
+                        break;
+                    case 6:
+                        System.out.println("Saving data.....");
+                        app.saveData();
+                        System.out.println();
                         System.out.println("========== GOODBYE :) ==========");
                         break;
                     default:
