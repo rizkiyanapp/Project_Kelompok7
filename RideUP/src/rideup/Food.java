@@ -15,7 +15,7 @@ public class Food implements Serializable {
     private final String idFood;
     private String name;
     private long price;
-    static int nFood = 0;
+    static int nFood;
 
     public Food(String name, long price) {
         nFood++;
@@ -39,5 +39,9 @@ public class Food implements Serializable {
     @Override
     public String toString() {
         return ("ID : " + idFood + "  |  Name : " + name + "  |  Price : " + price);
+    }
+
+    public static void setnFood(int nFood) {
+        Food.nFood = nFood;
     }
 }

@@ -79,7 +79,7 @@ public class Console {
                     if (input1 == 2) {
                         System.out.print("Receiver Name : ");
                         String receiverName = scanString.nextLine();
-                        System.out.println("Receiver Number : ");
+                        System.out.print("Receiver Number : ");
                         String receiverNumber = scanString.nextLine();
                         Courier temp = (Courier) current.getOrders(current.getNOrder() - 1);
                         temp.setReceiverName(receiverName);
@@ -89,7 +89,7 @@ public class Console {
                         viewFoodList();
                         boolean ans = false;
                         while (!ans) {
-                            System.out.println("Food ID : ");
+                            System.out.print("Food ID : ");
                             String foodId = scanString.nextLine();
                             order = app.searchFood(foodId);
                             if (order != null) {
@@ -101,7 +101,7 @@ public class Console {
                         int ans2 = 0;
                         while (ans2 == 0) {
                             try {
-                                System.out.println("Qty : ");
+                                System.out.print("Qty : ");
                                 ans2 = inputInteger();
                             } catch (Exception e) {
                                 System.out.println("Error : " + e.getMessage() + " Try again...");
@@ -185,6 +185,7 @@ public class Console {
             if (current.getOrders(i).isTaken()) {
                 Driver temp = app.searchDriverByOrder(current.getOrders(i));
                 System.out.println("Taken by " + temp.getIdDriver());
+                System.out.println("Price : Rp" + current.getOrders(i).getPrice());
             } else {
                 System.out.println("Available");
             }
@@ -208,6 +209,7 @@ public class Console {
             } else {
                 System.out.println(current.getOrders(i).toString());
             }
+            System.out.println("Price : Rp" + current.getOrders(i).getPrice());
             System.out.println("Detail : " + current.getOrders(i).getDetail());
             System.out.println("FeedBack : " + current.getOrders(i).getFeedback());
             System.out.println();
@@ -575,11 +577,17 @@ public class Console {
                     case 5:
                         ans = 0;
                         System.out.println("Loading data....");
-                        app.loadData();
+                        app.loadDataFood();
+                        app.loadDataIterator();
+                        app.loadDataAccount();
+                        app.loadIterator();
                         break;
                     case 6:
                         System.out.println("Saving data.....");
-                        app.saveData();
+                        app.saveIterator();
+                        app.saveDataFood();
+                        app.saveDataIterator();
+                        app.saveDataAccount();
                         System.out.println();
                         System.out.println("========== GOODBYE :) ==========");
                         break;

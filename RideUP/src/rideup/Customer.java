@@ -116,4 +116,8 @@ public class Customer extends Person implements Serializable {
                 "Number : " + getNumber() + "\n" + 
                 "Email : " + getEmail());
     }
+
+    public static void setnCustomer(int nCustomer) {
+        Customer.nCustomer = nCustomer;
+    }
 }

@@ -20,12 +20,45 @@ public class Application {
     public long rideupPrice = 2500;
     private ArrayList<Person> list;
     private ArrayList<Food> foodList;
-    private FileDatabase database;
+    private ArrayList<Integer> iteratorList;
+    private FileDatabase database1;
+    private FileDatabase database2;
+    private FileDatabase database3;
 
     public Application() {
         list = new ArrayList();
         foodList = new ArrayList();
-        database = new FileDatabase();
+        database1 = new FileDatabase();
+        database2 = new FileDatabase();
+        database3 = new FileDatabase();
+        iteratorList = new ArrayList();
+    }
+
+    public void saveIterator() {
+        if (iteratorList.isEmpty()) {
+            iteratorList.add(Customer.nCustomer);
+            iteratorList.add(Driver.nDriver);
+            iteratorList.add(Order.nOrder);
+            iteratorList.add(Courier.nCourier);
+            iteratorList.add(FoodCourier.nFoodCourier);
+            iteratorList.add(Food.nFood);
+        } else {
+            iteratorList.set(0, Customer.nCustomer);
+            iteratorList.set(1, Driver.nDriver);
+            iteratorList.set(2, Order.nOrder);
+            iteratorList.set(3, Courier.nCourier);
+            iteratorList.set(4, FoodCourier.nFoodCourier);
+            iteratorList.set(5, Food.nFood);
+        }
+    }
+
+    public void loadIterator() {
+        Customer.setnCustomer(iteratorList.get(0));
+        Driver.setnDriver(iteratorList.get(1));
+        Order.setnOrder(iteratorList.get(2));
+        Courier.setnCourier(iteratorList.get(3));
+        FoodCourier.setnFoodCourier(iteratorList.get(4));
+        Food.setnFood(iteratorList.get(5));
     }
 
     public void createFoodList() {
@@ -141,11 +174,9 @@ public class Application {
         return foodList;
     }
 
-    public void loadData() throws FileNotFoundException, IOException {
+    public void loadDataAccount() throws FileNotFoundException, IOException {
         try {
-            list = (ArrayList<Person>) database.getObject("rideup.dat");
-            Customer cust = (Customer) list.get(1);
-            System.out.println(cust.getNOrder());
+            list = (ArrayList<Person>) database1.getObject("rideup.dat");
         } catch (FileNotFoundException ex) {
             File f = new File("rideup.dat");
             f.createNewFile();
@@ -155,10 +186,57 @@ public class Application {
             throw new IOException("Error : " + ex.getMessage());
         }
     }
-    
-    public void saveData() throws FileNotFoundException, IOException {
+
+    public void saveDataAccount() throws FileNotFoundException, IOException {
         try {
-            database.saveObject(list, "rideup.dat");
+            database1.saveObject(list, "rideup.dat");
+        } catch (FileNotFoundException ex) {
+            throw new FileNotFoundException("File not found!");
+        } catch (IOException ex) {
+            throw new IOException("Error : " + ex.getMessage());
+        }
+    }
+
+    public void loadDataIterator() throws FileNotFoundException, IOException {
+        try {
+            iteratorList = (ArrayList<Integer>) database2.getObject("iterator.dat");
+        } catch (FileNotFoundException ex) {
+            File f = new File("iterator.dat");
+            f.createNewFile();
+        } catch (EOFException ex) {
+            iteratorList = new ArrayList<>();
+        } catch (IOException | ClassNotFoundException ex) {
+            throw new IOException("Error : " + ex.getMessage());
+        }
+    }
+
+    public void saveDataIterator() throws FileNotFoundException, IOException {
+        try {
+            database2.saveObject(iteratorList, "iterator.dat");
+        } catch (FileNotFoundException ex) {
+            throw new FileNotFoundException("File not found!");
+        } catch (IOException ex) {
+            throw new IOException("Error : " + ex.getMessage());
+        }
+    }
+
+    public void loadDataFood() throws FileNotFoundException, IOException {
+        try {
+            foodList = (ArrayList<Food>) database3.getObject("foodlist.dat");
+        } catch (FileNotFoundException ex) {
+            createFoodList();
+            File f = new File("foodlist.dat");
+            f.createNewFile();
+        } catch (EOFException ex) {
+            foodList = new ArrayList<>();
+        } catch (IOException | ClassNotFoundException ex) {
+            throw new IOException("Error : " + ex.getMessage());
+        }
+    }
+
+    public void saveDataFood() throws FileNotFoundException, IOException {
+        try {
+            database3.saveObject(foodList, "foodlist.dat");
         } catch (FileNotFoundException ex) {
             throw new FileNotFoundException("File not found!");
         } catch (IOException ex) {

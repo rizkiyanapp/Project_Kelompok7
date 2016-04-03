@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class Courier extends Order implements Serializable {
     private String receiverName;
     private String receiverNumber;
-    static int nCourier = 0;
+    static int nCourier;
     
     public Courier(String courierId, String position, String destination, int distance, String detail) {
         super(courierId, position, destination, distance, detail);
@@ -40,5 +40,9 @@ public class Courier extends Order implements Serializable {
     @Override
     public String toString() {
         return ("ID : " + getId() + "  |  From : " + getPosition() + "  |  To : " + getDestination() + " (" + receiverName + ", " + receiverNumber + ")  |  " + getDistance() + "Km");
+    }
+
+    public static void setnCourier(int nCourier) {
+        Courier.nCourier = nCourier;
     }
 }

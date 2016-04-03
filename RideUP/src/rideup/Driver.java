@@ -90,4 +90,8 @@ public class Driver extends Person implements Serializable {
                 "Number : " + getNumber() + "\n" + 
                 "Email : " + getEmail());
     }
+
+    public static void setnDriver(int nDriver) {
+        Driver.nDriver = nDriver;
+    }
 }

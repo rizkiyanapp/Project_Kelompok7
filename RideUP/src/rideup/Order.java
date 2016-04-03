@@ -20,7 +20,7 @@ public class Order implements Serializable {
     private boolean status = false;
     private String detail;
     private String feedback;
-    static int nOrder = 0;
+    static int nOrder;
       
     public Order(String orderId, String position, String destination, int distance, String detail) {
         this.orderId = orderId;
@@ -83,5 +83,9 @@ public class Order implements Serializable {
     @Override
     public String toString() {
         return ("ID : " + orderId + "  |  From : " + position + "  |  To : " + destination + "  |  " + distance + "Km");
+    }
+
+    public static void setnOrder(int nOrder) {
+        Order.nOrder = nOrder;
     }
 }

@@ -6,7 +6,7 @@ public class FoodCourier extends Order implements Serializable {
     private Food foodOrder;
     private int qty;
     private long price;
-    static int nFoodCourier = 0;
+    static int nFoodCourier;
     
     public FoodCourier(String foodCourierId, String position, String destination, int distance, String detail) {
         super(foodCourierId, position, destination, distance, detail);
@@ -38,5 +38,9 @@ public class FoodCourier extends Order implements Serializable {
     @Override
     public String toString() {
         return ("ID : " + getId() + "  |  Food : " + foodOrder.getName()+ "  |  Qty : " + qty + "  |  From : " + getPosition() + "  |  To : " + getDestination() + "  |  " + getDistance() + "Km");
+    }
+
+    public static void setnFoodCourier(int nFoodCourier) {
+        FoodCourier.nFoodCourier = nFoodCourier;
     }
 }
