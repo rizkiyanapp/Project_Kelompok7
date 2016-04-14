@@ -1,4 +1,4 @@
-package rideup;
+package model;
 
 import java.io.Serializable;
 

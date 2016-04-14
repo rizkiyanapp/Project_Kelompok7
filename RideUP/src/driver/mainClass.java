@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rideup;
+package driver;
+
+import viewConsole.Console;
+import model.Application;
 
 /**
  *
