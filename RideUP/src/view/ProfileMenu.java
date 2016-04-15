@@ -9,12 +9,12 @@ package view;
  *
  * @author NANON
  */
-public class ProfileCustMenu extends javax.swing.JPanel {
+public class ProfileMenu extends javax.swing.JPanel {
 
     /**
      * Creates new form ProfileCustMenu
      */
-    public ProfileCustMenu() {
+    public ProfileMenu() {
         initComponents();
     }
 

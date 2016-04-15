@@ -262,10 +262,10 @@ public class Console {
                         break;
                     case 4:
                         ans = 0;
-                        System.out.print("Age : ");
                         int age = 0;
                         while (age == 0) {
                             try {
+                                System.out.print("Age : ");
                                 age = inputInteger();
                             } catch (Exception e) {
                                 System.out.println("Error : " + e.getMessage() + " Try again...");
@@ -414,15 +414,19 @@ public class Console {
         String password = scanString.nextLine();
         Person temp = app.searchPerson(username);
         if (temp != null) {
-            if (temp instanceof Driver) {
-                currentDriver = (Driver) temp;
+            if (temp.getPassword().equals(password)) {
+                if (temp instanceof Driver) {
+                    currentDriver = (Driver) temp;
+                } else {
+                    currentCust = (Customer) temp;
+                }
+                System.out.println("Logging in....");
+                return true;
             } else {
-                currentCust = (Customer) temp;
+                System.out.println("Wrong password!");
             }
-            System.out.println("Logging in....");
-            return true;
         } else {
-            System.out.println("Wrong username or password!");
+            System.out.println("Wrong username!");
         }
         return false;
     }
