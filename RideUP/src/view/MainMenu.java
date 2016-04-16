@@ -5,6 +5,11 @@
  */
 package view;
 
+import java.awt.CardLayout;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
 /**
  *
  * @author NANON
@@ -14,8 +19,49 @@ public class MainMenu extends javax.swing.JPanel {
     /**
      * Creates new form MainMenu
      */
+    
+    private CardLayout cardLayout;
+    
     public MainMenu() {
         initComponents();
+        cardLayout = new CardLayout();
+        menuPanel.setLayout(cardLayout);
+    }
+    
+    public CardLayout getCardLayout() {
+        return cardLayout;
+    }
+    
+    public JPanel getMenuPanel() {
+        return menuPanel;
+    }
+
+    public Object getBtnDelAcc() {
+        return btnDelAcc;
+    }
+
+    public Object getBtnExit() {
+        return btnExit;
+    }
+
+    public Object getBtnRegAcc() {
+        return btnRegAcc;
+    }
+
+    public Object getBtnSignIn() {
+        return btnSignIn;
+    }
+
+    public Object getBtnSignUp() {
+        return btnSignUp;
+    }
+    
+    public void addListener(ActionListener e) {
+        btnDelAcc.addActionListener(e);
+        btnExit.addActionListener(e);
+        btnRegAcc.addActionListener(e);
+        btnSignIn.addActionListener(e);
+        btnSignUp.addActionListener(e);
     }
 
     /**
@@ -113,7 +159,7 @@ public class MainMenu extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addComponent(jLabel2)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

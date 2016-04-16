@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+
 /**
  *
  * @author NANON
@@ -16,6 +19,31 @@ public class FeedbackCustMenu extends javax.swing.JPanel {
      */
     public FeedbackCustMenu() {
         initComponents();
+    }
+    
+    public Object getBtnFeedback() {
+        return btnFeedback;
+    }
+    
+    public Object getBtnBack() {
+        return btnBack;
+    }
+    
+    public void setOrder(String s) {
+        txOrder.setText(s);
+    }
+    
+    public String getFeedback() {
+        return txFeedback.getText();
+    }
+    
+    public void addAdapter(MouseAdapter e) {
+        listOrder.addMouseListener(e);
+    }
+    
+    public void addListener(ActionListener e) {
+        btnFeedback.addActionListener(e);
+        btnBack.addActionListener(e);
     }
 
     /**
@@ -42,11 +70,6 @@ public class FeedbackCustMenu extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\feedback'.png")); // NOI18N
 
-        listOrder.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(listOrder);
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));

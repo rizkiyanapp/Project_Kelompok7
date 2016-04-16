@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+
 /**
  *
  * @author NANON
@@ -16,6 +19,39 @@ public class TransportationMenu extends javax.swing.JPanel {
      */
     public TransportationMenu() {
         initComponents();
+    }
+
+    public Object getBtnBack() {
+        return btnBack;
+    }
+
+    public Object getBtnOrder() {
+        return btnOrder;
+    }
+
+    public String getPosition() {
+        return txPosition.getText();
+    }
+    
+    public String getDestination() {
+        return txDestination.getText();
+    }
+    
+    public Object getDistance() {
+        return spinDistance.getValue();
+    }
+    
+    public String getDetail() {
+        return txDetail.getText();
+    }
+    
+    public void addAdapter(MouseAdapter e) {
+        spinDistance.addMouseListener(e);
+    }
+
+    public void addListener(ActionListener e) {
+        btnBack.addActionListener(e);
+        btnOrder.addActionListener(e);
     }
 
     /**

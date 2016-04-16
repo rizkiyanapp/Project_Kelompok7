@@ -26,7 +26,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="boxProfile" pref="68" max="32767" attributes="0"/>
+                      <Component id="cbProfile" pref="68" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="txEdit" min="-2" pref="172" max="-2" attributes="0"/>
                   </Group>
@@ -61,7 +61,7 @@
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="boxProfile" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="cbProfile" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="txEdit" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -100,14 +100,15 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JComboBox" name="boxProfile">
+    <Component class="javax.swing.JComboBox" name="cbProfile">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
+          <StringArray count="5">
+            <StringItem index="0" value="Name"/>
+            <StringItem index="1" value="No Identity"/>
+            <StringItem index="2" value="Gender"/>
+            <StringItem index="3" value="Age"/>
+            <StringItem index="4" value="Address"/>
           </StringArray>
         </Property>
       </Properties>

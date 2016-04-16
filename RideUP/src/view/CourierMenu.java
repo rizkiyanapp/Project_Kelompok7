@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+
 /**
  *
  * @author NANON
@@ -16,6 +19,47 @@ public class CourierMenu extends javax.swing.JPanel {
      */
     public CourierMenu() {
         initComponents();
+    }
+    
+    public Object getBtnBack() {
+        return btnBack;
+    }
+    
+    public Object getBtnCreateOrder() {
+        return btnCreateOrder;
+    }
+    
+    public String getPosition() {
+        return txPosition.getText();
+    }
+    
+    public String getDestination() {
+        return txDestination.getText();
+    }
+    
+    public Object getDistance() {
+        return spinDistance.getValue();
+    }
+    
+    public String getDetail() {
+        return txDetail.getText();
+    }
+    
+    public String getRecName() {
+        return txRName.getText();
+    }
+    
+    public String getRexcNumber() {
+        return txRNumber.getText();
+    }
+    
+    public void addAdapter(MouseAdapter e) {
+        spinDistance.addMouseListener(e);
+    }
+    
+    public void addListener(ActionListener e) {
+        btnBack.addActionListener(e);
+        btnCreateOrder.addActionListener(e);
     }
 
     /**

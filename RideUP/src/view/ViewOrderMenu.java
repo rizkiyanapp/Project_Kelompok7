@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+
 /**
  *
  * @author NANON
@@ -16,6 +19,22 @@ public class ViewOrderMenu extends javax.swing.JPanel {
      */
     public ViewOrderMenu() {
         initComponents();
+    }
+    
+    public Object getBtnBack() {
+        return btnBack;
+    }
+    
+    public void setOrderDetail(String s) {
+        txOrder.setText(s);
+    }
+    
+    public void addAdapter(MouseAdapter e) {
+        listOrder.addMouseListener(e);
+    }
+    
+    public void addListener(ActionListener e) {
+        btnBack.addActionListener(e);
     }
 
     /**
@@ -47,11 +66,6 @@ public class ViewOrderMenu extends javax.swing.JPanel {
         btnBack.setText("Back");
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        listOrder.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane2.setViewportView(listOrder);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

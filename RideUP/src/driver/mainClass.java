@@ -5,6 +5,7 @@
  */
 package driver;
 
+import controller.Controller;
 import viewConsole.Console;
 import model.Application;
 
@@ -20,6 +21,7 @@ public class mainClass {
     public static void main(String[] args) {
         Application app = new Application();
         Console view = new Console(app);
+//        new Controller(app);
         
         view.mainMenu();
     }

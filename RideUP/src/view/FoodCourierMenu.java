@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+
 /**
  *
  * @author NANON
@@ -16,6 +19,45 @@ public class FoodCourierMenu extends javax.swing.JPanel {
      */
     public FoodCourierMenu() {
         initComponents();
+    }
+    
+    public Object getBtnBack() {
+        return btnBack;
+    }
+    
+    public Object getBtnCreateOrder() {
+        return btnCreateOrder;
+    }
+    
+    public String getPosition() {
+        return txPosition.getText();
+    }
+    
+    public String getDestination() {
+        return txDestination.getText();
+    }
+    
+    public Object getDistance() {
+        return spinDistance.getValue();
+    }
+    
+    public String getDetail() {
+        return txDetail.getText();
+    }
+    
+    public void setFood(String s) {
+        txFood.setText(s);
+    }
+    
+    public void addAdapter(MouseAdapter e) {
+        spinQty.addMouseListener(e);
+        spinDistance.addMouseListener(e);
+        listFood.addMouseListener(e);
+    }
+    
+    public void addListener(ActionListener e) {
+        btnBack.addActionListener(e);
+        btnCreateOrder.addActionListener(e);
     }
 
     /**
@@ -46,7 +88,7 @@ public class FoodCourierMenu extends javax.swing.JPanel {
         listFood = new javax.swing.JList<>();
         spinQty = new javax.swing.JSpinner();
         btnCreateOrder = new javax.swing.JButton();
-        bntBack = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(30, 30, 30));
 
@@ -85,18 +127,13 @@ public class FoodCourierMenu extends javax.swing.JPanel {
         txDetail.setRows(5);
         jScrollPane1.setViewportView(txDetail);
 
-        listFood.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane2.setViewportView(listFood);
 
         btnCreateOrder.setText("CreateOrder");
         btnCreateOrder.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        bntBack.setText("Back");
-        bntBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBack.setText("Back");
+        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -116,7 +153,7 @@ public class FoodCourierMenu extends javax.swing.JPanel {
                             .addComponent(jLabel8)
                             .addComponent(jLabel6)
                             .addComponent(jLabel4)
-                            .addComponent(bntBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnCreateOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -126,7 +163,7 @@ public class FoodCourierMenu extends javax.swing.JPanel {
                                 .addComponent(jLabel10))
                             .addComponent(txPosition)
                             .addComponent(txDestination)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)
                             .addComponent(jScrollPane2)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(txFood)
@@ -134,7 +171,7 @@ public class FoodCourierMenu extends javax.swing.JPanel {
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(spinQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,14 +208,14 @@ public class FoodCourierMenu extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCreateOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bntBack, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(29, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bntBack;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreateOrder;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

@@ -5,6 +5,10 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import javax.swing.JButton;
+
 /**
  *
  * @author NANON
@@ -16,6 +20,27 @@ public class DeleteOrderCustMenu extends javax.swing.JPanel {
      */
     public DeleteOrderCustMenu() {
         initComponents();
+    }
+
+    public Object getBtnBack() {
+        return btnBack;
+    }
+
+    public Object getBtnConfirmDelete() {
+        return btnConfirmDelete;
+    }
+    
+    public void setDeleteOrder(String s) {
+        txDelete.setText(s);
+    }
+    
+    public void addAdapter(MouseAdapter e) {
+        listOrder.addMouseListener(e);
+    }
+    
+    public void addListener(ActionListener e) {
+        btnBack.addActionListener(e);
+        btnConfirmDelete.addActionListener(e);
     }
 
     /**
@@ -39,11 +64,6 @@ public class DeleteOrderCustMenu extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\delorder.png")); // NOI18N
 
-        listOrder.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(listOrder);
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));

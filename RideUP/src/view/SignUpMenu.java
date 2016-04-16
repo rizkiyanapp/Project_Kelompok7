@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+
 /**
  *
  * @author NANON
@@ -16,6 +19,46 @@ public class SignUpMenu extends javax.swing.JPanel {
      */
     public SignUpMenu() {
         initComponents();
+    }
+    
+    public Object getBtnSignUp() {
+        return btnSignUp;
+    }
+    
+    public String getUsername() {
+        return txUsername.getText();
+    }
+    
+    public String getPassword() {
+        return passPassword.getPassword().toString();
+    }
+    
+    public String getConfirmPass() {
+        return passConfirmPass.getPassword().toString();
+    }
+    
+    public String getAccountName() {
+        return txName.getText();
+    }
+    
+    public String getAccountEmail() {
+        return txEmail.getText();
+    }
+    
+    public String getAccountNumber() {
+        return txNumber.getText();
+    }
+    
+    public Object getType() {
+        return cbType.getSelectedItem();
+    }
+    
+    public void addAdapter(MouseAdapter e) {
+        cbType.addMouseListener(e);
+    }
+    
+    public void addListener(ActionListener e) {
+        btnSignUp.addActionListener(e);
     }
 
     /**
@@ -48,27 +91,15 @@ public class SignUpMenu extends javax.swing.JPanel {
 
         jLabel1.setText("Username");
 
-        txUsername.setText("username");
-
         jLabel2.setText("Password");
-
-        passPassword.setText("jPasswordField3");
 
         jLabel3.setText("Confirm Password");
 
-        passConfirmPass.setText("jPasswordField4");
-
         jLabel4.setText("Name");
-
-        txName.setText("name");
 
         jLabel5.setText("Email");
 
-        txEmail.setText("email");
-
         jLabel6.setText("Number");
-
-        txNumber.setText("number");
 
         btnSignUp.setText("Sign Up");
         btnSignUp.setPreferredSize(new java.awt.Dimension(73, 25));
@@ -78,7 +109,7 @@ public class SignUpMenu extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cbType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
@@ -95,13 +126,13 @@ public class SignUpMenu extends javax.swing.JPanel {
                     .addComponent(txEmail)
                     .addComponent(jLabel6)
                     .addComponent(txNumber)
-                    .addComponent(btnSignUp, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -131,7 +162,7 @@ public class SignUpMenu extends javax.swing.JPanel {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(passConfirmPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 4, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

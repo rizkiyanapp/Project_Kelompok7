@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+
 /**
  *
  * @author NANON
@@ -16,6 +19,35 @@ public class ProfileMenu extends javax.swing.JPanel {
      */
     public ProfileMenu() {
         initComponents();
+    }
+    
+    public Object getBtnBack() {
+        return btnBack;
+    }
+    
+    public Object getBtnEdit() {
+        return btnEdit;
+    }
+    
+    public String getEdit() {
+        return txEdit.getText();
+    }
+    
+    public void setProfileDetail(String s) {
+        txProfile.setText(s);
+    }
+    
+    public Object getSelectedEdit() {
+        return cbProfile.getSelectedItem();
+    }
+    
+    public void addAdapter(MouseAdapter e) {
+        cbProfile.addMouseListener(e);
+    }
+    
+    public void addListener(ActionListener e) {
+        btnBack.addActionListener(e);
+        btnEdit.addActionListener(e);
     }
 
     /**
@@ -30,7 +62,7 @@ public class ProfileMenu extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txProfile = new javax.swing.JTextArea();
-        boxProfile = new javax.swing.JComboBox<>();
+        cbProfile = new javax.swing.JComboBox<>();
         txEdit = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         btnEdit = new javax.swing.JButton();
@@ -46,7 +78,7 @@ public class ProfileMenu extends javax.swing.JPanel {
         txProfile.setRows(5);
         jScrollPane1.setViewportView(txProfile);
 
-        boxProfile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbProfile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Name", "No Identity", "Gender", "Age", "Address" }));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("EDIT PROFILE");
@@ -66,7 +98,7 @@ public class ProfileMenu extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(boxProfile, 0, 68, Short.MAX_VALUE)
+                        .addComponent(cbProfile, 0, 68, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1)
@@ -93,7 +125,7 @@ public class ProfileMenu extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(boxProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -105,9 +137,9 @@ public class ProfileMenu extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> boxProfile;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnEdit;
+    private javax.swing.JComboBox<String> cbProfile;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

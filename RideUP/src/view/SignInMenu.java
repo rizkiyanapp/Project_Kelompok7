@@ -5,6 +5,8 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author NANON
@@ -16,6 +18,22 @@ public class SignInMenu extends javax.swing.JPanel {
      */
     public SignInMenu() {
         initComponents();
+    }
+
+    public Object getBtnSignIn() {
+        return btnSignIn;
+    }
+    
+    public String getUsername() {
+        return txUsername.getText();
+    }
+    
+    public String getPassword() {
+        return passPasword.getPassword().toString();
+    }
+    
+    public void addListener(ActionListener e) {
+        btnSignIn.addActionListener(e);
     }
 
     /**
@@ -35,14 +53,11 @@ public class SignInMenu extends javax.swing.JPanel {
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SIGN IN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10))); // NOI18N
 
-        txUsername.setText("username");
         txUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txUsernameActionPerformed(evt);
             }
         });
-
-        passPasword.setText("jPasswordField1");
 
         jLabel1.setText("Username");
 

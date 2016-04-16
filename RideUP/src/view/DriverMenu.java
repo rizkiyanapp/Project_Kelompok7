@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author NANON
@@ -16,6 +19,29 @@ public class DriverMenu extends javax.swing.JPanel {
      */
     public DriverMenu() {
         initComponents();
+    }
+
+    public Object getBtnProfile() {
+        return btnProfile;
+    }
+
+    public Object getBtnSignOut() {
+        return btnSignOut;
+    }
+
+    public Object getBtnTake() {
+        return btnTake;
+    }
+
+    public Object getBtnView() {
+        return btnView;
+    }
+    
+    public void addListener(ActionListener e) {
+        btnProfile.addActionListener(e);
+        btnSignOut.addActionListener(e);
+        btnTake.addActionListener(e);
+        btnView.addActionListener(e);
     }
 
     /**

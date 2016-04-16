@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author NANON
@@ -16,6 +19,49 @@ public class CustomerMenu extends javax.swing.JPanel {
      */
     public CustomerMenu() {
         initComponents();
+    }
+
+    public JButton getBtnCourier() {
+        return btnCourier;
+    }
+
+    public JButton getBtnDelOrder() {
+        return btnDelOrder;
+    }
+
+    public JButton getBtnFeedback() {
+        return btnFeedback;
+    }
+
+    public JButton getBtnFoodCourier() {
+        return btnFoodCourier;
+    }
+
+    public JButton getBtnProfile() {
+        return btnProfile;
+    }
+
+    public JButton getBtnSignOut() {
+        return btnSignOut;
+    }
+
+    public JButton getBtnTransport() {
+        return btnTransport;
+    }
+
+    public JButton getBtnView() {
+        return btnView;
+    }
+    
+    public void addListener(ActionListener e) {
+        btnCourier.addActionListener(e);
+        btnDelOrder.addActionListener(e);
+        btnFeedback.addActionListener(e);
+        btnFoodCourier.addActionListener(e);
+        btnProfile.addActionListener(e);
+        btnSignOut.addActionListener(e);
+        btnTransport.addActionListener(e);
+        btnView.addActionListener(e);
     }
 
     /**
