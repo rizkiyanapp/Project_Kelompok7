@@ -5,6 +5,8 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author NANON
@@ -16,6 +18,14 @@ public class RegAccMenu extends javax.swing.JPanel {
      */
     public RegAccMenu() {
         initComponents();
+    }
+    
+    public Object getBtnBack() {
+        return btnBack;
+    }
+    
+    public void addListener(ActionListener e) {
+        btnBack.addActionListener(e);
     }
 
     /**
@@ -29,8 +39,10 @@ public class RegAccMenu extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         txRegAcc = new javax.swing.JTextArea();
+        btnBack = new javax.swing.JButton();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REGISTERED ACCOUNT", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10))); // NOI18N
+        setBackground(new java.awt.Color(30, 30, 30));
+        setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REGISTERED ACCOUNT", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
 
         txRegAcc.setEditable(false);
         txRegAcc.setColumns(20);
@@ -38,20 +50,36 @@ public class RegAccMenu extends javax.swing.JPanel {
         txRegAcc.setRows(5);
         jScrollPane1.setViewportView(txRegAcc);
 
+        btnBack.setText("Back");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(91, 91, 91))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txRegAcc;
     // End of variables declaration//GEN-END:variables
