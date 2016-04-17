@@ -145,30 +145,24 @@ public class Controller extends MouseAdapter implements ActionListener {
         if (currentView.equals("Main Menu")) {
             // MAIN MENU
             if (source.equals(mm.getBtnDelAcc())) {
-                // DELETE ACCOUNT MENU
                 currentView = "Delete Acc Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(mm.getBtnExit())) {
-                // EXIT PROGRAM
                 model.saveAll();
                 System.exit(0);
             } else if (source.equals(mm.getBtnRegAcc())) {
-                // REGISTERED ACCOUNT MENU
                 currentView = "Registered Acc Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(mm.getBtnSignIn())) {
-                // SIGN IN MENU
                 currentView = "Sign In Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(mm.getBtnSignUp())) {
-                // SIGN UP MENU
                 currentView = "Sign Up Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             }
         } else if (currentView.equals("Courier Menu")) {
             // COURIER ORDER MENU
             if (source.equals(crm.getBtnBack())) {
-                // CUSTOMER MENU
                 currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(crm.getBtnCreateOrder())) {
@@ -177,43 +171,34 @@ public class Controller extends MouseAdapter implements ActionListener {
         } else if (currentView.equals("Customer Main Menu")) {
             // CUSTOMER MAIN MENU
             if (source.equals(cstm.getBtnCourier())) {
-                // COURIER ORDER MENU
                 currentView = "Courier Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(cstm.getBtnDelOrder())) {
-                // DELETE ORDER MENU
                 currentView = "Delete Order Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(cstm.getBtnFeedback())) {
-                // FEEDBACK MENU
                 currentView = "Feedback Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(cstm.getBtnFoodCourier())) {
-                // FOODCOURIER ORDER MENU
                 currentView = "FoodOrder Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(cstm.getBtnProfile())) {
-                // PROFILE MENU
                 currentView = "Profile Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(cstm.getBtnSignOut())) {
-                // MAIN MENU
                 currentCust = null;
                 currentView = "Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(cstm.getBtnTransport())) {
-                // TRANSPORTATION ORDER MENU
                 currentView = "Transportation Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(cstm.getBtnView())) {
-                // VIEW ORDER MENU
                 currentView = "View Order Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             }
         } else if (currentView.equals("Delete Order Menu")) {
             // DELETE ORDER MENU
             if (source.equals(docm.getBtnBack())) {
-                // CUSTOMER MENU
                 currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(docm.getBtnConfirmDelete())) {
@@ -222,27 +207,22 @@ public class Controller extends MouseAdapter implements ActionListener {
         } else if (currentView.equals("Driver Main Menu")) {
             // DRIVER MAIN MENU
             if (source.equals(drvm.getBtnProfile())) {
-                // PROFILE MENU
                 currentView = "Profile Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(drvm.getBtnSignOut())) {
-                // MAIN MENU
                 currentDriver = null;
                 currentView = "Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(drvm.getBtnTake())) {
-                // TAKE ORDER MENU
                 currentView = "Take Order Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(drvm.getBtnView())) {
-                // VIEW ORDER MENU
                 currentView = "View Order Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             }
         } else if (currentView.equals("Feedback Menu")) {
             // FEEDBACK MENU
             if (source.equals(fbcm.getBtnBack())) {
-                // CUSTOMER MENU
                 currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(fbcm.getBtnFeedback())) {
@@ -251,7 +231,6 @@ public class Controller extends MouseAdapter implements ActionListener {
         } else if (currentView.equals("FoodOrder Menu")) {
             // FOODCOURIER ORDER MENU
             if (source.equals(fdcm.getBtnBack())) {
-                // CUSTOMER MENU
                 currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(fdcm.getBtnCreateOrder())) {
@@ -261,11 +240,9 @@ public class Controller extends MouseAdapter implements ActionListener {
             // PROFILE MENU
             if (source.equals(pm.getBtnBack())) {
                 if (currentCust != null) {
-                    // CUSTOMER MENU
                     currentView = "Customer Main Menu";
                     view.getCardlayout().show(mainPanel, currentView);
                 } else if (currentDriver != null) {
-                    // DRIVER MENU
                     currentView = "Driver Main Menu";
                     view.getCardlayout().show(mainPanel, currentView);
                 }
@@ -275,7 +252,6 @@ public class Controller extends MouseAdapter implements ActionListener {
         } else if (currentView.equals("Take Order Menu")) {
             // TAKE ORDER MENU
             if (source.equals(tom.getBtnBack())) {
-                // DRIVER MENU
                 currentView = "Driver Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(tom.getBtnTakeOrder())) {
@@ -284,7 +260,6 @@ public class Controller extends MouseAdapter implements ActionListener {
         } else if (currentView.equals("Transportation Menu")) {
             // TRANSPORTATION ORDER MENU
             if (source.equals(tm.getBtnBack())) {
-                // CUSTOMER MENU
                 currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(tm.getBtnOrder())) {
@@ -294,11 +269,9 @@ public class Controller extends MouseAdapter implements ActionListener {
             // VIEW ORDER MENU
             if (source.equals(vom.getBtnBack())) {
                 if (currentCust != null) {
-                    // CUSTOMER MENU
                     currentView = "Customer Main Menu";
                     view.getCardlayout().show(mainPanel, currentView);
                 } else if (currentDriver != null) {
-                    // DRIVER MENU
                     currentView = "Driver Main Menu";
                     view.getCardlayout().show(mainPanel, currentView);
                 }
