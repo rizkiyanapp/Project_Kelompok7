@@ -23,7 +23,7 @@ public class mainClass {
         Console view = new Console(app);
         new Controller(app);
         
-//        view.mainMenu();
+        view.mainMenu();
     }
     
 }

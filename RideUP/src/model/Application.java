@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -242,6 +243,30 @@ public class Application {
             throw new FileNotFoundException("File not found!");
         } catch (IOException ex) {
             throw new IOException("Error : " + ex.getMessage());
+        }
+    }
+    
+    public void saveAll() {
+        try {
+        saveIterator();
+        saveDataFood();
+        saveDataIterator();
+        saveDataAccount();
+        } catch (IOException ex) {
+            System.out.println("Error : " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error while saving data!");
+        }
+    }
+    
+    public void loadAll() {
+        try {
+            loadDataFood();
+            loadDataIterator();
+            loadDataAccount();
+            loadIterator();
+        } catch (IOException ex) {
+            System.out.println("Error : " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error while loading data!");
         }
     }
 }

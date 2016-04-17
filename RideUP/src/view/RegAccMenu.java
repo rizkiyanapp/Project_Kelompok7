@@ -24,6 +24,10 @@ public class RegAccMenu extends javax.swing.JPanel {
         return btnBack;
     }
     
+    public void setRegisAcc(String s) {
+        txRegAcc.setText(s);
+    }
+    
     public void addListener(ActionListener e) {
         btnBack.addActionListener(e);
     }

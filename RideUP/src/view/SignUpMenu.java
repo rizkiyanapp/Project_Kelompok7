@@ -6,7 +6,6 @@
 package view;
 
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 
 /**
  *
@@ -34,11 +33,11 @@ public class SignUpMenu extends javax.swing.JPanel {
     }
     
     public String getPassword() {
-        return passPassword.getPassword().toString();
+        return passPassword.getText();
     }
     
     public String getConfirmPass() {
-        return passConfirmPass.getPassword().toString();
+        return passConfirmPass.getText();
     }
     
     public String getAccountName() {
@@ -53,12 +52,18 @@ public class SignUpMenu extends javax.swing.JPanel {
         return txNumber.getText();
     }
     
-    public Object getType() {
-        return cbType.getSelectedItem();
+    public int getType() {
+        return cbType.getSelectedIndex() + 1;
     }
     
-    public void addAdapter(MouseAdapter e) {
-        cbType.addMouseListener(e);
+    public void reset() {
+        cbType.setSelectedIndex(0);
+        txUsername.setText("");
+        passPassword.setText("");
+        passConfirmPass.setText("");
+        txName.setText("");
+        txEmail.setText("");
+        txNumber.setText("");
     }
     
     public void addListener(ActionListener e) {
@@ -95,7 +100,7 @@ public class SignUpMenu extends javax.swing.JPanel {
         setBackground(new java.awt.Color(30, 30, 30));
         setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SIGN UP", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        cbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Driver" }));
+        cbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select type...", "Customer", "Driver" }));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Username");

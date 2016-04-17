@@ -33,7 +33,12 @@ public class SignInMenu extends javax.swing.JPanel {
     }
     
     public String getPassword() {
-        return passPasword.getPassword().toString();
+        return passPasword.getText();
+    }
+    
+    public void reset() {
+        txUsername.setText("");
+        passPasword.setText("");
     }
     
     public void addListener(ActionListener e) {

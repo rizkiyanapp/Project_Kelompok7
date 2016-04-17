@@ -8,9 +8,14 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Application;
+import model.Customer;
+import model.Driver;
+import model.Person;
 import view.CourierMenu;
 import view.CustomerMenu;
 import view.DelAccMenu;
@@ -35,9 +40,19 @@ import view.ViewOrderMenu;
 public class Controller extends MouseAdapter implements ActionListener {
 
     private Application model;
+    private Customer currentCust;
+    private Driver currentDriver;
     private PanelContainer view;
     private String currentView;
     private JPanel mainPanel;
+
+    private int type;
+    private String username;
+    private String password;
+    private String confirmPassword;
+    private String name;
+    private String email;
+    private String number;
 
     private CourierMenu crm;
     private CustomerMenu cstm;
@@ -93,7 +108,6 @@ public class Controller extends MouseAdapter implements ActionListener {
         ram.addListener(this);
         sim.addListener(this);
         sum.addListener(this);
-        sum.addAdapter(this);
         tom.addListener(this);
         tom.addAdapter(this);
         tm.addListener(this);
@@ -102,220 +116,280 @@ public class Controller extends MouseAdapter implements ActionListener {
         vom.addAdapter(this);
 
         mainPanel = view.getMainPanel();
-        mainPanel.add(mm, "0");
-        mainPanel.add(crm, "1");
-        mainPanel.add(cstm, "2");
-        mainPanel.add(docm, "3");
-        mainPanel.add(drvm, "4");
-        mainPanel.add(fbcm, "5");
-        mainPanel.add(fdcm, "6");
-        mainPanel.add(pm, "7");
-        mainPanel.add(tom, "8");
-        mainPanel.add(tm, "9");
-        mainPanel.add(vom, "10");
-        mainPanel.add(sim, "11");
-        mainPanel.add(sum, "12");
-        mainPanel.add(ram, "13");
-        mainPanel.add(dam, "14");
-        currentView = "0";
+        mainPanel.add(mm, "Main Menu");
+        mainPanel.add(crm, "Courier Menu");
+        mainPanel.add(cstm, "Customer Main Menu");
+        mainPanel.add(docm, "Delete Order Menu");
+        mainPanel.add(drvm, "Driver Main Menu");
+        mainPanel.add(fbcm, "Feedback Menu");
+        mainPanel.add(fdcm, "FoodOrder Menu");
+        mainPanel.add(pm, "Profile Menu");
+        mainPanel.add(tom, "Take Order Menu");
+        mainPanel.add(tm, "Transportation Menu");
+        mainPanel.add(vom, "View Order Menu");
+        mainPanel.add(sim, "Sign In Menu");
+        mainPanel.add(sum, "Sign Up Menu");
+        mainPanel.add(ram, "Registered Acc Menu");
+        mainPanel.add(dam, "Delete Acc Menu");
+        currentView = "Main Menu";
 
         view.getCardlayout().show(mainPanel, currentView);
         view.setVisible(true);
+
+        model.loadAll();
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        if (currentView.equals("0")) {
+        if (currentView.equals("Main Menu")) {
             // MAIN MENU
             if (source.equals(mm.getBtnDelAcc())) {
                 // DELETE ACCOUNT MENU
-                currentView = "14";
+                currentView = "Delete Acc Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(mm.getBtnExit())) {
                 // EXIT PROGRAM
+                model.saveAll();
                 System.exit(0);
             } else if (source.equals(mm.getBtnRegAcc())) {
                 // REGISTERED ACCOUNT MENU
-                currentView = "13";
+                currentView = "Registered Acc Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(mm.getBtnSignIn())) {
                 // SIGN IN MENU
-                currentView = "11";
+                currentView = "Sign In Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(mm.getBtnSignUp())) {
                 // SIGN UP MENU
-                currentView = "12";
+                currentView = "Sign Up Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             }
-        } else if (currentView.equals("1")) {
+        } else if (currentView.equals("Courier Menu")) {
             // COURIER ORDER MENU
             if (source.equals(crm.getBtnBack())) {
                 // CUSTOMER MENU
-                currentView = "2";
+                currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(crm.getBtnCreateOrder())) {
 
             }
-        } else if (currentView.equals("2")) {
+        } else if (currentView.equals("Customer Main Menu")) {
             // CUSTOMER MAIN MENU
             if (source.equals(cstm.getBtnCourier())) {
                 // COURIER ORDER MENU
-                currentView = "1";
+                currentView = "Courier Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(cstm.getBtnDelOrder())) {
                 // DELETE ORDER MENU
-                currentView = "3";
+                currentView = "Delete Order Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(cstm.getBtnFeedback())) {
                 // FEEDBACK MENU
-                currentView = "5";
+                currentView = "Feedback Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(cstm.getBtnFoodCourier())) {
                 // FOODCOURIER ORDER MENU
-                currentView = "6";
+                currentView = "FoodOrder Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(cstm.getBtnProfile())) {
                 // PROFILE MENU
-                currentView = "7";
+                currentView = "Profile Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(cstm.getBtnSignOut())) {
                 // MAIN MENU
-                currentView = "0";
+                currentCust = null;
+                currentView = "Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(cstm.getBtnTransport())) {
                 // TRANSPORTATION ORDER MENU
-                currentView = "9";
+                currentView = "Transportation Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(cstm.getBtnView())) {
                 // VIEW ORDER MENU
-                currentView = "10";
+                currentView = "View Order Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             }
-        } else if (currentView.equals("3")) {
+        } else if (currentView.equals("Delete Order Menu")) {
             // DELETE ORDER MENU
             if (source.equals(docm.getBtnBack())) {
                 // CUSTOMER MENU
-                currentView = "2";
+                currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(docm.getBtnConfirmDelete())) {
 
             }
-        } else if (currentView.equals("4")) {
+        } else if (currentView.equals("Driver Main Menu")) {
             // DRIVER MAIN MENU
             if (source.equals(drvm.getBtnProfile())) {
                 // PROFILE MENU
-                currentView = "77";
-                view.getCardlayout().show(mainPanel, "7");
+                currentView = "Profile Menu";
+                view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(drvm.getBtnSignOut())) {
                 // MAIN MENU
-                currentView = "0";
+                currentDriver = null;
+                currentView = "Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(drvm.getBtnTake())) {
                 // TAKE ORDER MENU
-                currentView = "8";
+                currentView = "Take Order Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(drvm.getBtnView())) {
                 // VIEW ORDER MENU
-                currentView = "100";
-                view.getCardlayout().show(mainPanel, "10");
+                currentView = "View Order Menu";
+                view.getCardlayout().show(mainPanel, currentView);
             }
-        } else if (currentView.equals("5")) {
+        } else if (currentView.equals("Feedback Menu")) {
             // FEEDBACK MENU
             if (source.equals(fbcm.getBtnBack())) {
                 // CUSTOMER MENU
-                currentView = "2";
+                currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(fbcm.getBtnFeedback())) {
 
             }
-        } else if (currentView.equals("6")) {
+        } else if (currentView.equals("FoodOrder Menu")) {
             // FOODCOURIER ORDER MENU
             if (source.equals(fdcm.getBtnBack())) {
                 // CUSTOMER MENU
-                currentView = "2";
+                currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(fdcm.getBtnCreateOrder())) {
 
             }
-        } else if (currentView.equals("7") || currentView.equals("77")) {
+        } else if (currentView.equals("Profile Menu")) {
             // PROFILE MENU
             if (source.equals(pm.getBtnBack())) {
-                if (currentView.equals("7")) {
+                if (currentCust != null) {
                     // CUSTOMER MENU
-                    currentView = "2";
+                    currentView = "Customer Main Menu";
                     view.getCardlayout().show(mainPanel, currentView);
-                } else if (currentView.equals("77")) {
+                } else if (currentDriver != null) {
                     // DRIVER MENU
-                    currentView = "4";
+                    currentView = "Driver Main Menu";
                     view.getCardlayout().show(mainPanel, currentView);
                 }
             } else if (source.equals(pm.getBtnEdit())) {
 
             }
-        } else if (currentView.equals("8")) {
+        } else if (currentView.equals("Take Order Menu")) {
             // TAKE ORDER MENU
             if (source.equals(tom.getBtnBack())) {
                 // DRIVER MENU
-                currentView = "4";
+                currentView = "Driver Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(tom.getBtnTakeOrder())) {
 
             }
-        } else if (currentView.equals("9")) {
+        } else if (currentView.equals("Transportation Menu")) {
             // TRANSPORTATION ORDER MENU
             if (source.equals(tm.getBtnBack())) {
                 // CUSTOMER MENU
-                currentView = "2";
+                currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(tm.getBtnOrder())) {
 
             }
-        } else if (currentView.equals("10") || currentView.equals("100")) {
+        } else if (currentView.equals("View Order Menu")) {
             // VIEW ORDER MENU
             if (source.equals(vom.getBtnBack())) {
-                if (currentView.equals("10")) {
+                if (currentCust != null) {
                     // CUSTOMER MENU
-                    currentView = "2";
+                    currentView = "Customer Main Menu";
                     view.getCardlayout().show(mainPanel, currentView);
-                } else if (currentView.equals("100")) {
+                } else if (currentDriver != null) {
                     // DRIVER MENU
-                    currentView = "4";
+                    currentView = "Driver Main Menu";
                     view.getCardlayout().show(mainPanel, currentView);
                 }
             }
-        } else if (currentView.equals("11")) {
+        } else if (currentView.equals("Sign In Menu")) {
             // SIGN IN MENU
             if (source.equals(sim.getBtnBack())) {
-                currentView = "0";
+                currentView = "Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(sim.getBtnSignIn())) {
-                
+                username = sim.getUsername();
+                password = sim.getPassword();
+                Person temp = model.searchPerson(username);
+                if (temp != null) {
+                    if (temp.getPassword().equals(password)) {
+                        if (temp instanceof Customer) {
+                            currentCust = (Customer) temp;
+                            currentView = "Customer Main Menu";
+                            view.getCardlayout().show(mainPanel, currentView);
+                        } else if (temp instanceof Driver) {
+                            currentDriver = (Driver) temp;
+                            currentView = "Driver Main Menu";
+                            view.getCardlayout().show(mainPanel, currentView);
+                        }
+                        sim.reset();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Wrong password!");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Wrong username!");
+                }
             }
-        } else if (currentView.equals("12")) {
+        } else if (currentView.equals("Sign Up Menu")) {
             // SIGN UP MENU
             if (source.equals(sum.getBtnBack())) {
-                currentView = "0";
-                view.getCardlayout().show(mainPanel, currentView);                
+                currentView = "Main Menu";
+                view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(sum.getBtnSignUp())) {
-                
+                type = sum.getType();
+                username = sum.getUsername();
+                password = sum.getPassword();
+                confirmPassword = sum.getConfirmPass();
+                name = sum.getAccountName();
+                email = sum.getAccountEmail();
+                number = sum.getAccountNumber();
+                Person temp = model.searchPerson(username);
+                if (username.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Username cannot empty! Try again...");
+                } else if (temp != null) {
+                    JOptionPane.showMessageDialog(null, "Username already exist! Try again...");
+                } else if ((password.equals("")) && (confirmPassword.equals(""))) {
+                    JOptionPane.showMessageDialog(null, "Password cannot empty! Try again...");
+                } else if (password.equals(confirmPassword)) {
+                    if ((name.equals("")) && (email.equals("")) && (number.equals(""))) {
+                        JOptionPane.showMessageDialog(null, "Form cannot empty! Try again...");
+                    } else if (type == 1) {
+                        JOptionPane.showMessageDialog(null, "Type doesn't exist! Try again...");
+                    } else if (type == 2) {
+                        model.addCustomer(username, password, name, email, number);
+                        JOptionPane.showMessageDialog(null, "Customer Account created!!");
+                        sum.reset();
+                    } else if (type == 3) {
+                        model.addDriver(username, password, name, email, number);
+                        JOptionPane.showMessageDialog(null, "Driver Account created!!");
+                        sum.reset();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Password doesn't exist! Try again...");
+                }
             }
-        } else if (currentView.equals("13")) {
+        } else if (currentView.equals("Registered Acc Menu")) {
             // REGISTERED ACCOUNT MENU
             if (source.equals(ram.getBtnBack())) {
-                currentView = "0";
+                currentView = "Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             }
-        } else if (currentView.equals("14")) {
+        } else if (currentView.equals("Delete Acc Menu")) {
             // DELETE ACCOUNT MENU
             if (source.equals(dam.getBtnBack())) {
-                currentView = "0";
-                view.getCardlayout().show(mainPanel, currentView);                
+                currentView = "Main Menu";
+                view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(dam.getBtnDel())) {
-                
+
             } else if (source.equals(dam.getBtnRefresh())) {
-                
+
             }
         }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        
     }
 }
