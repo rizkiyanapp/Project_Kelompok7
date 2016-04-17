@@ -37,18 +37,21 @@ public class TransportationMenu extends javax.swing.JPanel {
         return txDestination.getText();
     }
     
-    public Object getDistance() {
-        return spinDistance.getValue();
+    public int getDistance() {
+        return (Integer) spinDistance.getValue();
     }
     
     public String getDetail() {
         return txDetail.getText();
     }
     
-    public void addAdapter(MouseAdapter e) {
-        spinDistance.addMouseListener(e);
+    public void reset() {
+        txPosition.setText("");
+        txDestination.setText("");
+        spinDistance.setValue(0);
+        txDetail.setText("");
     }
-
+    
     public void addListener(ActionListener e) {
         btnBack.addActionListener(e);
         btnOrder.addActionListener(e);

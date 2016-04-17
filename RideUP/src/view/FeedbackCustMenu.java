@@ -20,30 +20,48 @@ public class FeedbackCustMenu extends javax.swing.JPanel {
     public FeedbackCustMenu() {
         initComponents();
     }
-    
+
     public Object getBtnFeedback() {
         return btnFeedback;
     }
-    
+
     public Object getBtnBack() {
         return btnBack;
     }
-    
+
+    public Object getBtnRefresh() {
+        return btnRefresh;
+    }
+
     public void setOrder(String s) {
         txOrder.setText(s);
     }
-    
+
     public String getFeedback() {
         return txFeedback.getText();
     }
-    
+
+    public void setListOrder(String[] list) {
+        listOrder.setListData(list);
+    }
+
+    public String getSelectedOrder() {
+        return listOrder.getSelectedValue();
+    }
+
     public void addAdapter(MouseAdapter e) {
         listOrder.addMouseListener(e);
     }
     
+    public void reset() {
+        txOrder.setText("");
+        txFeedback.setText("");
+    }
+
     public void addListener(ActionListener e) {
         btnFeedback.addActionListener(e);
         btnBack.addActionListener(e);
+        btnRefresh.addActionListener(e);
     }
 
     /**
@@ -65,6 +83,7 @@ public class FeedbackCustMenu extends javax.swing.JPanel {
         txFeedback = new javax.swing.JTextArea();
         btnFeedback = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(30, 30, 30));
 
@@ -91,6 +110,9 @@ public class FeedbackCustMenu extends javax.swing.JPanel {
         btnBack.setText("Back");
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnRefresh.setText("Refresh");
+        btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,7 +137,9 @@ public class FeedbackCustMenu extends javax.swing.JPanel {
                                     .addComponent(txOrder)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(26, 26, 26)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(81, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -125,7 +149,9 @@ public class FeedbackCustMenu extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(23, 23, 23)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -135,7 +161,7 @@ public class FeedbackCustMenu extends javax.swing.JPanel {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addGap(45, 45, 45)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
@@ -145,6 +171,7 @@ public class FeedbackCustMenu extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnFeedback;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

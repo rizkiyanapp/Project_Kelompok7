@@ -60,17 +60,17 @@ public class Customer extends Person implements Serializable {
         }
         else {
             if(type == 1) {
-                orderId = orderId + (Order.nOrder + 1);
+                orderId = orderId + (Order.nOrder);
                 Order baru = new Order(orderId, position, destination, distance, detail);
                 orderList.add(baru);
             }
             else if(type == 2) {
-                courierId += (Courier.nCourier + 1);
+                courierId += (Courier.nCourier);
                 Courier baru = new Courier(courierId, position, destination, distance, detail);
                 orderList.add(baru);
             }
             else if(type == 3) {
-                foodCourierId += (FoodCourier.nFoodCourier + 1);
+                foodCourierId += (FoodCourier.nFoodCourier);
                 FoodCourier baru = new FoodCourier(foodCourierId, position, destination, distance, detail);
                 orderList.add(baru);
             }

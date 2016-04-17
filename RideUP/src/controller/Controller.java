@@ -16,6 +16,7 @@ import model.Application;
 import model.Courier;
 import model.Customer;
 import model.Driver;
+import model.Food;
 import model.FoodCourier;
 import model.Order;
 import model.Person;
@@ -47,6 +48,7 @@ public class Controller extends MouseAdapter implements ActionListener {
     private Driver currentDriver;
     private Person person;
     private Order order;
+    private Food food;
     private PanelContainer view;
     private String currentView;
     private JPanel mainPanel;
@@ -59,6 +61,11 @@ public class Controller extends MouseAdapter implements ActionListener {
     private String email;
     private String number;
     private String s;
+    private String position;
+    private String destination;
+    private int distance;
+    private String detail;
+    private String feedback;
 
     private CourierMenu crm;
     private CustomerMenu cstm;
@@ -117,7 +124,6 @@ public class Controller extends MouseAdapter implements ActionListener {
         tom.addListener(this);
         tom.addAdapter(this);
         tm.addListener(this);
-        tm.addAdapter(this);
         vom.addListener(this);
         vom.addAdapter(this);
 
@@ -166,7 +172,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                 currentView = "Sign Up Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             }
-        } else if (currentView.equals("Courier Menu")) {
+        } else if (currentView.equals("Courier Menu")) { // =======================================
             // COURIER ORDER MENU
             if (source.equals(crm.getBtnBack())) {
                 currentView = "Customer Main Menu";
@@ -202,13 +208,15 @@ public class Controller extends MouseAdapter implements ActionListener {
                 currentView = "View Order Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             }
-        } else if (currentView.equals("Delete Order Menu")) {
+        } else if (currentView.equals("Delete Order Menu")) { //==============================
             // DELETE ORDER MENU
             if (source.equals(docm.getBtnBack())) {
                 currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(docm.getBtnConfirmDelete())) {
 
+            } else if (source.equals(docm.getBtnRefresh())) {
+//                docm.setListOrder();
             }
         } else if (currentView.equals("Driver Main Menu")) {
             // DRIVER MAIN MENU
@@ -229,18 +237,57 @@ public class Controller extends MouseAdapter implements ActionListener {
         } else if (currentView.equals("Feedback Menu")) {
             // FEEDBACK MENU
             if (source.equals(fbcm.getBtnBack())) {
+                order = null;
                 currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(fbcm.getBtnFeedback())) {
-
+                feedback = fbcm.getFeedback();
+                if (order == null) {
+                    JOptionPane.showMessageDialog(null, "Please select any order!");
+                } else if (feedback.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Form cannot empty!");
+                } else {
+                    order.setFeedback(feedback);
+                    JOptionPane.showMessageDialog(null, "Feedback submited!");
+                    fbcm.reset();
+                }
+            } else if (source.equals(fbcm.getBtnRefresh())) {
+                fbcm.setListOrder(model.getListTakenOrder());
+                fbcm.setOrder("");
             }
         } else if (currentView.equals("FoodOrder Menu")) {
             // FOODCOURIER ORDER MENU
             if (source.equals(fdcm.getBtnBack())) {
+                food = null;
+                fdcm.reset();
                 currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(fdcm.getBtnCreateOrder())) {
-
+                position = fdcm.getPosition();
+                destination = fdcm.getDestination();
+                distance = fdcm.getDistance();
+                detail = fdcm.getDetail();
+                int qty = fdcm.getQty();
+                if ((position.equals("")) || (destination.equals(""))) {
+                    JOptionPane.showMessageDialog(null, "Form cannot empty!");
+                } else if (distance <= 0) {
+                    JOptionPane.showMessageDialog(null, "Distance cannot be under 0");
+                } else if (food == null) {
+                    JOptionPane.showMessageDialog(null, "Please select any food!");
+                } else if (qty <= 0) {
+                    JOptionPane.showMessageDialog(null, "Qty cannot be under 0");
+                } else {
+                    currentCust.createOrder(3, position, destination, distance, detail);
+                    FoodCourier temp = (FoodCourier) currentCust.getOrders(currentCust.getNOrder() - 1);
+                    temp.addFood(food, qty);
+                    Order temp2 = temp;
+                    temp2.setPrice(model.rideupPrice);
+                    JOptionPane.showMessageDialog(null, "Food Courier Order created!");
+                    fdcm.reset();
+                }
+            } else if (source.equals(fdcm.getBtnRefresh())) {
+                fdcm.setListFood(model.getListFood());
+                fdcm.setFood("");
             }
         } else if (currentView.equals("Profile Menu")) {
             // PROFILE MENU
@@ -305,22 +352,47 @@ public class Controller extends MouseAdapter implements ActionListener {
         } else if (currentView.equals("Take Order Menu")) {
             // TAKE ORDER MENU
             if (source.equals(tom.getBtnBack())) {
+                order = null;
+                tom.reset();
                 currentView = "Driver Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(tom.getBtnTakeOrder())) {
-
+                if (order != null) {
+                    currentDriver.addOrder(order);
+                    JOptionPane.showMessageDialog(null, "Order taked! Now go RIDEUP!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please select any order!");
+                }
+            } else if (source.equals(tom.getBtnRefresh())) {
+                tom.setListOrder(model.getListAvailableOrder());
+                tom.reset();
             }
         } else if (currentView.equals("Transportation Menu")) {
             // TRANSPORTATION ORDER MENU
             if (source.equals(tm.getBtnBack())) {
+                tm.reset();
                 currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(tm.getBtnOrder())) {
-
+                position = tm.getPosition();
+                destination = tm.getDestination();
+                distance = tm.getDistance();
+                detail = tm.getDetail();
+                if ((position.equals("")) || (destination.equals(""))) {
+                    JOptionPane.showMessageDialog(null, "Form cannot empty!");
+                } else if (distance <= 0) {
+                    JOptionPane.showMessageDialog(null, "Distance cannot be under 0");
+                } else {
+                    currentCust.createOrder(1, position, destination, distance, detail);
+                    currentCust.getOrders(currentCust.getNOrder() - 1).setPrice(model.rideupPrice);
+                    JOptionPane.showMessageDialog(null, "Transportation Order created!");
+                    tm.reset();
+                }
             }
         } else if (currentView.equals("View Order Menu")) {
             // VIEW ORDER MENU
             if (source.equals(vom.getBtnBack())) {
+                vom.reset();
                 if (currentCust != null) {
                     currentView = "Customer Main Menu";
                     view.getCardlayout().show(mainPanel, currentView);
@@ -339,6 +411,7 @@ public class Controller extends MouseAdapter implements ActionListener {
         } else if (currentView.equals("Sign In Menu")) {
             // SIGN IN MENU
             if (source.equals(sim.getBtnBack())) {
+                sim.reset();
                 currentView = "Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(sim.getBtnSignIn())) {
@@ -367,6 +440,7 @@ public class Controller extends MouseAdapter implements ActionListener {
         } else if (currentView.equals("Sign Up Menu")) {
             // SIGN UP MENU
             if (source.equals(sum.getBtnBack())) {
+                sum.reset();
                 currentView = "Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(sum.getBtnSignUp())) {
@@ -382,10 +456,10 @@ public class Controller extends MouseAdapter implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Username cannot empty! Try again...");
                 } else if (temp != null) {
                     JOptionPane.showMessageDialog(null, "Username already exist! Try again...");
-                } else if ((password.equals("")) && (confirmPassword.equals(""))) {
+                } else if ((password.equals("")) || (confirmPassword.equals(""))) {
                     JOptionPane.showMessageDialog(null, "Password cannot empty! Try again...");
                 } else if (password.equals(confirmPassword)) {
-                    if ((name.equals("")) && (email.equals("")) && (number.equals(""))) {
+                    if ((name.equals("")) || (email.equals("")) || (number.equals(""))) {
                         JOptionPane.showMessageDialog(null, "Form cannot empty! Try again...");
                     } else if (type == 1) {
                         JOptionPane.showMessageDialog(null, "Please select any type! Try again...");
@@ -405,6 +479,7 @@ public class Controller extends MouseAdapter implements ActionListener {
         } else if (currentView.equals("Registered Acc Menu")) {
             // REGISTERED ACCOUNT MENU
             if (source.equals(ram.getBtnBack())) {
+                ram.reset();
                 currentView = "Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(ram.getBtnRefresh())) {
@@ -425,6 +500,8 @@ public class Controller extends MouseAdapter implements ActionListener {
         } else if (currentView.equals("Delete Acc Menu")) {
             // DELETE ACCOUNT MENU
             if (source.equals(dam.getBtnBack())) {
+                person = null;
+                dam.reset();
                 currentView = "Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(dam.getBtnDel())) {
@@ -480,6 +557,26 @@ public class Controller extends MouseAdapter implements ActionListener {
             } else {
                 vom.setOrderDetail(order.toString() + s);
             }
+        } else if (currentView.equals("Take Order Menu")) {
+            order = model.searchOrderCustomer(tom.getSelectedOrder());
+            s = ("Detail : " + order.getDetail() + "\n"
+                    + "Price : Rp" + order.getPrice());
+            if (order instanceof Courier) {
+                Courier c = (Courier) order;
+                tom.setOrderDetail(c.toString() + s);
+            } else if (order instanceof FoodCourier) {
+                FoodCourier fc = (FoodCourier) order;
+                tom.setOrderDetail(fc.toString() + s);
+            } else {
+                tom.setOrderDetail(order.toString() + s);
+            }
+        } else if (currentView.equals("FoodOrder Menu")) {
+            food = model.searchFood(fdcm.getSelectedFood());
+            fdcm.setFood(food.toString());
+        } else if (currentView.equals("Feedback Menu")) {
+            order = model.searchOrderCustomer(fbcm.getSelectedOrder());
+            Driver temp = model.searchDriverByOrder(order);
+            fbcm.setOrder("Taken by " + temp.getIdDriver());
         }
     }
 }

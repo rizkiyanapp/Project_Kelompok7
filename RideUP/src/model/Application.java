@@ -64,16 +64,18 @@ public class Application {
     }
 
     public void createFoodList() {
-        foodList.add(new Food("Ayam Pedas Udin", 14000));
-        foodList.add(new Food("Roti Bakar Asep", 10000));
-        foodList.add(new Food("Pisang Goreng Mamat", 11000));
-        foodList.add(new Food("Pancong Balap", 8000));
-        foodList.add(new Food("Chicken Katsu Afro", 15000));
-        foodList.add(new Food("Nasi Pecel Mbakyu", 15000));
-        foodList.add(new Food("Jus Kliningan", 12000));
-        foodList.add(new Food("Susu Murni Julia", 12000));
-        foodList.add(new Food("Cet Time Kopo", 15000));
-        foodList.add(new Food("Teh Asoy Geboy", 8000));
+        if (foodList.isEmpty()) {
+            foodList.add(new Food("Ayam Pedas Udin", 14000));
+            foodList.add(new Food("Roti Bakar Asep", 10000));
+            foodList.add(new Food("Pisang Goreng Mamat", 11000));
+            foodList.add(new Food("Pancong Balap", 8000));
+            foodList.add(new Food("Chicken Katsu Afro", 15000));
+            foodList.add(new Food("Nasi Pecel Mbakyu", 15000));
+            foodList.add(new Food("Jus Kliningan", 12000));
+            foodList.add(new Food("Susu Murni Julia", 12000));
+            foodList.add(new Food("Cet Time Kopo", 15000));
+            foodList.add(new Food("Teh Asoy Geboy", 8000));
+        }
     }
 
     public void addCustomer(String username, String password, String name, String email, String number) {
@@ -145,9 +147,9 @@ public class Application {
         return null;
     }
 
-    public Food searchFood(String foodId) {
+    public Food searchFood(String name) {
         for (int i = 0; i < foodList.size(); i++) {
-            if (foodList.get(i).getIdFood().equals(foodId)) {
+            if (foodList.get(i).getName().equals(name)) {
                 return foodList.get(i);
             }
         }
@@ -278,6 +280,14 @@ public class Application {
         return (String[]) listAcc.toArray(new String[list.size()]);
     }
 
+    public String[] getListFood() {
+        ArrayList<String> listFood = new ArrayList();
+        for (Food f : foodList) {
+            listFood.add(f.getName());
+        }
+        return (String[]) listFood.toArray(new String[list.size()]);
+    }
+
     public String[] getListOrderCustomer() {
         ArrayList<String> listOrder = new ArrayList();
         int iterator = 0;
@@ -318,6 +328,56 @@ public class Application {
                         listOrder.add(o.getId());
                     }
                     iterator++;
+                }
+            }
+        }
+        return (String[]) listOrder.toArray(new String[iterator]);
+    }
+
+    public String[] getListAvailableOrder() {
+        ArrayList<String> listOrder = new ArrayList();
+        int iterator = 0;
+        for (Person p : list) {
+            if (p instanceof Customer) {
+                Customer temp = (Customer) p;
+                for (Order o : temp.getOrderList()) {
+                    if (o.isTaken() == false) {
+                        if (o instanceof Courier) {
+                            Courier c = (Courier) o;
+                            listOrder.add(c.getId());
+                        } else if (o instanceof FoodCourier) {
+                            FoodCourier fc = (FoodCourier) o;
+                            listOrder.add(fc.getId());
+                        } else {
+                            listOrder.add(o.getId());
+                        }
+                        iterator++;
+                    }
+                }
+            }
+        }
+        return (String[]) listOrder.toArray(new String[iterator]);
+    }
+    
+    public String[] getListTakenOrder() {
+        ArrayList<String> listOrder = new ArrayList();
+        int iterator = 0;
+        for (Person p : list) {
+            if (p instanceof Customer) {
+                Customer temp = (Customer) p;
+                for (Order o : temp.getOrderList()) {
+                    if (o.isTaken() == true) {
+                        if (o instanceof Courier) {
+                            Courier c = (Courier) o;
+                            listOrder.add(c.getId());
+                        } else if (o instanceof FoodCourier) {
+                            FoodCourier fc = (FoodCourier) o;
+                            listOrder.add(fc.getId());
+                        } else {
+                            listOrder.add(o.getId());
+                        }
+                        iterator++;
+                    }
                 }
             }
         }

@@ -32,6 +32,10 @@ public class RegAccMenu extends javax.swing.JPanel {
         txRegAcc.setText(s);
     }
     
+    public void reset() {
+        txRegAcc.setText("");
+    }
+    
     public void addListener(ActionListener e) {
         btnBack.addActionListener(e);
         btnRefresh.addActionListener(e);

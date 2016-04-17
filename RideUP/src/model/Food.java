@@ -38,7 +38,7 @@ public class Food implements Serializable {
 
     @Override
     public String toString() {
-        return ("ID : " + idFood + "  |  Name : " + name + "  |  Price : " + price);
+        return (idFood + "  |  Price : Rp" + price);
     }
 
     public static void setnFood(int nFood) {

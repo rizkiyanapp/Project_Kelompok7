@@ -53,6 +53,15 @@ public class CourierMenu extends javax.swing.JPanel {
         return txRNumber.getText();
     }
     
+    public void reset() {
+        txPosition.setText("");
+        txDestination.setText("");
+        txDetail.setText("");
+        txRNumber.setText("");
+        txRName.setText("");
+        spinDistance.setValue(0);
+    }
+    
     public void addAdapter(MouseAdapter e) {
         spinDistance.addMouseListener(e);
     }
