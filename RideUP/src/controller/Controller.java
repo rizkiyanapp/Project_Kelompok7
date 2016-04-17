@@ -606,7 +606,16 @@ public class Controller extends MouseAdapter implements ActionListener {
             Driver temp = model.searchDriverByOrder(order);
             fbcm.setOrder("Taken by " + temp.getIdDriver());
         } else if (currentView.equals("Delete Order Menu")) {
+            String s;
             order = model.searchOrderCustomer(docm.getSelectedOrder());
+            if (order instanceof Courier) {
+                s = "Courier Order";
+            } else if (order instanceof FoodCourier) {
+                s = "FoodCourier Order";
+            } else {
+                s = "Transportation Order";
+            }
+            docm.setDeleteOrder(s);
         }
     }
 }
