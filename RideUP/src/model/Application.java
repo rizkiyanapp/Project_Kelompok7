@@ -245,19 +245,19 @@ public class Application {
             throw new IOException("Error : " + ex.getMessage());
         }
     }
-    
+
     public void saveAll() {
         try {
-        saveIterator();
-        saveDataFood();
-        saveDataIterator();
-        saveDataAccount();
+            saveIterator();
+            saveDataFood();
+            saveDataIterator();
+            saveDataAccount();
         } catch (IOException ex) {
             System.out.println("Error : " + ex.getMessage());
             JOptionPane.showMessageDialog(null, "Error while saving data!");
         }
     }
-    
+
     public void loadAll() {
         try {
             loadDataFood();
@@ -268,5 +268,59 @@ public class Application {
             System.out.println("Error : " + ex.getMessage());
             JOptionPane.showMessageDialog(null, "Error while loading data!");
         }
+    }
+
+    public String[] getListAcc() {
+        ArrayList<String> listAcc = new ArrayList();
+        for (Person p : list) {
+            listAcc.add(p.getUsername());
+        }
+        return (String[]) listAcc.toArray(new String[list.size()]);
+    }
+
+    public String[] getListOrderCustomer() {
+        ArrayList<String> listOrder = new ArrayList();
+        int iterator = 0;
+        for (Person p : list) {
+            if (p instanceof Customer) {
+                Customer temp = (Customer) p;
+                for (Order o : temp.getOrderList()) {
+                    if (o instanceof Courier) {
+                        Courier c = (Courier) o;
+                        listOrder.add(c.getId());
+                    } else if (o instanceof FoodCourier) {
+                        FoodCourier fc = (FoodCourier) o;
+                        listOrder.add(fc.getId());
+                    } else {
+                        listOrder.add(o.getId());
+                    }
+                    iterator++;
+                }
+            }
+        }
+        return (String[]) listOrder.toArray(new String[iterator]);
+    }
+
+    public String[] getListOrderDriver() {
+        ArrayList<String> listOrder = new ArrayList();
+        int iterator = 0;
+        for (Person p : list) {
+            if (p instanceof Driver) {
+                Driver temp = (Driver) p;
+                for (Order o : temp.getOrderList()) {
+                    if (o instanceof Courier) {
+                        Courier c = (Courier) o;
+                        listOrder.add(c.getId());
+                    } else if (o instanceof FoodCourier) {
+                        FoodCourier fc = (FoodCourier) o;
+                        listOrder.add(fc.getId());
+                    } else {
+                        listOrder.add(o.getId());
+                    }
+                    iterator++;
+                }
+            }
+        }
+        return (String[]) listOrder.toArray(new String[iterator]);
     }
 }

@@ -37,7 +37,13 @@ public class FoodCourier extends Order implements Serializable {
 
     @Override
     public String toString() {
-        return ("ID : " + getId() + "  |  Food : " + foodOrder.getName()+ "  |  Qty : " + qty + "  |  From : " + getPosition() + "  |  To : " + getDestination() + "  |  " + getDistance() + "Km");
+        return ("FoodCourier Order \n" +
+                "ID : " + getId() + "\n" +
+                "Food : " + foodOrder.getName()+ "\n" +
+                "Qty : " + qty + "\n" +
+                "From : " + getPosition() + "\n" +
+                "To : " + getDestination() + "\n" +
+                "Distance : " + getDistance() + "Km \n");
     }
 
     public static void setnFoodCourier(int nFoodCourier) {

@@ -15,7 +15,7 @@ public abstract class Person implements Serializable {
     private String name;
     private String email;
     private String noIdentity;
-    private int age;
+    private String age;
     private char gender;
     private String address;
     private String number;
@@ -34,7 +34,7 @@ public abstract class Person implements Serializable {
         this.noIdentity = noIdentity;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
@@ -62,7 +62,7 @@ public abstract class Person implements Serializable {
         return noIdentity;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 

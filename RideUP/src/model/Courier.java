@@ -39,7 +39,11 @@ public class Courier extends Order implements Serializable {
 
     @Override
     public String toString() {
-        return ("ID : " + getId() + "  |  From : " + getPosition() + "  |  To : " + getDestination() + " (" + receiverName + ", " + receiverNumber + ")  |  " + getDistance() + "Km");
+        return ("Courier Order \n" +
+                "ID : " + getId() + "\n" +
+                "From : " + getPosition() + "\n" +
+                "To : " + getDestination() + " (" + receiverName + ", " + receiverNumber + ")" + "\n" +
+                "Distance : "+ getDistance() + "Km \n");
     }
 
     public static void setnCourier(int nCourier) {

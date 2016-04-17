@@ -82,7 +82,11 @@ public class Order implements Serializable {
 
     @Override
     public String toString() {
-        return ("ID : " + orderId + "  |  From : " + position + "  |  To : " + destination + "  |  " + distance + "Km");
+        return ("Transportation Order \n" +
+                "ID : " + orderId + "\n" +
+                "From : " + position + "\n" +
+                "To : " + destination + "\n" +
+                "Distance : " + distance + "Km \n");
     }
 
     public static void setnOrder(int nOrder) {

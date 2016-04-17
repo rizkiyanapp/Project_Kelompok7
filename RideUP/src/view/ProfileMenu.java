@@ -29,6 +29,10 @@ public class ProfileMenu extends javax.swing.JPanel {
         return btnEdit;
     }
     
+    public Object getBtnRefresh() {
+        return btnRefresh;
+    }
+    
     public String getEdit() {
         return txEdit.getText();
     }
@@ -37,8 +41,12 @@ public class ProfileMenu extends javax.swing.JPanel {
         txProfile.setText(s);
     }
     
-    public Object getSelectedEdit() {
-        return cbProfile.getSelectedItem();
+    public int getSelectedEdit() {
+        return cbProfile.getSelectedIndex() +1;
+    }
+    
+    public void reset() {
+        txEdit.setText("");
     }
     
     public void addAdapter(MouseAdapter e) {
@@ -48,6 +56,7 @@ public class ProfileMenu extends javax.swing.JPanel {
     public void addListener(ActionListener e) {
         btnBack.addActionListener(e);
         btnEdit.addActionListener(e);
+        btnRefresh.addActionListener(e);
     }
 
     /**
@@ -67,6 +76,7 @@ public class ProfileMenu extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         btnEdit = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(30, 30, 30));
 
@@ -78,7 +88,7 @@ public class ProfileMenu extends javax.swing.JPanel {
         txProfile.setRows(5);
         jScrollPane1.setViewportView(txProfile);
 
-        cbProfile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Name", "No Identity", "Gender", "Age", "Address" }));
+        cbProfile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select type...", "Name", "No Identity", "Gender", "Age", "Address" }));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("EDIT PROFILE");
@@ -89,6 +99,9 @@ public class ProfileMenu extends javax.swing.JPanel {
         btnBack.setText("Back");
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnRefresh.setText("Refresh");
+        btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,12 +110,15 @@ public class ProfileMenu extends javax.swing.JPanel {
                 .addContainerGap(78, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cbProfile, 0, 68, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1)
-                    .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbProfile, 0, 68, Short.MAX_VALUE)
+                            .addComponent(btnRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnEdit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txEdit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))))
                 .addGap(72, 72, 72))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,7 +144,9 @@ public class ProfileMenu extends javax.swing.JPanel {
                     .addComponent(cbProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
@@ -139,6 +157,7 @@ public class ProfileMenu extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JComboBox<String> cbProfile;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

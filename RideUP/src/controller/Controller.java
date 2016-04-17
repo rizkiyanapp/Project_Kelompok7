@@ -13,8 +13,11 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Application;
+import model.Courier;
 import model.Customer;
 import model.Driver;
+import model.FoodCourier;
+import model.Order;
 import model.Person;
 import view.CourierMenu;
 import view.CustomerMenu;
@@ -42,6 +45,8 @@ public class Controller extends MouseAdapter implements ActionListener {
     private Application model;
     private Customer currentCust;
     private Driver currentDriver;
+    private Person person;
+    private Order order;
     private PanelContainer view;
     private String currentView;
     private JPanel mainPanel;
@@ -53,6 +58,7 @@ public class Controller extends MouseAdapter implements ActionListener {
     private String name;
     private String email;
     private String number;
+    private String s;
 
     private CourierMenu crm;
     private CustomerMenu cstm;
@@ -247,7 +253,54 @@ public class Controller extends MouseAdapter implements ActionListener {
                     view.getCardlayout().show(mainPanel, currentView);
                 }
             } else if (source.equals(pm.getBtnEdit())) {
-
+                if (pm.getSelectedEdit() == 1) {
+                    JOptionPane.showMessageDialog(null, "Please select any type!");
+                } else if (pm.getEdit().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Form cannot empty! Try again...");
+                } else if (pm.getSelectedEdit() == 2) {
+                    if (currentCust != null) {
+                        currentCust.setName(pm.getEdit());
+                    } else if (currentDriver != null) {
+                        currentDriver.setName(pm.getEdit());
+                    }
+                    JOptionPane.showMessageDialog(null, "Profile Edited!");
+                } else if (pm.getSelectedEdit() == 3) {
+                    if (currentCust != null) {
+                        currentCust.setNoIdentity(pm.getEdit());
+                    } else if (currentDriver != null) {
+                        currentDriver.setNoIdentity(pm.getEdit());
+                    }
+                    JOptionPane.showMessageDialog(null, "Profile Edited!");
+                } else if (pm.getSelectedEdit() == 4) {
+                    char gender = pm.getEdit().charAt(0);
+                    if (currentCust != null) {
+                        currentCust.setGender(gender);
+                    } else if (currentDriver != null) {
+                        currentDriver.setGender(gender);
+                    }
+                    JOptionPane.showMessageDialog(null, "Profile Edited!");
+                } else if (pm.getSelectedEdit() == 5) {
+                    if (currentCust != null) {
+                        currentCust.setAge(pm.getEdit());
+                    } else if (currentDriver != null) {
+                        currentDriver.setAge(pm.getEdit());
+                    }
+                    JOptionPane.showMessageDialog(null, "Profile Edited!");
+                } else if (pm.getSelectedEdit() == 6) {
+                    if (currentCust != null) {
+                        currentCust.setAddress(pm.getEdit());
+                    } else if (currentDriver != null) {
+                        currentDriver.setAddress(pm.getEdit());
+                    }
+                    JOptionPane.showMessageDialog(null, "Profile Edited!");
+                }
+                pm.reset();
+            } else if (source.equals(pm.getBtnRefresh())) {
+                if (currentCust != null) {
+                    pm.setProfileDetail(currentCust.toString());
+                } else if (currentDriver != null) {
+                    pm.setProfileDetail(currentDriver.toString());
+                }
             }
         } else if (currentView.equals("Take Order Menu")) {
             // TAKE ORDER MENU
@@ -275,6 +328,13 @@ public class Controller extends MouseAdapter implements ActionListener {
                     currentView = "Driver Main Menu";
                     view.getCardlayout().show(mainPanel, currentView);
                 }
+            } else if (source.equals(vom.getBtnRefresh())) {
+                if (currentCust != null) {
+                    vom.setListOrder(model.getListOrderCustomer());
+                } else if (currentDriver != null) {
+                    vom.setListOrder(model.getListOrderDriver());
+                }
+                vom.reset();
             }
         } else if (currentView.equals("Sign In Menu")) {
             // SIGN IN MENU
@@ -328,7 +388,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                     if ((name.equals("")) && (email.equals("")) && (number.equals(""))) {
                         JOptionPane.showMessageDialog(null, "Form cannot empty! Try again...");
                     } else if (type == 1) {
-                        JOptionPane.showMessageDialog(null, "Type doesn't exist! Try again...");
+                        JOptionPane.showMessageDialog(null, "Please select any type! Try again...");
                     } else if (type == 2) {
                         model.addCustomer(username, password, name, email, number);
                         JOptionPane.showMessageDialog(null, "Customer Account created!!");
@@ -347,6 +407,20 @@ public class Controller extends MouseAdapter implements ActionListener {
             if (source.equals(ram.getBtnBack())) {
                 currentView = "Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
+            } else if (source.equals(ram.getBtnRefresh())) {
+                String s = "";
+                String id = "";
+                for (int i = 0; i < model.getList().size(); i++) {
+                    if (model.getList().get(i) instanceof Driver) {
+                        Driver temp = (Driver) model.getList().get(i);
+                        id = (temp.getIdDriver());
+                    } else {
+                        Customer temp = (Customer) model.getList().get(i);
+                        id = (temp.getIdCustomer());
+                    }
+                    s = s + (i + 1 + ". Username : " + model.getList().get(i).getUsername() + "  |  ID : " + id + "\n");
+                }
+                ram.setRegisAcc(s);
             }
         } else if (currentView.equals("Delete Acc Menu")) {
             // DELETE ACCOUNT MENU
@@ -354,15 +428,58 @@ public class Controller extends MouseAdapter implements ActionListener {
                 currentView = "Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(dam.getBtnDel())) {
-
+                if (person != null) {
+                    model.deletePerson(person);
+                    JOptionPane.showMessageDialog(null, "Account deleted!");
+                    dam.reset();
+                    dam.setListAcc(model.getListAcc());
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please select any account!");
+                }
             } else if (source.equals(dam.getBtnRefresh())) {
-
+                dam.setListAcc(model.getListAcc());
             }
         }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        
+        if (currentView.equals("Delete Acc Menu")) {
+            person = model.searchPerson(dam.getSelectedAcc());
+            if (person instanceof Customer) {
+                Customer tempC = (Customer) person;
+                dam.setSelected("Username : " + tempC.getUsername() + "  |  ID : " + tempC.getIdCustomer() + "  |  Orders : " + tempC.getNOrder());
+            } else if (person instanceof Driver) {
+                Driver tempD = (Driver) person;
+                dam.setSelected("Username : " + tempD.getUsername() + "  |  ID : " + tempD.getIdDriver() + "  |  Orders : " + tempD.getNOrder());
+            }
+        } else if (currentView.equals("View Order Menu")) {
+            if (currentCust != null) {
+                order = model.searchOrderCustomer(vom.getSelectedOrder());
+            } else if (currentDriver != null) {
+                order = model.searchOrderDriver(vom.getSelectedOrder());
+            }
+            if (order.isTaken()) {
+                Driver temp = model.searchDriverByOrder(order);
+                s = ("Status : \n"
+                        + "Taken by : " + temp.getIdDriver() + "\n"
+                        + "Price : Rp" + order.getPrice() + "\n"
+                        + "Detail : " + order.getDetail() + "\n"
+                        + "Feedback : " + order.getFeedback());
+            } else {
+                s = ("Status : Available \n"
+                        + "Detail : " + order.getDetail() + "\n"
+                        + "Feedback : " + order.getFeedback());
+            }
+            if (order instanceof Courier) {
+                Courier c = (Courier) order;
+                vom.setOrderDetail(c.toString() + s);
+            } else if (order instanceof FoodCourier) {
+                FoodCourier fc = (FoodCourier) order;
+                vom.setOrderDetail(fc.toString() + s);
+            } else {
+                vom.setOrderDetail(order.toString() + s);
+            }
+        }
     }
 }

@@ -262,18 +262,8 @@ public class Console {
                         break;
                     case 4:
                         ans = 0;
-                        int age = 0;
-                        while (age == 0) {
-                            try {
-                                System.out.print("Age : ");
-                                age = inputInteger();
-                            } catch (Exception e) {
-                                System.out.println("Error : " + e.getMessage() + " Try again...");
-                            } finally {
-                                scanInteger = new Scanner(System.in);
-                                scanString = new Scanner(System.in);
-                            }
-                        }
+                        System.out.print("Age : ");
+                        String age = scanString.nextLine();
                         current.setAge(age);
                         break;
                     case 5:
