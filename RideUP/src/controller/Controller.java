@@ -174,7 +174,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                 currentView = "Sign Up Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             }
-        } else if (currentView.equals("Courier Menu")) { // =======================================
+        } else if (currentView.equals("Courier Menu")) {
             // COURIER ORDER MENU
             if (source.equals(crm.getBtnBack())) {
                 crm.reset();
@@ -232,12 +232,19 @@ public class Controller extends MouseAdapter implements ActionListener {
         } else if (currentView.equals("Delete Order Menu")) { //==============================
             // DELETE ORDER MENU
             if (source.equals(docm.getBtnBack())) {
+                order = null;
                 currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(docm.getBtnConfirmDelete())) {
-                
+                if (order == null) {
+                    JOptionPane.showMessageDialog(null, "Please select any order!");
+                } else {
+                    currentCust.removeOrder(order.getId());
+                    JOptionPane.showMessageDialog(null, "Order deleted!");
+                    docm.reset();
+                }
             } else if (source.equals(docm.getBtnRefresh())) {
-//                docm.setListOrder();
+                docm.setListOrder(model.getListOrderCustSelected(currentCust));
             }
         } else if (currentView.equals("Driver Main Menu")) {
             // DRIVER MAIN MENU
@@ -598,6 +605,8 @@ public class Controller extends MouseAdapter implements ActionListener {
             order = model.searchOrderCustomer(fbcm.getSelectedOrder());
             Driver temp = model.searchDriverByOrder(order);
             fbcm.setOrder("Taken by " + temp.getIdDriver());
+        } else if (currentView.equals("Delete Order Menu")) {
+            order = model.searchOrderCustomer(docm.getSelectedOrder());
         }
     }
 }

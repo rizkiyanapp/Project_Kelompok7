@@ -358,7 +358,7 @@ public class Application {
         }
         return (String[]) listOrder.toArray(new String[iterator]);
     }
-    
+
     public String[] getListTakenOrder() {
         ArrayList<String> listOrder = new ArrayList();
         int iterator = 0;
@@ -380,6 +380,24 @@ public class Application {
                     }
                 }
             }
+        }
+        return (String[]) listOrder.toArray(new String[iterator]);
+    }
+
+    public String[] getListOrderCustSelected(Customer cust) {
+        ArrayList<String> listOrder = new ArrayList();
+        int iterator = 0;
+        for (Order o : cust.getOrderList()) {
+            if (o instanceof Courier) {
+                Courier c = (Courier) o;
+                listOrder.add(c.getId());
+            } else if (o instanceof FoodCourier) {
+                FoodCourier fc = (FoodCourier) o;
+                listOrder.add(fc.getId());
+            } else {
+                listOrder.add(o.getId());
+            }
+            iterator++;
         }
         return (String[]) listOrder.toArray(new String[iterator]);
     }
