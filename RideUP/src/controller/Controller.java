@@ -42,7 +42,7 @@ import view.ViewOrderMenu;
  * @author NANON
  */
 public class Controller extends MouseAdapter implements ActionListener {
-
+    
     private Application model;
     private Customer currentCust;
     private Driver currentDriver;
@@ -52,7 +52,7 @@ public class Controller extends MouseAdapter implements ActionListener {
     private PanelContainer view;
     private String currentView;
     private JPanel mainPanel;
-
+    
     private int type;
     private String username;
     private String password;
@@ -66,7 +66,9 @@ public class Controller extends MouseAdapter implements ActionListener {
     private int distance;
     private String detail;
     private String feedback;
-
+    private String rName;
+    private String rNumber;
+    
     private CourierMenu crm;
     private CustomerMenu cstm;
     private DelAccMenu dam;
@@ -82,11 +84,11 @@ public class Controller extends MouseAdapter implements ActionListener {
     private TakeOrderMenu tom;
     private TransportationMenu tm;
     private ViewOrderMenu vom;
-
+    
     public Controller(Application model) {
         this.model = model;
         this.view = new PanelContainer();
-
+        
         crm = new CourierMenu();
         cstm = new CustomerMenu();
         dam = new DelAccMenu();
@@ -102,7 +104,7 @@ public class Controller extends MouseAdapter implements ActionListener {
         tom = new TakeOrderMenu();
         tm = new TransportationMenu();
         vom = new ViewOrderMenu();
-
+        
         crm.addListener(this);
         crm.addAdapter(this);
         cstm.addListener(this);
@@ -126,7 +128,7 @@ public class Controller extends MouseAdapter implements ActionListener {
         tm.addListener(this);
         vom.addListener(this);
         vom.addAdapter(this);
-
+        
         mainPanel = view.getMainPanel();
         mainPanel.add(mm, "Main Menu");
         mainPanel.add(crm, "Courier Menu");
@@ -144,13 +146,13 @@ public class Controller extends MouseAdapter implements ActionListener {
         mainPanel.add(ram, "Registered Acc Menu");
         mainPanel.add(dam, "Delete Acc Menu");
         currentView = "Main Menu";
-
+        
         view.getCardlayout().show(mainPanel, currentView);
         view.setVisible(true);
-
+        
         model.loadAll();
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
@@ -175,10 +177,29 @@ public class Controller extends MouseAdapter implements ActionListener {
         } else if (currentView.equals("Courier Menu")) { // =======================================
             // COURIER ORDER MENU
             if (source.equals(crm.getBtnBack())) {
+                crm.reset();
                 currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(crm.getBtnCreateOrder())) {
-
+                position = crm.getPosition();
+                destination = crm.getDestination();
+                distance = crm.getDistance();
+                detail = crm.getDetail();
+                rName = crm.getRecName();
+                rNumber = crm.getRexcNumber();
+                if (position.equals("") || destination.equals("") || rName.equals("") || rNumber.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Form cannot empty!");
+                } else if (distance <= 0) {
+                    JOptionPane.showMessageDialog(null, "Distance cannot under 0");
+                } else {
+                    currentCust.createOrder(2, position, destination, distance, detail);
+                    Courier temp = (Courier) currentCust.getOrders(currentCust.getNOrder() - 1);
+                    temp.setReceiverName(rName);
+                    temp.setReceiverNumber(rNumber);
+                    temp.setPrice(model.rideupPrice);
+                    JOptionPane.showMessageDialog(null, "Courier Order created!");
+                    crm.reset();
+                }
             }
         } else if (currentView.equals("Customer Main Menu")) {
             // CUSTOMER MAIN MENU
@@ -214,7 +235,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                 currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(docm.getBtnConfirmDelete())) {
-
+                
             } else if (source.equals(docm.getBtnRefresh())) {
 //                docm.setListOrder();
             }
@@ -518,7 +539,7 @@ public class Controller extends MouseAdapter implements ActionListener {
             }
         }
     }
-
+    
     @Override
     public void mousePressed(MouseEvent e) {
         if (currentView.equals("Delete Acc Menu")) {

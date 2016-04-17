@@ -37,8 +37,8 @@ public class CourierMenu extends javax.swing.JPanel {
         return txDestination.getText();
     }
     
-    public Object getDistance() {
-        return spinDistance.getValue();
+    public int getDistance() {
+        return (Integer) spinDistance.getValue();
     }
     
     public String getDetail() {
