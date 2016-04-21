@@ -100,29 +100,50 @@ public class SignUpMenu extends javax.swing.JPanel {
         setBackground(new java.awt.Color(30, 30, 30));
         setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SIGN UP", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
 
+        cbType.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         cbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select type...", "Customer", "Driver" }));
 
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Username");
 
+        txUsername.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password");
 
+        passPassword.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Confirm Password");
 
+        passConfirmPass.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Name");
 
+        txName.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Email");
 
+        txEmail.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Number");
 
+        txNumber.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        btnSignUp.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnSignUp.setText("Sign Up");
         btnSignUp.setPreferredSize(new java.awt.Dimension(73, 25));
 
+        btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnBack.setText("Back");
 
         jLabel7.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\logo.png")); // NOI18N
@@ -161,7 +182,7 @@ public class SignUpMenu extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(25, 25, 25)
                 .addComponent(cbType, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)

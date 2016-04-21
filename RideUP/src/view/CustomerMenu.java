@@ -91,27 +91,35 @@ public class CustomerMenu extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Copyrigth© 2016");
 
+        btnTransport.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnTransport.setText("Transportation");
         btnTransport.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnDelOrder.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnDelOrder.setText("Delete Order");
         btnDelOrder.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnView.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnView.setText("View Order");
         btnView.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnFeedback.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnFeedback.setText("Feedback");
         btnFeedback.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnProfile.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnProfile.setText("Profile");
         btnProfile.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnSignOut.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnSignOut.setText("Sign Out");
         btnSignOut.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnCourier.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnCourier.setText("Courier");
         btnCourier.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnFoodCourier.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnFoodCourier.setText("Food Courier");
         btnFoodCourier.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 

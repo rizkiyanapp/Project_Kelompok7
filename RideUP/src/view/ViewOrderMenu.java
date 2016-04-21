@@ -77,15 +77,20 @@ public class ViewOrderMenu extends javax.swing.JPanel {
 
         txOrder.setEditable(false);
         txOrder.setColumns(20);
-        txOrder.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        txOrder.setFont(new java.awt.Font("Cabin Condensed", 0, 12)); // NOI18N
+        txOrder.setLineWrap(true);
         txOrder.setRows(5);
+        txOrder.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txOrder);
 
+        btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        listOrder.setFont(new java.awt.Font("Cabin Condensed", 0, 13)); // NOI18N
         jScrollPane2.setViewportView(listOrder);
 
+        btnRefresh.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnRefresh.setText("Refresh");
         btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRefresh.setBorderPainted(false);

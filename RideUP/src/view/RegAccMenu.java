@@ -64,8 +64,10 @@ public class RegAccMenu extends javax.swing.JPanel {
         txRegAcc.setRows(5);
         jScrollPane1.setViewportView(txRegAcc);
 
+        btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnBack.setText("Back");
 
+        btnRefresh.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnRefresh.setText("Refresh");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -67,15 +67,19 @@ public class DriverMenu extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Copyrigth© 2016");
 
+        btnTake.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnTake.setText("Take Order");
         btnTake.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnView.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnView.setText("View Order");
         btnView.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnProfile.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnProfile.setText("Profile");
         btnProfile.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnSignOut.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnSignOut.setText("Sign Out");
         btnSignOut.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 

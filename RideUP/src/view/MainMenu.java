@@ -77,19 +77,23 @@ public class MainMenu extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(30, 30, 30));
 
+        btnSignIn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnSignIn.setText("Sign In");
         btnSignIn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSignIn.setPreferredSize(new java.awt.Dimension(200, 25));
 
+        btnSignUp.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnSignUp.setText("Sign Up");
         btnSignUp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSignUp.setPreferredSize(new java.awt.Dimension(200, 25));
 
+        btnRegAcc.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnRegAcc.setText("Registered Account");
         btnRegAcc.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRegAcc.setPreferredSize(new java.awt.Dimension(200, 25));
 
+        btnDelAcc.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnDelAcc.setText("Delete Account");
         btnDelAcc.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDelAcc.setPreferredSize(new java.awt.Dimension(200, 25));
@@ -99,6 +103,7 @@ public class MainMenu extends javax.swing.JPanel {
             }
         });
 
+        btnExit.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnExit.setText("Exit");
         btnExit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnExit.setPreferredSize(new java.awt.Dimension(200, 25));

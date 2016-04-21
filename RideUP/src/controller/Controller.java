@@ -42,7 +42,7 @@ import view.ViewOrderMenu;
  * @author NANON
  */
 public class Controller extends MouseAdapter implements ActionListener {
-    
+
     private Application model;
     private Customer currentCust;
     private Driver currentDriver;
@@ -52,7 +52,7 @@ public class Controller extends MouseAdapter implements ActionListener {
     private PanelContainer view;
     private String currentView;
     private JPanel mainPanel;
-    
+
     private int type;
     private String username;
     private String password;
@@ -68,7 +68,7 @@ public class Controller extends MouseAdapter implements ActionListener {
     private String feedback;
     private String rName;
     private String rNumber;
-    
+
     private CourierMenu crm;
     private CustomerMenu cstm;
     private DelAccMenu dam;
@@ -84,11 +84,11 @@ public class Controller extends MouseAdapter implements ActionListener {
     private TakeOrderMenu tom;
     private TransportationMenu tm;
     private ViewOrderMenu vom;
-    
+
     public Controller(Application model) {
         this.model = model;
         this.view = new PanelContainer();
-        
+
         crm = new CourierMenu();
         cstm = new CustomerMenu();
         dam = new DelAccMenu();
@@ -104,7 +104,7 @@ public class Controller extends MouseAdapter implements ActionListener {
         tom = new TakeOrderMenu();
         tm = new TransportationMenu();
         vom = new ViewOrderMenu();
-        
+
         crm.addListener(this);
         crm.addAdapter(this);
         cstm.addListener(this);
@@ -128,7 +128,7 @@ public class Controller extends MouseAdapter implements ActionListener {
         tm.addListener(this);
         vom.addListener(this);
         vom.addAdapter(this);
-        
+
         mainPanel = view.getMainPanel();
         mainPanel.add(mm, "Main Menu");
         mainPanel.add(crm, "Courier Menu");
@@ -146,13 +146,13 @@ public class Controller extends MouseAdapter implements ActionListener {
         mainPanel.add(ram, "Registered Acc Menu");
         mainPanel.add(dam, "Delete Acc Menu");
         currentView = "Main Menu";
-        
+
         view.getCardlayout().show(mainPanel, currentView);
         view.setVisible(true);
-        
+
         model.loadAll();
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
@@ -233,6 +233,7 @@ public class Controller extends MouseAdapter implements ActionListener {
             // DELETE ORDER MENU
             if (source.equals(docm.getBtnBack())) {
                 order = null;
+                docm.reset();
                 currentView = "Customer Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(docm.getBtnConfirmDelete())) {
@@ -243,7 +244,12 @@ public class Controller extends MouseAdapter implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Order deleted!");
                     docm.reset();
                 }
+                order = null;
+                docm.reset();
+                docm.setListOrder(model.getListOrderCustSelected(currentCust));
             } else if (source.equals(docm.getBtnRefresh())) {
+                order = null;
+                docm.reset();
                 docm.setListOrder(model.getListOrderCustSelected(currentCust));
             }
         } else if (currentView.equals("Driver Main Menu")) {
@@ -279,7 +285,9 @@ public class Controller extends MouseAdapter implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Feedback submited!");
                     fbcm.reset();
                 }
+                order = null;
             } else if (source.equals(fbcm.getBtnRefresh())) {
+                order = null;
                 fbcm.setListOrder(model.getListTakenOrder());
                 fbcm.setOrder("");
             }
@@ -314,12 +322,14 @@ public class Controller extends MouseAdapter implements ActionListener {
                     fdcm.reset();
                 }
             } else if (source.equals(fdcm.getBtnRefresh())) {
+                food = null;
                 fdcm.setListFood(model.getListFood());
                 fdcm.setFood("");
             }
         } else if (currentView.equals("Profile Menu")) {
             // PROFILE MENU
             if (source.equals(pm.getBtnBack())) {
+                pm.reset();
                 if (currentCust != null) {
                     currentView = "Customer Main Menu";
                     view.getCardlayout().show(mainPanel, currentView);
@@ -328,6 +338,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                     view.getCardlayout().show(mainPanel, currentView);
                 }
             } else if (source.equals(pm.getBtnEdit())) {
+                pm.reset();
                 if (pm.getSelectedEdit() == 1) {
                     JOptionPane.showMessageDialog(null, "Please select any type!");
                 } else if (pm.getEdit().equals("")) {
@@ -335,42 +346,52 @@ public class Controller extends MouseAdapter implements ActionListener {
                 } else if (pm.getSelectedEdit() == 2) {
                     if (currentCust != null) {
                         currentCust.setName(pm.getEdit());
+                        pm.setProfileDetail(currentCust.toString());
                     } else if (currentDriver != null) {
                         currentDriver.setName(pm.getEdit());
+                        pm.setProfileDetail(currentDriver.toString());
                     }
                     JOptionPane.showMessageDialog(null, "Profile Edited!");
                 } else if (pm.getSelectedEdit() == 3) {
                     if (currentCust != null) {
                         currentCust.setNoIdentity(pm.getEdit());
+                        pm.setProfileDetail(currentCust.toString());
                     } else if (currentDriver != null) {
                         currentDriver.setNoIdentity(pm.getEdit());
+                        pm.setProfileDetail(currentDriver.toString());
                     }
                     JOptionPane.showMessageDialog(null, "Profile Edited!");
                 } else if (pm.getSelectedEdit() == 4) {
                     char gender = pm.getEdit().charAt(0);
                     if (currentCust != null) {
                         currentCust.setGender(gender);
+                        pm.setProfileDetail(currentCust.toString());
                     } else if (currentDriver != null) {
                         currentDriver.setGender(gender);
+                        pm.setProfileDetail(currentDriver.toString());
                     }
                     JOptionPane.showMessageDialog(null, "Profile Edited!");
                 } else if (pm.getSelectedEdit() == 5) {
                     if (currentCust != null) {
                         currentCust.setAge(pm.getEdit());
+                        pm.setProfileDetail(currentCust.toString());
                     } else if (currentDriver != null) {
                         currentDriver.setAge(pm.getEdit());
+                        pm.setProfileDetail(currentDriver.toString());
                     }
                     JOptionPane.showMessageDialog(null, "Profile Edited!");
                 } else if (pm.getSelectedEdit() == 6) {
                     if (currentCust != null) {
                         currentCust.setAddress(pm.getEdit());
+                        pm.setProfileDetail(currentCust.toString());
                     } else if (currentDriver != null) {
                         currentDriver.setAddress(pm.getEdit());
+                        pm.setProfileDetail(currentDriver.toString());
                     }
                     JOptionPane.showMessageDialog(null, "Profile Edited!");
                 }
-                pm.reset();
             } else if (source.equals(pm.getBtnRefresh())) {
+                pm.reset();
                 if (currentCust != null) {
                     pm.setProfileDetail(currentCust.toString());
                 } else if (currentDriver != null) {
@@ -391,7 +412,11 @@ public class Controller extends MouseAdapter implements ActionListener {
                 } else {
                     JOptionPane.showMessageDialog(null, "Please select any order!");
                 }
+                order = null;
+                tom.setListOrder(model.getListAvailableOrder());
+                tom.reset();
             } else if (source.equals(tom.getBtnRefresh())) {
+                order = null;
                 tom.setListOrder(model.getListAvailableOrder());
                 tom.reset();
             }
@@ -420,6 +445,7 @@ public class Controller extends MouseAdapter implements ActionListener {
         } else if (currentView.equals("View Order Menu")) {
             // VIEW ORDER MENU
             if (source.equals(vom.getBtnBack())) {
+                order = null;
                 vom.reset();
                 if (currentCust != null) {
                     currentView = "Customer Main Menu";
@@ -434,6 +460,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                 } else if (currentDriver != null) {
                     vom.setListOrder(model.getListOrderDriver());
                 }
+                order = null;
                 vom.reset();
             }
         } else if (currentView.equals("Sign In Menu")) {
@@ -530,6 +557,7 @@ public class Controller extends MouseAdapter implements ActionListener {
             if (source.equals(dam.getBtnBack())) {
                 person = null;
                 dam.reset();
+                dam.setListAcc(model.getListAcc());
                 currentView = "Main Menu";
                 view.getCardlayout().show(mainPanel, currentView);
             } else if (source.equals(dam.getBtnDel())) {
@@ -540,13 +568,15 @@ public class Controller extends MouseAdapter implements ActionListener {
                     dam.setListAcc(model.getListAcc());
                 } else {
                     JOptionPane.showMessageDialog(null, "Please select any account!");
+                    dam.setListAcc(model.getListAcc());
                 }
             } else if (source.equals(dam.getBtnRefresh())) {
+                person = null;
                 dam.setListAcc(model.getListAcc());
             }
         }
     }
-    
+
     @Override
     public void mousePressed(MouseEvent e) {
         if (currentView.equals("Delete Acc Menu")) {
@@ -604,16 +634,31 @@ public class Controller extends MouseAdapter implements ActionListener {
         } else if (currentView.equals("Feedback Menu")) {
             order = model.searchOrderCustomer(fbcm.getSelectedOrder());
             Driver temp = model.searchDriverByOrder(order);
-            fbcm.setOrder("Taken by " + temp.getIdDriver());
+            fbcm.setOrder("Taken by " + temp.getName() + "(" + temp.getIdDriver() + ")");
         } else if (currentView.equals("Delete Order Menu")) {
             String s;
             order = model.searchOrderCustomer(docm.getSelectedOrder());
             if (order instanceof Courier) {
-                s = "Courier Order";
+                if (order.isTaken()) {
+                    Driver temp = model.searchDriverByOrder(order);
+                    s = "Courier Order : Taken by " + temp.getIdDriver();                    
+                } else {
+                    s = "Courier Order : Available";
+                }
             } else if (order instanceof FoodCourier) {
-                s = "FoodCourier Order";
+                if (order.isTaken()) {
+                    Driver temp = model.searchDriverByOrder(order);
+                    s = "FoodCourier Order : Taken by " + temp.getIdDriver();                    
+                } else {
+                    s = "FoodCourier Order : Available";
+                }
             } else {
-                s = "Transportation Order";
+                if (order.isTaken()) {
+                    Driver temp = model.searchDriverByOrder(order);
+                    s = "Transportation Order : Taken by " + temp.getIdDriver();                    
+                } else {
+                    s = "Transportation Order : Available";
+                }
             }
             docm.setDeleteOrder(s);
         }

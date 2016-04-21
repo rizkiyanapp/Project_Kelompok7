@@ -82,19 +82,25 @@ public class DeleteOrderCustMenu extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\delorder.png")); // NOI18N
 
+        listOrder.setFont(new java.awt.Font("Cabin Condensed", 0, 13)); // NOI18N
         jScrollPane1.setViewportView(listOrder);
 
+        jLabel2.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("DELETE");
 
         txDelete.setEditable(false);
+        txDelete.setFont(new java.awt.Font("Cabin Condensed", 0, 12)); // NOI18N
 
+        btnConfirmDelete.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnConfirmDelete.setText("Confirm Delete");
         btnConfirmDelete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnRefresh.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnRefresh.setText("Refresh");
         btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 

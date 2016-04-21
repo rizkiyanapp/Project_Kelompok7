@@ -102,36 +102,53 @@ public class CourierMenu extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\courier.png")); // NOI18N
 
+        jLabel2.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("POSITION");
 
+        jLabel3.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("DESTINATION");
 
+        jLabel4.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("DISTANCE");
 
+        jLabel5.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("DETAIL");
 
+        jLabel6.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("RECEIVER NAME");
 
+        jLabel7.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("RECEIVER NUMBER");
 
+        txPosition.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        txDestination.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        txRName.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        txRNumber.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
         txDetail.setColumns(20);
-        txDetail.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        txDetail.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
+        txDetail.setLineWrap(true);
         txDetail.setRows(5);
         jScrollPane1.setViewportView(txDetail);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Calibri", 2, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Kilometer");
 
+        btnCreateOrder.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnCreateOrder.setText("Create Order");
         btnCreateOrder.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -175,7 +192,7 @@ public class CourierMenu extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel8))
                             .addComponent(txPosition))))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

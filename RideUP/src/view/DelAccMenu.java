@@ -79,16 +79,21 @@ public class DelAccMenu extends javax.swing.JPanel {
         setBackground(new java.awt.Color(30, 30, 30));
         setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DELETE ACCOUNT", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
 
+        listAcc.setFont(new java.awt.Font("Cabin Condensed", 0, 13)); // NOI18N
         jScrollPane1.setViewportView(listAcc);
 
+        btnDel.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnDel.setText("Delete");
         btnDel.setPreferredSize(new java.awt.Dimension(250, 25));
 
+        btnRefresh.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnRefresh.setText("Refresh");
 
+        btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnBack.setText("Back");
 
         txAcc.setEditable(false);
+        txAcc.setFont(new java.awt.Font("Cabin Condensed", 0, 12)); // NOI18N
         txAcc.setText("select account...");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -96,7 +101,7 @@ public class DelAccMenu extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -66,18 +66,24 @@ public class SignInMenu extends javax.swing.JPanel {
         setBackground(new java.awt.Color(30, 30, 30));
         setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sign In", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
 
+        txUsername.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         txUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txUsernameActionPerformed(evt);
             }
         });
 
+        passPasword.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Username");
 
+        jLabel2.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password");
 
+        btnSignIn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnSignIn.setText("Sign In");
         btnSignIn.setPreferredSize(new java.awt.Dimension(200, 25));
         btnSignIn.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +92,7 @@ public class SignInMenu extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnBack.setText("Back");
 
         jLabel3.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\logo.png")); // NOI18N
@@ -108,8 +115,7 @@ public class SignInMenu extends javax.swing.JPanel {
                             .addComponent(btnSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel3)))
                 .addGap(17, 17, 17))
         );
         layout.setVerticalGroup(
@@ -129,7 +135,7 @@ public class SignInMenu extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

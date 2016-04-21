@@ -81,20 +81,26 @@ public class TakeOrderMenu extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\takeorder.png")); // NOI18N
 
+        listOrder.setFont(new java.awt.Font("Cabin Condensed", 0, 13)); // NOI18N
         listOrder.setToolTipText("");
         jScrollPane1.setViewportView(listOrder);
 
+        btnTakeOrder.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnTakeOrder.setText("Take Order");
         btnTakeOrder.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnBack.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         txOrderDetail.setColumns(20);
-        txOrderDetail.setFont(new java.awt.Font("Cabin Condensed", 0, 11)); // NOI18N
+        txOrderDetail.setFont(new java.awt.Font("Cabin Condensed", 0, 12)); // NOI18N
+        txOrderDetail.setLineWrap(true);
         txOrderDetail.setRows(5);
+        txOrderDetail.setWrapStyleWord(true);
         jScrollPane2.setViewportView(txOrderDetail);
 
+        btnRefresh.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnRefresh.setText("Refresh");
         btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRefresh.setBorderPainted(false);

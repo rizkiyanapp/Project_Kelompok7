@@ -47,6 +47,7 @@ public class ProfileMenu extends javax.swing.JPanel {
     
     public void reset() {
         txEdit.setText("");
+        txProfile.setText("");
     }
     
     public void addAdapter(MouseAdapter e) {
@@ -84,21 +85,30 @@ public class ProfileMenu extends javax.swing.JPanel {
 
         txProfile.setEditable(false);
         txProfile.setColumns(20);
-        txProfile.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        txProfile.setFont(new java.awt.Font("Cabin Condensed", 0, 13)); // NOI18N
+        txProfile.setLineWrap(true);
         txProfile.setRows(5);
+        txProfile.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txProfile);
 
+        cbProfile.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         cbProfile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select type...", "Name", "No Identity", "Gender", "Age", "Address" }));
 
+        txEdit.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("EDIT PROFILE");
 
+        btnEdit.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnEdit.setText("Confirm Edit");
         btnEdit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnRefresh.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnRefresh.setText("Refresh");
         btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -147,7 +157,7 @@ public class ProfileMenu extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );

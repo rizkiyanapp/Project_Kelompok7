@@ -89,27 +89,35 @@ public class FeedbackCustMenu extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\feedback'.png")); // NOI18N
 
+        listOrder.setFont(new java.awt.Font("Cabin Condensed", 0, 13)); // NOI18N
         jScrollPane1.setViewportView(listOrder);
 
+        jLabel2.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("SELECTED");
 
         txOrder.setEditable(false);
+        txOrder.setFont(new java.awt.Font("Cabin Condensed", 0, 12)); // NOI18N
 
+        jLabel3.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("FEEDBACK");
 
         txFeedback.setColumns(20);
-        txFeedback.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        txFeedback.setFont(new java.awt.Font("Cabin Condensed", 0, 12)); // NOI18N
+        txFeedback.setLineWrap(true);
         txFeedback.setRows(5);
         jScrollPane2.setViewportView(txFeedback);
 
+        btnFeedback.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnFeedback.setText("Confirm Feedback");
         btnFeedback.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnRefresh.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnRefresh.setText("Refresh");
         btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 

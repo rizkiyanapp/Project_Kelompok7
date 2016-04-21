@@ -80,11 +80,17 @@
     </Container>
     <Component class="javax.swing.JButton" name="btnBack">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Back"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnRefresh">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Refresh"/>
       </Properties>
     </Component>
