@@ -21,35 +21,35 @@ public class CustomerMenu extends javax.swing.JPanel {
         initComponents();
     }
 
-    public JButton getBtnCourier() {
+    public Object getBtnCourier() {
         return btnCourier;
     }
 
-    public JButton getBtnDelOrder() {
+    public Object getBtnDelOrder() {
         return btnDelOrder;
     }
 
-    public JButton getBtnFeedback() {
+    public Object getBtnFeedback() {
         return btnFeedback;
     }
 
-    public JButton getBtnFoodCourier() {
+    public Object getBtnFoodCourier() {
         return btnFoodCourier;
     }
 
-    public JButton getBtnProfile() {
+    public Object getBtnProfile() {
         return btnProfile;
     }
 
-    public JButton getBtnSignOut() {
+    public Object getBtnSignOut() {
         return btnSignOut;
     }
 
-    public JButton getBtnTransport() {
+    public Object getBtnTransport() {
         return btnTransport;
     }
 
-    public JButton getBtnView() {
+    public Object getBtnView() {
         return btnView;
     }
     
@@ -76,13 +76,13 @@ public class CustomerMenu extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnTransport = new javax.swing.JButton();
-        btnDelOrder = new javax.swing.JButton();
-        btnView = new javax.swing.JButton();
-        btnFeedback = new javax.swing.JButton();
-        btnProfile = new javax.swing.JButton();
-        btnSignOut = new javax.swing.JButton();
         btnCourier = new javax.swing.JButton();
         btnFoodCourier = new javax.swing.JButton();
+        btnProfile = new javax.swing.JButton();
+        btnSignOut = new javax.swing.JButton();
+        btnDelOrder = new javax.swing.JButton();
+        btnFeedback = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(30, 30, 30));
 
@@ -91,37 +91,21 @@ public class CustomerMenu extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Copyrigth© 2016");
 
-        btnTransport.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnTransport.setText("Transportation");
-        btnTransport.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnTransport.setIcon(new javax.swing.ImageIcon("E:\\tr.png")); // NOI18N
 
-        btnDelOrder.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnDelOrder.setText("Delete Order");
-        btnDelOrder.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCourier.setIcon(new javax.swing.ImageIcon("E:\\cr.png")); // NOI18N
 
-        btnView.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnView.setText("View Order");
-        btnView.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnFoodCourier.setIcon(new javax.swing.ImageIcon("E:\\fc.png")); // NOI18N
 
-        btnFeedback.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnFeedback.setText("Feedback");
-        btnFeedback.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnProfile.setIcon(new javax.swing.ImageIcon("E:\\pr.png")); // NOI18N
 
-        btnProfile.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnProfile.setText("Profile");
-        btnProfile.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSignOut.setIcon(new javax.swing.ImageIcon("E:\\so.png")); // NOI18N
 
-        btnSignOut.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnSignOut.setText("Sign Out");
-        btnSignOut.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDelOrder.setIcon(new javax.swing.ImageIcon("E:\\do.png")); // NOI18N
 
-        btnCourier.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnCourier.setText("Courier");
-        btnCourier.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnFeedback.setIcon(new javax.swing.ImageIcon("E:\\fb.png")); // NOI18N
 
-        btnFoodCourier.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnFoodCourier.setText("Food Courier");
-        btnFoodCourier.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnView.setIcon(new javax.swing.ImageIcon("E:\\vo.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -130,47 +114,55 @@ public class CustomerMenu extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(111, 111, 111)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnTransport, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(btnCourier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnFoodCourier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnFeedback, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnDelOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnSignOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-                .addContainerGap(122, Short.MAX_VALUE))
+                                .addComponent(btnSignOut)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnProfile))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnTransport)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCourier)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnFoodCourier))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnDelOrder)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnFeedback)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnView)))))
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(157, 157, 157))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jLabel1)
-                .addGap(55, 55, 55)
-                .addComponent(btnTransport, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnTransport)
+                            .addComponent(btnCourier)
+                            .addComponent(btnFoodCourier))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnDelOrder)
+                            .addComponent(btnView, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(btnFeedback))
                 .addGap(18, 18, 18)
-                .addComponent(btnCourier, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnFoodCourier, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnDelOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSignOut)
+                    .addComponent(btnProfile))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addContainerGap())
         );
