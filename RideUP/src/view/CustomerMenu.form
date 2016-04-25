@@ -113,56 +113,56 @@
     <Component class="javax.swing.JButton" name="btnTransport">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\tr.png"/>
+          <Image iconType="2" name="D:\TubesPBO\Project_Kelompok7\RideUP\images\tr.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnCourier">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\cr.png"/>
+          <Image iconType="2" name="D:\TubesPBO\Project_Kelompok7\RideUP\images\cr.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnFoodCourier">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\fc.png"/>
+          <Image iconType="2" name="D:\TubesPBO\Project_Kelompok7\RideUP\images\fc.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnProfile">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\pr.png"/>
+          <Image iconType="2" name="D:\TubesPBO\Project_Kelompok7\RideUP\images\pr.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnSignOut">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\so.png"/>
+          <Image iconType="2" name="D:\TubesPBO\Project_Kelompok7\RideUP\images\so.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnDelOrder">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\do.png"/>
+          <Image iconType="2" name="D:\TubesPBO\Project_Kelompok7\RideUP\images\do.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnFeedback">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\fb.png"/>
+          <Image iconType="2" name="D:\TubesPBO\Project_Kelompok7\RideUP\images\fb.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnView">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\vo.png"/>
+          <Image iconType="2" name="D:\TubesPBO\Project_Kelompok7\RideUP\images\vo.png"/>
         </Property>
       </Properties>
     </Component>

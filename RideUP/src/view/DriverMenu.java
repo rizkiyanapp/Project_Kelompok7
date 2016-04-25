@@ -67,13 +67,13 @@ public class DriverMenu extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Copyrigth© 2016");
 
-        btnProfile.setIcon(new javax.swing.ImageIcon("E:\\pr.png")); // NOI18N
+        btnProfile.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\pr.png")); // NOI18N
 
-        btnView.setIcon(new javax.swing.ImageIcon("E:\\vod.png")); // NOI18N
+        btnView.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\vod.png")); // NOI18N
 
-        btnTake.setIcon(new javax.swing.ImageIcon("E:\\to.png")); // NOI18N
+        btnTake.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\to.png")); // NOI18N
 
-        btnSignOut.setIcon(new javax.swing.ImageIcon("E:\\so.png")); // NOI18N
+        btnSignOut.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\so.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -105,7 +105,7 @@ public class DriverMenu extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jLabel1)
-                .addGap(69, 69, 69)
+                .addGap(85, 85, 85)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnTake)
                     .addComponent(btnView))
@@ -113,7 +113,7 @@ public class DriverMenu extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnProfile)
                     .addComponent(btnSignOut))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addContainerGap())
         );

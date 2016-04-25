@@ -91,21 +91,21 @@ public class CustomerMenu extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Copyrigth© 2016");
 
-        btnTransport.setIcon(new javax.swing.ImageIcon("E:\\tr.png")); // NOI18N
+        btnTransport.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\tr.png")); // NOI18N
 
-        btnCourier.setIcon(new javax.swing.ImageIcon("E:\\cr.png")); // NOI18N
+        btnCourier.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\cr.png")); // NOI18N
 
-        btnFoodCourier.setIcon(new javax.swing.ImageIcon("E:\\fc.png")); // NOI18N
+        btnFoodCourier.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\fc.png")); // NOI18N
 
-        btnProfile.setIcon(new javax.swing.ImageIcon("E:\\pr.png")); // NOI18N
+        btnProfile.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\pr.png")); // NOI18N
 
-        btnSignOut.setIcon(new javax.swing.ImageIcon("E:\\so.png")); // NOI18N
+        btnSignOut.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\so.png")); // NOI18N
 
-        btnDelOrder.setIcon(new javax.swing.ImageIcon("E:\\do.png")); // NOI18N
+        btnDelOrder.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\do.png")); // NOI18N
 
-        btnFeedback.setIcon(new javax.swing.ImageIcon("E:\\fb.png")); // NOI18N
+        btnFeedback.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\fb.png")); // NOI18N
 
-        btnView.setIcon(new javax.swing.ImageIcon("E:\\vo.png")); // NOI18N
+        btnView.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\vo.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

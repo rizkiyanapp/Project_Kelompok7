@@ -85,11 +85,11 @@ public class TakeOrderMenu extends javax.swing.JPanel {
         listOrder.setToolTipText("");
         jScrollPane1.setViewportView(listOrder);
 
-        btnTakeOrder.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnTakeOrder.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnTakeOrder.setText("Take Order");
         btnTakeOrder.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        btnBack.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -100,7 +100,7 @@ public class TakeOrderMenu extends javax.swing.JPanel {
         txOrderDetail.setWrapStyleWord(true);
         jScrollPane2.setViewportView(txOrderDetail);
 
-        btnRefresh.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnRefresh.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnRefresh.setText("Refresh");
         btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRefresh.setBorderPainted(false);
