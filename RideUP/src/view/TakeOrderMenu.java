@@ -71,11 +71,11 @@ public class TakeOrderMenu extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listOrder = new javax.swing.JList<>();
-        btnTakeOrder = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txOrderDetail = new javax.swing.JTextArea();
+        btnTakeOrder = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(30, 30, 30));
 
@@ -85,14 +85,6 @@ public class TakeOrderMenu extends javax.swing.JPanel {
         listOrder.setToolTipText("");
         jScrollPane1.setViewportView(listOrder);
 
-        btnTakeOrder.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnTakeOrder.setText("Take Order");
-        btnTakeOrder.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnBack.setText("Back");
-        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
         txOrderDetail.setColumns(20);
         txOrderDetail.setFont(new java.awt.Font("Cabin Condensed", 0, 12)); // NOI18N
         txOrderDetail.setLineWrap(true);
@@ -100,10 +92,20 @@ public class TakeOrderMenu extends javax.swing.JPanel {
         txOrderDetail.setWrapStyleWord(true);
         jScrollPane2.setViewportView(txOrderDetail);
 
+        btnTakeOrder.setBackground(new java.awt.Color(230, 230, 230));
+        btnTakeOrder.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnTakeOrder.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Checked-16.png")); // NOI18N
+        btnTakeOrder.setText("TAKE ORDER");
+
+        btnRefresh.setBackground(new java.awt.Color(230, 230, 230));
         btnRefresh.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnRefresh.setText("Refresh");
-        btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnRefresh.setBorderPainted(false);
+        btnRefresh.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Refresh-16.png")); // NOI18N
+        btnRefresh.setText("REFRESH");
+
+        btnBack.setBackground(new java.awt.Color(230, 230, 230));
+        btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Return-16.png")); // NOI18N
+        btnBack.setText("BACK");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -115,17 +117,17 @@ public class TakeOrderMenu extends javax.swing.JPanel {
                         .addGap(113, 113, 113)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(btnRefresh)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnTakeOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnTakeOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(btnBack)))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -139,10 +141,10 @@ public class TakeOrderMenu extends javax.swing.JPanel {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTakeOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTakeOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
         );
     }// </editor-fold>//GEN-END:initComponents

@@ -63,13 +63,13 @@ public class MainMenu extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         btnSignIn = new javax.swing.JButton();
         btnSignUp = new javax.swing.JButton();
         btnRegAcc = new javax.swing.JButton();
         btnDelAcc = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -77,41 +77,40 @@ public class MainMenu extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(30, 30, 30));
 
-        btnSignIn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnSignIn.setText("Sign In");
-        btnSignIn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnSignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnSignIn.setPreferredSize(new java.awt.Dimension(200, 25));
-
-        btnSignUp.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnSignUp.setText("Sign Up");
-        btnSignUp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnSignUp.setPreferredSize(new java.awt.Dimension(200, 25));
-
-        btnRegAcc.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnRegAcc.setText("Registered Account");
-        btnRegAcc.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnRegAcc.setPreferredSize(new java.awt.Dimension(200, 25));
-
-        btnDelAcc.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnDelAcc.setText("Delete Account");
-        btnDelAcc.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnDelAcc.setPreferredSize(new java.awt.Dimension(200, 25));
-        btnDelAcc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelAccActionPerformed(evt);
-            }
-        });
-
-        btnExit.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnExit.setText("Exit");
-        btnExit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnExit.setPreferredSize(new java.awt.Dimension(200, 25));
-
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Copyrigth© 2016");
 
         jLabel2.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\logo.png")); // NOI18N
+
+        btnSignIn.setBackground(new java.awt.Color(27, 109, 193));
+        btnSignIn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnSignIn.setForeground(new java.awt.Color(255, 255, 255));
+        btnSignIn.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Contacts-16 (2).png")); // NOI18N
+        btnSignIn.setText("SIGN IN");
+
+        btnSignUp.setBackground(new java.awt.Color(27, 100, 193));
+        btnSignUp.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnSignUp.setForeground(new java.awt.Color(255, 255, 255));
+        btnSignUp.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Add User Male-16.png")); // NOI18N
+        btnSignUp.setText("SIGN UP");
+
+        btnRegAcc.setBackground(new java.awt.Color(27, 109, 193));
+        btnRegAcc.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnRegAcc.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegAcc.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Stack-16.png")); // NOI18N
+        btnRegAcc.setText("REGISTERED ACCOUNT");
+
+        btnDelAcc.setBackground(new java.awt.Color(27, 109, 193));
+        btnDelAcc.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnDelAcc.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelAcc.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Remove User Male-16.png")); // NOI18N
+        btnDelAcc.setText("DELETE ACCOUNT");
+
+        btnExit.setBackground(new java.awt.Color(27, 109, 193));
+        btnExit.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(255, 255, 255));
+        btnExit.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Exit-16.png")); // NOI18N
+        btnExit.setText("EXIT");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -135,27 +134,23 @@ public class MainMenu extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addGap(54, 54, 54)
                 .addComponent(jLabel2)
-                .addGap(106, 106, 106)
-                .addComponent(btnSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(btnRegAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(btnDelAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(144, 144, 144)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(btnSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnRegAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnDelAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(168, 168, 168)
                 .addComponent(jLabel1)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnDelAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelAccActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDelAccActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
