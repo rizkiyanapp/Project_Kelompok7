@@ -78,7 +78,7 @@ public class MainMenu extends javax.swing.JPanel {
         setBackground(new java.awt.Color(30, 30, 30));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Copyrigth© 2016");
+        jLabel1.setText("Copyright© 2016");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
 

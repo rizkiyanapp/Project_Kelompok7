@@ -65,7 +65,7 @@ public class DriverMenu extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/driver.png"))); // NOI18N
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Copyrigth© 2016");
+        jLabel2.setText("Copyright© 2016");
 
         btnProfile.setBackground(new java.awt.Color(255, 255, 255));
         btnProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/pro.png"))); // NOI18N

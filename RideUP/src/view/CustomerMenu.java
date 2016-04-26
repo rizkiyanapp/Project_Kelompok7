@@ -89,7 +89,7 @@ public class CustomerMenu extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cust.png"))); // NOI18N
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Copyrigth© 2016");
+        jLabel2.setText("Copyright© 2016");
 
         btnTransport.setBackground(new java.awt.Color(255, 255, 255));
         btnTransport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/trans.png"))); // NOI18N
