@@ -91,21 +91,21 @@ public class CustomerMenu extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Copyrigth© 2016");
 
-        btnTransport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tr.png"))); // NOI18N
+        btnTransport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/trans.png"))); // NOI18N
 
-        btnCourier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cr.png"))); // NOI18N
+        btnCourier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/crr.png"))); // NOI18N
 
-        btnFoodCourier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fc.png"))); // NOI18N
+        btnFoodCourier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/fccr.png"))); // NOI18N
 
-        btnProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pr.png"))); // NOI18N
+        btnProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/pro.png"))); // NOI18N
 
-        btnSignOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/so.png"))); // NOI18N
+        btnSignOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/sigo.png"))); // NOI18N
 
-        btnDelOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/do.png"))); // NOI18N
+        btnDelOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/dor.png"))); // NOI18N
 
-        btnFeedback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fb.png"))); // NOI18N
+        btnFeedback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/fbc.png"))); // NOI18N
 
-        btnView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/vo.png"))); // NOI18N
+        btnView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/vor.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

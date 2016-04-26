@@ -67,13 +67,17 @@ public class DriverMenu extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Copyrigth© 2016");
 
-        btnProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pr.png"))); // NOI18N
+        btnProfile.setBackground(new java.awt.Color(255, 255, 255));
+        btnProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/pro.png"))); // NOI18N
 
-        btnView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/vod.png"))); // NOI18N
+        btnView.setBackground(new java.awt.Color(255, 255, 255));
+        btnView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/vor.png"))); // NOI18N
 
-        btnTake.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/to.png"))); // NOI18N
+        btnTake.setBackground(new java.awt.Color(255, 255, 255));
+        btnTake.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/tko.png"))); // NOI18N
 
-        btnSignOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/so.png"))); // NOI18N
+        btnSignOut.setBackground(new java.awt.Color(255, 255, 255));
+        btnSignOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/sigo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -110,9 +114,9 @@ public class DriverMenu extends javax.swing.JPanel {
                     .addComponent(btnTake)
                     .addComponent(btnView))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSignOut)
-                    .addComponent(btnProfile))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnProfile)
+                    .addComponent(btnSignOut))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addContainerGap())
