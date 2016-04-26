@@ -91,20 +91,28 @@ public class CustomerMenu extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Copyrigth© 2016");
 
+        btnTransport.setBackground(new java.awt.Color(255, 255, 255));
         btnTransport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/trans.png"))); // NOI18N
 
+        btnCourier.setBackground(new java.awt.Color(255, 255, 255));
         btnCourier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/crr.png"))); // NOI18N
 
+        btnFoodCourier.setBackground(new java.awt.Color(255, 255, 255));
         btnFoodCourier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/fccr.png"))); // NOI18N
 
+        btnProfile.setBackground(new java.awt.Color(255, 255, 255));
         btnProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/pro.png"))); // NOI18N
 
+        btnSignOut.setBackground(new java.awt.Color(255, 255, 255));
         btnSignOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/sigo.png"))); // NOI18N
 
+        btnDelOrder.setBackground(new java.awt.Color(255, 255, 255));
         btnDelOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/dor.png"))); // NOI18N
 
+        btnFeedback.setBackground(new java.awt.Color(255, 255, 255));
         btnFeedback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/fbc.png"))); // NOI18N
 
+        btnView.setBackground(new java.awt.Color(255, 255, 255));
         btnView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/vor.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
