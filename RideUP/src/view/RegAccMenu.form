@@ -87,7 +87,7 @@
           <Font name="Arial" size="11" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\TubesPBO\Project_Kelompok7\RideUP\images\new\Return-16.png"/>
+          <Image iconType="3" name="/images/new/Return-16.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="BACK"/>
       </Properties>
@@ -101,7 +101,7 @@
           <Font name="Arial" size="11" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\TubesPBO\Project_Kelompok7\RideUP\images\new\Refresh-16.png"/>
+          <Image iconType="3" name="/images/new/Refresh-16.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="REFRESH"/>
       </Properties>

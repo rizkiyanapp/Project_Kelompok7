@@ -81,7 +81,7 @@ public class ProfileMenu extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(30, 30, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\profile.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profile.png"))); // NOI18N
 
         txProfile.setEditable(false);
         txProfile.setColumns(20);
@@ -102,17 +102,17 @@ public class ProfileMenu extends javax.swing.JPanel {
 
         btnRefresh.setBackground(new java.awt.Color(230, 230, 230));
         btnRefresh.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnRefresh.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Refresh-16.png")); // NOI18N
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Refresh-16.png"))); // NOI18N
         btnRefresh.setText("REFRESH");
 
         btnEdit.setBackground(new java.awt.Color(230, 230, 230));
         btnEdit.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnEdit.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Edit-16.png")); // NOI18N
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Checked-16.png"))); // NOI18N
         btnEdit.setText("CONFIRM EDIT");
 
         btnBack.setBackground(new java.awt.Color(230, 230, 230));
         btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnBack.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Return-16.png")); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Return-16.png"))); // NOI18N
         btnBack.setText("BACK");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

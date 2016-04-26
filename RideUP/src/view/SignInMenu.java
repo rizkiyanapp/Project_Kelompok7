@@ -83,8 +83,11 @@ public class SignInMenu extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password");
 
+        btnSignIn.setBackground(new java.awt.Color(255, 255, 255));
         btnSignIn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnSignIn.setText("Sign In");
+        btnSignIn.setForeground(new java.awt.Color(27, 109, 193));
+        btnSignIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Checked User Male Filled-16.png"))); // NOI18N
+        btnSignIn.setText("SIGN IN");
         btnSignIn.setPreferredSize(new java.awt.Dimension(200, 25));
         btnSignIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,10 +95,13 @@ public class SignInMenu extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnBack.setText("Back");
+        btnBack.setForeground(new java.awt.Color(27, 109, 193));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Return Filled-16.png"))); // NOI18N
+        btnBack.setText("BACK");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\logo.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -133,8 +139,8 @@ public class SignInMenu extends javax.swing.JPanel {
                 .addComponent(passPasword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(181, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents

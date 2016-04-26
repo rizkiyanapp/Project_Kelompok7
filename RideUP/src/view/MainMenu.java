@@ -80,36 +80,36 @@ public class MainMenu extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Copyrigth© 2016");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\logo.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
 
-        btnSignIn.setBackground(new java.awt.Color(27, 109, 193));
+        btnSignIn.setBackground(new java.awt.Color(255, 255, 255));
         btnSignIn.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnSignIn.setForeground(new java.awt.Color(255, 255, 255));
-        btnSignIn.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Contacts-16 (2).png")); // NOI18N
+        btnSignIn.setForeground(new java.awt.Color(27, 109, 193));
+        btnSignIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/User Filled-16.png"))); // NOI18N
         btnSignIn.setText("SIGN IN");
 
-        btnSignUp.setBackground(new java.awt.Color(27, 100, 193));
+        btnSignUp.setBackground(new java.awt.Color(255, 255, 255));
         btnSignUp.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnSignUp.setForeground(new java.awt.Color(255, 255, 255));
-        btnSignUp.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Add User Male-16.png")); // NOI18N
+        btnSignUp.setForeground(new java.awt.Color(27, 109, 193));
+        btnSignUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Add User Male Filled-16.png"))); // NOI18N
         btnSignUp.setText("SIGN UP");
 
-        btnRegAcc.setBackground(new java.awt.Color(27, 109, 193));
+        btnRegAcc.setBackground(new java.awt.Color(255, 255, 255));
         btnRegAcc.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnRegAcc.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegAcc.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Stack-16.png")); // NOI18N
+        btnRegAcc.setForeground(new java.awt.Color(27, 109, 193));
+        btnRegAcc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Stack-16 (2).png"))); // NOI18N
         btnRegAcc.setText("REGISTERED ACCOUNT");
 
-        btnDelAcc.setBackground(new java.awt.Color(27, 109, 193));
+        btnDelAcc.setBackground(new java.awt.Color(255, 255, 255));
         btnDelAcc.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnDelAcc.setForeground(new java.awt.Color(255, 255, 255));
-        btnDelAcc.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Remove User Male-16.png")); // NOI18N
+        btnDelAcc.setForeground(new java.awt.Color(27, 109, 193));
+        btnDelAcc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Remove User Male Filled-16.png"))); // NOI18N
         btnDelAcc.setText("DELETE ACCOUNT");
 
-        btnExit.setBackground(new java.awt.Color(27, 109, 193));
+        btnExit.setBackground(new java.awt.Color(255, 255, 255));
         btnExit.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnExit.setForeground(new java.awt.Color(255, 255, 255));
-        btnExit.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Exit-16.png")); // NOI18N
+        btnExit.setForeground(new java.awt.Color(27, 109, 193));
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Exit Filled-16.png"))); // NOI18N
         btnExit.setText("EXIT");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -136,7 +136,7 @@ public class MainMenu extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addGap(89, 89, 89)
                 .addComponent(btnSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -146,7 +146,7 @@ public class MainMenu extends javax.swing.JPanel {
                 .addComponent(btnDelAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(168, 168, 168)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
         );

@@ -84,18 +84,18 @@ public class DelAccMenu extends javax.swing.JPanel {
 
         btnDel.setBackground(new java.awt.Color(230, 230, 230));
         btnDel.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnDel.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Delete-16.png")); // NOI18N
+        btnDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Minus-16.png"))); // NOI18N
         btnDel.setText("DELETE");
         btnDel.setPreferredSize(new java.awt.Dimension(250, 25));
 
         btnRefresh.setBackground(new java.awt.Color(230, 230, 230));
         btnRefresh.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnRefresh.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Refresh-16.png")); // NOI18N
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Refresh-16.png"))); // NOI18N
         btnRefresh.setText("REFRESH");
 
         btnBack.setBackground(new java.awt.Color(230, 230, 230));
         btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnBack.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Return-16.png")); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Return-16.png"))); // NOI18N
         btnBack.setText("BACK");
 
         txAcc.setEditable(false);
@@ -112,7 +112,7 @@ public class DelAccMenu extends javax.swing.JPanel {
                         .addGap(12, 12, 12)
                         .addComponent(btnBack))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(12, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnDel, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)

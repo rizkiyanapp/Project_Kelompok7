@@ -139,14 +139,20 @@ public class SignUpMenu extends javax.swing.JPanel {
 
         txNumber.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
 
+        btnSignUp.setBackground(new java.awt.Color(255, 255, 255));
         btnSignUp.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnSignUp.setText("Sign Up");
+        btnSignUp.setForeground(new java.awt.Color(27, 109, 193));
+        btnSignUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Checked User Male Filled-16.png"))); // NOI18N
+        btnSignUp.setText("SIGN UP");
         btnSignUp.setPreferredSize(new java.awt.Dimension(73, 25));
 
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnBack.setText("Back");
+        btnBack.setForeground(new java.awt.Color(27, 109, 193));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Return Filled-16.png"))); // NOI18N
+        btnBack.setText("BACK");
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\logo.png")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -182,7 +188,7 @@ public class SignUpMenu extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(25, 25, 25)
                 .addComponent(cbType, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -212,8 +218,8 @@ public class SignUpMenu extends javax.swing.JPanel {
                 .addComponent(txNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36))
         );
     }// </editor-fold>//GEN-END:initComponents

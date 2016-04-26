@@ -87,7 +87,7 @@ public class FeedbackCustMenu extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(30, 30, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\feedback'.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/feedback'.png"))); // NOI18N
 
         listOrder.setFont(new java.awt.Font("Cabin Condensed", 0, 13)); // NOI18N
         jScrollPane1.setViewportView(listOrder);
@@ -111,17 +111,17 @@ public class FeedbackCustMenu extends javax.swing.JPanel {
 
         btnRefresh.setBackground(new java.awt.Color(230, 230, 230));
         btnRefresh.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnRefresh.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Refresh-16.png")); // NOI18N
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Refresh-16.png"))); // NOI18N
         btnRefresh.setText("REFRESH");
 
         btnFeedback.setBackground(new java.awt.Color(230, 230, 230));
         btnFeedback.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnFeedback.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Checked-16.png")); // NOI18N
+        btnFeedback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Checked-16.png"))); // NOI18N
         btnFeedback.setText("CONFIRM FEEDBACK");
 
         btnBack.setBackground(new java.awt.Color(230, 230, 230));
         btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnBack.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Return-16.png")); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Return-16.png"))); // NOI18N
         btnBack.setText("BACK");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -174,7 +174,7 @@ public class FeedbackCustMenu extends javax.swing.JPanel {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
         );

@@ -100,7 +100,7 @@ public class CourierMenu extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(30, 30, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\courier.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\src\\images\\courier.png")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,12 +146,12 @@ public class CourierMenu extends javax.swing.JPanel {
 
         btnCreateOrder.setBackground(new java.awt.Color(230, 230, 230));
         btnCreateOrder.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnCreateOrder.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Add Property-16.png")); // NOI18N
+        btnCreateOrder.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\src\\images\\new\\Add Property-16.png")); // NOI18N
         btnCreateOrder.setText("CREATE ORDER");
 
         btnBack.setBackground(new java.awt.Color(230, 230, 230));
         btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnBack.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Return-16.png")); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\src\\images\\new\\Return-16.png")); // NOI18N
         btnBack.setText("BACK");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -221,7 +221,7 @@ public class CourierMenu extends javax.swing.JPanel {
                 .addComponent(btnCreateOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

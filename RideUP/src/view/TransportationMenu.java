@@ -82,7 +82,7 @@ public class TransportationMenu extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(30, 30, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\transport.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/transport.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -116,12 +116,12 @@ public class TransportationMenu extends javax.swing.JPanel {
 
         btnOrder.setBackground(new java.awt.Color(230, 230, 230));
         btnOrder.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnOrder.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Add Property-16.png")); // NOI18N
+        btnOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Add Property-16.png"))); // NOI18N
         btnOrder.setText("CREATE ORDER");
 
         btnBack.setBackground(new java.awt.Color(230, 230, 230));
         btnBack.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnBack.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\new\\Return-16.png")); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new/Return-16.png"))); // NOI18N
         btnBack.setText("BACK");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

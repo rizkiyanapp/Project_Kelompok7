@@ -86,26 +86,26 @@ public class CustomerMenu extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(30, 30, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\cust.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cust.png"))); // NOI18N
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Copyrigth© 2016");
 
-        btnTransport.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\tr.png")); // NOI18N
+        btnTransport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tr.png"))); // NOI18N
 
-        btnCourier.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\cr.png")); // NOI18N
+        btnCourier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cr.png"))); // NOI18N
 
-        btnFoodCourier.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\fc.png")); // NOI18N
+        btnFoodCourier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fc.png"))); // NOI18N
 
-        btnProfile.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\pr.png")); // NOI18N
+        btnProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pr.png"))); // NOI18N
 
-        btnSignOut.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\so.png")); // NOI18N
+        btnSignOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/so.png"))); // NOI18N
 
-        btnDelOrder.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\do.png")); // NOI18N
+        btnDelOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/do.png"))); // NOI18N
 
-        btnFeedback.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\fb.png")); // NOI18N
+        btnFeedback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fb.png"))); // NOI18N
 
-        btnView.setIcon(new javax.swing.ImageIcon("D:\\TubesPBO\\Project_Kelompok7\\RideUP\\images\\vo.png")); // NOI18N
+        btnView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/vo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -135,7 +135,7 @@ public class CustomerMenu extends javax.swing.JPanel {
                                 .addComponent(btnFeedback)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnView)))))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel2)
