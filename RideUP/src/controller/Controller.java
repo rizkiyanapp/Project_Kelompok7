@@ -338,7 +338,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                     view.getCardlayout().show(mainPanel, currentView);
                 }
             } else if (source.equals(pm.getBtnEdit())) {
-                pm.reset();
+//                pm.reset();
                 if (pm.getSelectedEdit() == 1) {
                     JOptionPane.showMessageDialog(null, "Please select any type!");
                 } else if (pm.getEdit().equals("")) {
