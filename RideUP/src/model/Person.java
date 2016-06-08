@@ -23,7 +23,7 @@ public abstract class Person implements Serializable {
     private String password;
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name + "apa";
     }
 
     public void setEmail(String email) {

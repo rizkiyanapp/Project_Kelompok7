@@ -456,7 +456,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                 }
             } else if (source.equals(vom.getBtnRefresh())) {
                 if (currentCust != null) {
-                    vom.setListOrder(model.getListOrderCustomer());
+                    vom.setListOrder(model.getListOrderCustSelected(currentCust));
                 } else if (currentDriver != null) {
                     vom.setListOrder(model.getListOrderDriver());
                 }
